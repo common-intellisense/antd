@@ -7,12 +7,12 @@
   "author": "Simon He",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Simon-He95",
-  "homepage": "https://github.com/common-intellisense/antd4#readme",
+  "homepage": "https://github.com/common-intellisense/antd#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/common-intellisense/antd4.git"
+    "url": "git+https://github.com/common-intellisense/antd.git"
   },
-  "bugs": "https://github.com/common-intellisense/antd4/issues",
+  "bugs": "https://github.com/common-intellisense/antd/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
