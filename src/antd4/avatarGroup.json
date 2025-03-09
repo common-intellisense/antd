@@ -1,44 +1,42 @@
 {
   "name": "Avatar.Group",
+  "description": "Used for avatar grouping display",
+  "description_zh": "用于头像分组展示",
+  "version": "4.5.0+",
   "props": {
-    ":maxCount": {
+    ":max": {
       "value": "",
-      "description": "The maximum number of avatars displayed",
+      "description": "Set maximum display related configuration",
       "default": "-",
-      "type": "number",
-      "description_zh": "显示的最大头像个数"
+      "type": "{ count?: number; style?: CSSProperties; popover?: PopoverProps }",
+      "description_zh": "设置最多显示相关配置，`5.18.0` 前可使用 [参数](https://github.com/ant-design/ant-design/blob/9d134859becbdae5b9ce276f6d9af4264691d81f/components/avatar/group.tsx#L35-L38)",
+      "version": "5.18.0"
     },
-    "maxPopoverPlacement": {
+    ":size": {
       "value": "",
-      "description": "Extra avatar bubble pop up location",
-      "default": "top",
-      "type": "top / bottom",
-      "description_zh": "多余头像气泡弹出位置"
-    },
-    "maxPopoverTrigger": {
-      "value": "",
-      "description": "Set how redundant avatar popovers are triggered",
-      "default": "hover",
-      "type": "hover / focus / click",
-      "description_zh": "设置多余头像 Popover 的触发方式"
-    },
-    ":maxStyle": {
-      "value": "",
-      "description": "Redundant avatar styles",
-      "default": "-",
-      "type": "CSSProperties",
-      "description_zh": "多余头像样式"
-    },
-    "size": {
-      "value": "",
-      "description": "Set the size of your avatar",
+      "description": "Set the size of avatars",
       "default": "default",
       "type": "number / large / small / default / { xs: number, sm: number, ...}",
-      "description_zh": "设置头像的大小"
+      "description_zh": "设置头像的大小",
+      "version": "4.8.0"
+    },
+    "shape": {
+      "value": [
+        "circle",
+        "square"
+      ],
+      "description": "Set the shape of avatars",
+      "default": "circle",
+      "type": "circle / square",
+      "description_zh": "设置头像的形状",
+      "version": "5.8.0"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//avatar",
-  "link_zh": "https://ant.design/components//avatar-cn"
+  "suggestions": [
+    "Avatar"
+  ],
+  "link": "https://ant.design/components/avatar",
+  "link_zh": "https://ant.design/components/avatar-cn"
 }

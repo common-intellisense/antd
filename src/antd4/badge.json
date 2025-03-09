@@ -20,7 +20,8 @@
       "description": "Semantic structure class",
       "default": "-",
       "type": "Record<SemanticDOM, string>",
-      "description_zh": "语义化结构 class"
+      "description_zh": "语义化结构 class",
+      "version": "5.7.0"
     },
     "dot": {
       "value": "",
@@ -78,7 +79,8 @@
       "description": "Semantic structure style",
       "default": "-",
       "type": "Record<SemanticDOM, CSSProperties>",
-      "description_zh": "语义化结构 style"
+      "description_zh": "语义化结构 style",
+      "version": "5.7.0"
     },
     ":text": {
       "value": "",
@@ -93,10 +95,20 @@
       "default": "-",
       "type": "string",
       "description_zh": "设置鼠标放在状态点上时显示的文字"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add a className to the outermost component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//badge",
-  "link_zh": "https://ant.design/components//badge-cn"
+  "typeDetail": {
+    "SemanticDOM": "Detail about semantic DOM structure properties"
+  },
+  "link": "https://ant.design/components/badge",
+  "link_zh": "https://ant.design/components/badge-cn"
 }
