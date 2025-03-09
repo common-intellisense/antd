@@ -8,28 +8,28 @@
       "type": "boolean",
       "description_zh": "固定模式"
     },
-    "bounds": {
+    ":bounds": {
       "value": "",
       "description": "Anchor area boundary",
       "default": "5",
       "type": "number",
       "description_zh": "锚点区域边界"
     },
-    "getContainer": {
+    ":getContainer": {
       "value": "",
       "description": "Specifies the container to scroll",
       "default": "() => window",
       "type": "() => HTMLElement",
       "description_zh": "指定滚动的容器"
     },
-    "getCurrentAnchor": {
+    ":getCurrentAnchor": {
       "value": "",
       "description": "Customize the highlighted anchor point",
       "default": "-",
       "type": "(activeLink: string) => string",
       "description_zh": "自定义高亮的锚点"
     },
-    "offsetTop": {
+    ":offsetTop": {
       "value": "",
       "description": "Triggers when the specified offset is reached from the top of the window",
       "default": "—",
@@ -43,7 +43,7 @@
       "type": "boolean",
       "description_zh": "affix={false} 时是否显示小方块"
     },
-    "targetOffset": {
+    ":targetOffset": {
       "value": "",
       "description": "The anchor scroll offset, which is the same as offsetTop by default",
       "default": "-",

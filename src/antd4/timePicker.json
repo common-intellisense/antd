@@ -130,10 +130,14 @@
     "placeholder": {
       "value": "",
       "description": "What is displayed when there is no value",
-      "default": "",
+      "default": "请选择",
       "type": "string | [string, string]",
       "required": true,
-      "description_zh": "没有值的时候显示的内容"
+      "description_zh": "没有值的时候显示的内容",
+      "$label": "请选择$label",
+      "related": [
+        "el-form-item.label"
+      ]
     },
     "placement": {
       "value": [

@@ -1,7 +1,7 @@
 {
   "name": "Card.Meta",
   "props": {
-    "avatar": {
+    ":avatar": {
       "value": "",
       "description": "Avatar/icon",
       "default": "-",
@@ -15,21 +15,21 @@
       "type": "string",
       "description_zh": "容器类名"
     },
-    "description": {
+    ":description": {
       "value": "",
       "description": "Describe the content",
       "default": "-",
       "type": "ReactNode",
       "description_zh": "描述内容"
     },
-    "style": {
+    ":style": {
       "value": "",
       "description": "Defines the style of the container class name",
       "default": "-",
       "type": "CSSProperties",
       "description_zh": "定义容器类名的样式"
     },
-    "title": {
+    ":title": {
       "value": "",
       "description": "Title content",
       "default": "-",

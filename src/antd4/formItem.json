@@ -137,21 +137,21 @@
       "type": "boolean",
       "description_zh": "必填样式设置。如不设置，则会根据校验规则自动生成"
     },
-    "rules": {
+    ":rules": {
       "value": "",
       "description": "Validation rules: Set the validation logic of the field",
       "default": "-",
       "type": "[Rule][]",
       "description_zh": "校验规则，设置字段的校验逻辑"
     },
-    "shouldUpdate": {
+    ":shouldUpdate": {
       "value": "",
       "description": "Custom field update logic",
       "default": "false",
       "type": "boolean | (prevValue, curValue) => boolean",
       "description_zh": "自定义字段更新逻辑"
     },
-    "tooltip": {
+    ":tooltip": {
       "value": "",
       "description": "Configure the prompt message",
       "default": "-",

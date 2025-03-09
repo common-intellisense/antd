@@ -8,14 +8,14 @@
       "type": "string",
       "description_zh": "图像无法显示时的替代文本"
     },
-    "gap": {
+    ":gap": {
       "value": "",
       "description": "The character type is a pixel from the left and right boundaries",
       "default": "4",
       "type": "number",
       "description_zh": "字符类型距离左右两侧边界单位像素"
     },
-    "icon": {
+    ":icon": {
       "value": "",
       "description": "Set a custom icon for your avatar",
       "default": "-",

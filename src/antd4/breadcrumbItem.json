@@ -20,7 +20,8 @@
       "default": "-",
       "type": "string",
       "description": "The destination of the link cannot be shared with the path",
-      "description_zh": "链接的目的地，不能和 path 共用"
+      "description_zh": "链接的目的地，不能和 path 共用",
+      "required": true
     },
     "path": {
       "value": "",
@@ -36,7 +37,7 @@
       "description": "Menu configuration item",
       "description_zh": "菜单配置项"
     },
-    "title": {
+    ":title": {
       "value": "",
       "default": "-",
       "type": "ReactNode",

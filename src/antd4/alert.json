@@ -1,14 +1,14 @@
 {
   "name": "Alert",
   "props": {
-    "action": {
+    ":action": {
       "description": "The action of Alert",
       "description_zh": "The action of Alert",
       "default": "-",
       "value": "",
       "type": "ReactNode"
     },
-    "afterClose": {
+    ":afterClose": {
       "description": "Called when close animation is finished",
       "description_zh": "Called when close animation is finished",
       "default": "-",
@@ -29,35 +29,35 @@
       "value": "",
       "type": "boolean"
     },
-    "closeText": {
+    ":closeText": {
       "description": "Close text to show",
       "description_zh": "Close text to show",
       "default": "-",
       "value": "",
       "type": "ReactNode"
     },
-    "closeIcon": {
+    ":closeIcon": {
       "description": "Custom close icon",
       "description_zh": "Custom close icon",
       "default": "<CloseOutlined />",
       "value": "",
       "type": "ReactNode"
     },
-    "description": {
+    ":description": {
       "description": "Additional content of Alert",
       "description_zh": "Additional content of Alert",
       "default": "-",
       "value": "",
       "type": "ReactNode"
     },
-    "icon": {
+    ":icon": {
       "description": "Custom icon, effective when showIcon is true",
       "description_zh": "Custom icon, effective when showIcon is true",
       "default": "-",
       "value": "",
       "type": "ReactNode"
     },
-    "message": {
+    ":message": {
       "description": "Content of Alert",
       "description_zh": "Content of Alert",
       "default": "-",

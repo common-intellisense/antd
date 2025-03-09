@@ -8,7 +8,7 @@
       "type": "boolean",
       "description_zh": "将按钮宽度调整为其父宽度的选项"
     },
-    "classNames": {
+    ":classNames": {
       "value": "",
       "description": "Semantic structure class",
       "default": "—",
@@ -50,7 +50,7 @@
       "type": "string",
       "description_zh": "设置 button 原生的 type 值，可选值请参考 HTML 标准"
     },
-    "icon": {
+    ":icon": {
       "value": "",
       "description": "Set the icon component of the button",
       "default": "—",
@@ -86,7 +86,7 @@
       "type": "large / middle / small",
       "description_zh": "设置按钮大小"
     },
-    "styles": {
+    ":styles": {
       "value": "",
       "description": "Semantic structure style",
       "default": "—",

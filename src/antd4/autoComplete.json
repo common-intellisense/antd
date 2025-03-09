@@ -118,10 +118,14 @@
     "placeholder": {
       "value": "",
       "description": "Input box prompt",
-      "default": "-",
+      "default": "请输入",
       "type": "string",
       "required": true,
-      "description_zh": "输入框提示"
+      "description_zh": "输入框提示",
+      "$label": "请输入$label",
+      "related": [
+        "Form.Item.label"
+      ]
     },
     "status": {
       "value": [

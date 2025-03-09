@@ -144,10 +144,14 @@
     "placeholder": {
       "value": "",
       "description": "The selection box defaults to text",
-      "default": "-",
+      "default": "请选择",
       "type": "string",
       "required": true,
-      "description_zh": "选择框默认文字"
+      "description_zh": "选择框默认文字",
+      "$label": "请选择$label",
+      "related": [
+        "el-form-item.label"
+      ]
     },
     "placement": {
       "value": [

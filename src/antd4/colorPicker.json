@@ -8,14 +8,14 @@
       "type": "boolean",
       "description_zh": "允许清除选择的颜色"
     },
-    "arrow": {
+    ":arrow": {
       "value": "",
       "description": "Configure the arrows that pop up",
       "default": "true",
       "type": "`boolean | { pointAtCenter: boolean }`",
       "description_zh": "配置弹出的箭头"
     },
-    "children": {
+    ":children": {
       "value": "",
       "description": "Triggers for color pickers",
       "default": "-",
@@ -57,7 +57,7 @@
       "type": "boolean",
       "description_zh": "是否显示弹出窗口"
     },
-    "presets": {
+    ":presets": {
       "value": "",
       "description": "Preset colors",
       "default": "-",
@@ -71,14 +71,14 @@
       "type": "top / topLeft / topRight / bottom / bottomLeft / bottomRight",
       "description_zh": "弹出窗口的位置"
     },
-    "panelRender": {
+    ":panelRender": {
       "value": "",
       "description": "Customize the render panel",
       "default": "-",
       "type": "`(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode`",
       "description_zh": "自定义渲染面板"
     },
-    "showText": {
+    ":showText": {
       "value": "",
       "description": "Displays color text",
       "default": "-",
@@ -106,12 +106,13 @@
       "type": "hover / click",
       "description_zh": "颜色选择器的触发模式"
     },
-    "value": {
+    ":value": {
       "value": "",
       "description": "The value of the color",
       "default": "-",
       "type": "string | Color",
-      "description_zh": "颜色的值"
+      "description_zh": "颜色的值",
+      "required": true
     }
   },
   "methods": [],

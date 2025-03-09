@@ -20,7 +20,7 @@
       "type": "string",
       "description_zh": "面板指示点位置，可选 `top` `bottom` `left` right"
     },
-    "dots": {
+    ":dots": {
       "value": "",
       "description": "Whether to display the panel indicator point, and if 'object' you can also specify 'dotsClass' or",
       "default": "true",
@@ -48,14 +48,14 @@
       "type": "scrollx / fade",
       "description_zh": "动画效果函数"
     },
-    "afterChange": {
+    ":afterChange": {
       "value": "",
       "description": "Toggle the callback of the panel",
       "default": "-",
       "type": "(current: number) => void",
       "description_zh": "切换面板的回调"
     },
-    "beforeChange": {
+    ":beforeChange": {
       "value": "",
       "description": "Toggle the callback of the panel",
       "default": "-",
