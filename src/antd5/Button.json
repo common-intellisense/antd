@@ -8,8 +8,7 @@
       "description": "将按钮宽度调整为其父宽度的选项",
       "description_zh": "将按钮宽度调整为其父宽度的选项"
     },
-    "classNames": {
-      "default": "-",
+    ":classNames": {
       "value": "",
       "type": "Record<SemanticDOM, string>",
       "description": "语义化结构 class",
@@ -50,8 +49,7 @@
       "description": "设置 button 原生的 type 值，可选值请参考 HTML 标准",
       "description_zh": "设置 button 原生的 type 值，可选值请参考 HTML 标准"
     },
-    "icon": {
-      "default": "-",
+    ":icon": {
       "value": "",
       "type": "ReactNode",
       "description": "设置按钮的图标组件",
@@ -78,8 +76,7 @@
       "description": "设置按钮大小",
       "description_zh": "设置按钮大小"
     },
-    "styles": {
-      "default": "-",
+    ":styles": {
       "value": "",
       "type": "Record<SemanticDOM, CSSProperties>",
       "description": "语义化结构 style",

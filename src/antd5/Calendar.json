@@ -1,19 +1,20 @@
 {
-  "name": "Calender",
+  "name": "Calendar",
   "props": {
+    ":cellRender": {
+      "value": "",
+      "description": "Customize the contents of the cell",
+      "default": "-",
+      "type": "function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' / 'end', type: PanelMode, locale?: Locale, subType?: 'hour' / 'minute' / 'second' / 'meridiem' }) => React.ReactNode",
+      "description_zh": "自定义单元格的内容",
+      "version": "5.4.0"
+    },
     ":dateCellRender": {
       "value": "",
       "description": "Custom render date cell, the return content will be appended to the cell, > = 5.4.0 Please use cellRender",
       "default": "-",
       "type": "function(date: Dayjs): ReactNode",
       "description_zh": "自定义渲染日期单元格，返回内容会被追加到单元格，>= 5.4.0 请用 cellRender"
-    },
-    ":cellRender": {
-      "value": "",
-      "description": "Customize the contents of the cell",
-      "default": "-",
-      "type": "function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode",
-      "description_zh": "自定义单元格的内容"
     },
     ":dateFullCellRender": {
       "value": "",
@@ -26,10 +27,11 @@
       "value": "",
       "description": "Customize the contents of the cell",
       "default": "-",
-      "type": "function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode",
-      "description_zh": "自定义单元格的内容"
+      "type": "function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' / 'end', type: PanelMode, locale?: Locale, subType?: 'hour' / 'minute' / 'second' / 'meridiem' }) => React.ReactNode",
+      "description_zh": "自定义单元格的内容",
+      "version": "5.4.0"
     },
-    "defaultValue": {
+    ":defaultValue": {
       "value": "",
       "description": "The date on which the default impression will be displayed",
       "default": "-",
@@ -38,10 +40,10 @@
     },
     ":disabledDate": {
       "value": "",
-      "description": "An unselectable date with the current value",
+      "description": "An unselectable date with the current value, note [do not modify directly](https://github.com/ant-design/ant-design/issues/30987) when using",
       "default": "-",
       "type": "(currentDate: Dayjs) => boolean",
-      "description_zh": "不可选择的日期，参数为当前 value"
+      "description_zh": "不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987)"
     },
     "fullscreen": {
       "value": "",
@@ -50,26 +52,37 @@
       "type": "boolean",
       "description_zh": "是否全屏显示"
     },
+    "showWeek": {
+      "value": "",
+      "description": "Whether to show week number column",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否显示周数列",
+      "version": "5.23.0"
+    },
     ":headerRender": {
       "value": "",
       "description": "Customize the header content",
       "default": "-",
-      "type": "function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()})",
+      "type": "function(object:{value: Dayjs, type: 'year' / 'month', onChange: f(), onTypeChange: f()})",
       "description_zh": "自定义头部内容"
     },
-    "locale": {
+    ":locale": {
       "value": [
         "en-us",
         "zh-cn",
         "zh-tw"
       ],
       "description": "Internationalized configuration",
-      "default": "[(默认配置)]",
+      "default": "[(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)",
       "type": "object",
       "description_zh": "国际化配置"
     },
     "mode": {
-      "value": "",
+      "value": [
+        "month",
+        "year"
+      ],
       "description": "Initial mode",
       "default": "month",
       "type": "month / year",
@@ -89,14 +102,14 @@
       "type": "function(date: Dayjs): ReactNode",
       "description_zh": "自定义渲染月单元格，返回内容覆盖单元格，>= 5.4.0 请用 fullCellRender"
     },
-    "validRange": {
+    ":validRange": {
       "value": "",
       "description": "Set the dates that can be displayed",
       "default": "-",
       "type": "[[dayjs], [dayjs]]",
       "description_zh": "设置可以显示的日期"
     },
-    "value": {
+    ":value": {
       "value": "",
       "description": "Date of display",
       "default": "-",
@@ -123,11 +136,11 @@
     {
       "name": "onSelect",
       "description": "Select a date callback that contains the source information",
-      "params": "function(date: Dayjs, info: { source: 'year' | 'month' | 'date' | 'customize' })",
+      "params": "function(date: Dayjs, info: { source: 'year' / 'month' / 'date' / 'customize' })",
       "description_zh": "选择日期回调，包含来源信息",
-      "value": ""
+      "version": "5.6.0"
     }
   ],
-  "link": "https://ant.design/components//calendar",
-  "link_zh": "https://ant.design/components//calendar"
+  "link": "https://ant.design/components/calendar",
+  "link_zh": "https://ant.design/components/calendar-cn"
 }

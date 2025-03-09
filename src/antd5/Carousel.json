@@ -20,7 +20,7 @@
       "type": "string",
       "description_zh": "面板指示点位置，可选 `top` `bottom` `left` right"
     },
-    "dots": {
+    ":dots": {
       "value": "",
       "description": "Whether to display the panel indicator point, and if 'object' you can also specify 'dotsClass' or",
       "default": "true",

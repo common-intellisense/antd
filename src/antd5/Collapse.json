@@ -86,8 +86,9 @@
       "value": "",
       "description": "Collapse the project content",
       "default": "-",
-      "type": "ItemType",
-      "description_zh": "折叠项目内容"
+      "type": "[ItemType]",
+      "description_zh": "折叠项目内容",
+      "required": true
     }
   },
   "methods": [],

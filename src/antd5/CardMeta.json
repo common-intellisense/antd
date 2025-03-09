@@ -15,7 +15,7 @@
       "type": "string",
       "description_zh": "容器类名"
     },
-    "description": {
+    ":description": {
       "value": "",
       "description": "Describe the content",
       "default": "-",
@@ -29,7 +29,7 @@
       "type": "CSSProperties",
       "description_zh": "定义容器类名的样式"
     },
-    "title": {
+    ":title": {
       "value": "",
       "description": "Title content",
       "default": "-",

@@ -8,12 +8,13 @@
       "description": "自动获取焦点",
       "description_zh": "自动获取焦点"
     },
-    "checked": {
-      "default": "false",
+    ":checked": {
       "value": "",
+      "description": "Specifies whether it is currently selected",
+      "default": "false",
       "type": "boolean",
-      "description": "指定当前是否选中",
-      "description_zh": "指定当前是否选中"
+      "description_zh": "指定当前是否选中",
+      "required": true
     },
     "defaultChecked": {
       "default": "false",

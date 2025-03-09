@@ -36,13 +36,6 @@
       "type": "ReactNode",
       "description_zh": "描述列表的操作区域，显示在右上方"
     },
-    "items": {
-      "value": "",
-      "description": "Describe the list item contents",
-      "default": "-",
-      "type": "DescriptionsItem[]",
-      "description_zh": "描述列表项内容"
-    },
     ":labelStyle": {
       "value": "",
       "description": "Customize label styles",
@@ -71,7 +64,7 @@
       "type": "default / middle / small",
       "description_zh": "设置列表的大小。可以设置为 `middle` 、small, 或不填（只有设置 `bordered={true}` 生效）"
     },
-    "title": {
+    ":title": {
       "value": "",
       "description": "A title that describes the list, appearing at the very top",
       "default": "-",

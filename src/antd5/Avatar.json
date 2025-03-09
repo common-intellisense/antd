@@ -1,6 +1,13 @@
 {
   "name": "Avatar",
   "props": {
+    "rootClassName": {
+      "value": "",
+      "description": "Provide a custom className for displaying the image root DOM and previewing the large image root DOM",
+      "default": "-",
+      "type": "string",
+      "description_zh": "为展示图片根 DOM 和预览大图根 DOM 提供自定义 className"
+    },
     "alt": {
       "value": "",
       "default": "-",
@@ -12,8 +19,8 @@
       "value": "",
       "default": "4",
       "type": "number",
-      "description": "The character type is a pixel from the left and right boundaries",
-      "description_zh": "字符类型距离左右两侧边界单位像素"
+      "description_zh": "字符类型距离左右两侧边界单位像素",
+      "version": "4.3.0"
     },
     ":icon": {
       "value": "",
@@ -32,20 +39,19 @@
       "description": "Specify the shape of the avatar",
       "description_zh": "指定头像的形状"
     },
-    "size": {
+    ":size": {
       "value": "",
       "default": "default",
       "type": "number / large / small / default / { xs: number, sm: number, ...}",
-      "description": "Set the size of your avatar",
-      "description_zh": "设置头像的大小"
+      "description_zh": "设置头像的大小",
+      "version": "4.7.0"
     },
-    "src": {
+    ":src": {
       "value": "",
       "default": "-",
-      "type": "string | ReactNode",
-      "description": "The resource address or image element of the image avatar",
+      "type": "string / ReactNode",
       "description_zh": "图片类头像的资源地址或者图片元素",
-      "required": true
+      "version": "ReactNode: 4.8.0"
     },
     "srcSet": {
       "value": "",
@@ -57,19 +63,16 @@
     "draggable": {
       "value": "",
       "default": "true",
-      "type": "boolean",
-      "description": "Whether the image is allowed to be dragged",
+      "type": "boolean / 'true' / 'false'",
       "description_zh": "图片是否允许拖动"
     },
     "crossOrigin": {
-      "value": [
-        "anonymous",
-        "use-credentials"
-      ],
-      "default": "",
-      "type": "anonymous / use-credentials / ",
+      "value": "",
       "description": "CORS property settings",
-      "description_zh": "CORS 属性设置"
+      "default": "-",
+      "type": "'anonymous' / 'use-credentials' / ''",
+      "description_zh": "CORS 属性设置",
+      "version": "4.17.0"
     }
   },
   "methods": [],
@@ -82,6 +85,6 @@
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//avatar",
-  "link_zh": "https://ant.design/components//avatar"
+  "link": "https://ant.design/components/avatar",
+  "link_zh": "https://ant.design/components/avatar-cn"
 }

@@ -102,7 +102,7 @@
       "type": "-",
       "description_zh": "[选项卡]"
     },
-    "title": {
+    ":title": {
       "value": "",
       "description": "The title of the card",
       "default": "-",

@@ -218,10 +218,14 @@
     "placeholder": {
       "value": "",
       "description": "Select the box default text",
-      "default": "-",
+      "default": "请选择",
       "type": "string",
       "required": true,
-      "description_zh": "选择框默认文本"
+      "description_zh": "选择框默认文本",
+      "$label": "请选择$label",
+      "related": [
+        "el-form-item.label"
+      ]
     },
     "placement": {
       "value": [

@@ -15,12 +15,12 @@
       "description": "The displayed number is displayed as ${overflowCount}+ when it is greater than overflowCount, and is hidden when it is 0",
       "description_zh": "展示的数字，大于 overflowCount 时显示为 ${overflowCount}+，为 0 时隐藏"
     },
-    "classNames": {
+    ":classNames": {
       "value": "",
       "default": "-",
       "type": "Record<SemanticDOM, string>",
-      "description": "Semantic structure class",
-      "description_zh": "语义化结构 class"
+      "description_zh": "语义化结构 class",
+      "version": "5.7.0"
     },
     "dot": {
       "value": "",
@@ -77,10 +77,10 @@
       "value": "",
       "default": "-",
       "type": "Record<SemanticDOM, CSSProperties>",
-      "description": "Semantic structure style",
-      "description_zh": "语义化结构 style"
+      "description_zh": "语义化结构 style",
+      "version": "5.7.0"
     },
-    "text": {
+    ":text": {
       "value": "",
       "default": "-",
       "type": "ReactNode",
@@ -93,10 +93,20 @@
       "type": "string",
       "description": "Sets the text that appears when the mouse is placed on a status point",
       "description_zh": "设置鼠标放在状态点上时显示的文字"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add a className to the outermost component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//badge",
-  "link_zh": "https://ant.design/components//badge"
+  "typeDetail": {
+    "SemanticDOM": "Detail about semantic DOM structure properties"
+  },
+  "link": "https://ant.design/components/badge",
+  "link_zh": "https://ant.design/components/badge-cn"
 }

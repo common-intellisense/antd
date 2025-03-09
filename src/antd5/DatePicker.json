@@ -22,11 +22,11 @@
       "description": "选择器 className",
       "description_zh": "选择器 className"
     },
-    "dateRender": {
-      "default": "-",
+    ":dateRender": {
       "value": "",
+      "description": "Customize the contents of the date cell, replace it with 'cellRender' from 5.4.0",
+      "default": "-",
       "type": "function(currentDate: dayjs, today: dayjs) => React.ReactNode",
-      "description": "自定义日期单元格的内容，5.4.0 起用 cellRender 代替",
       "description_zh": "自定义日期单元格的内容，5.4.0 起用 cellRender 代替"
     },
     "changeOnBlur": {
@@ -36,11 +36,11 @@
       "description": "失去焦点时触发 change 事件，例如 datetime 下不再需要点击确认按钮",
       "description_zh": "失去焦点时触发 change 事件，例如 datetime 下不再需要点击确认按钮"
     },
-    "cellRender": {
+    ":cellRender": {
+      "description": "Customize the contents of the cell",
       "default": "-",
       "value": "",
       "type": "(current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode",
-      "description": "自定义单元格的内容",
       "description_zh": "自定义单元格的内容"
     },
     "disabled": {
@@ -50,12 +50,21 @@
       "description": "禁用",
       "description_zh": "禁用"
     },
-    "disabledDate": {
+    ":disabledDate": {
+      "description": "Unselectable dates",
       "default": "-",
       "value": "",
       "type": "(currentDate: dayjs) => boolean",
-      "description": "不可选择的日期",
       "description_zh": "不可选择的日期"
+    },
+    ":format": {
+      "value": [
+        "[rc-picker]"
+      ],
+      "description": "Set the date format, support multi-format matching when it is an array, and the display is based on the first one",
+      "default": "[rc-picker]",
+      "type": "[formatType]",
+      "description_zh": "设置日期格式，为数组时支持多格式匹配，展示以第一个为准"
     },
     "popupClassName": {
       "default": "-",
@@ -64,11 +73,11 @@
       "description": "额外的弹出日历 className",
       "description_zh": "额外的弹出日历 className"
     },
-    "getPopupContainer": {
+    ":getPopupContainer": {
+      "description": "The container that defines the floating layer, defaults to a new div on the body",
       "default": "-",
       "value": "",
       "type": "function(trigger)",
-      "description": "定义浮层的容器，默认为 body 上新建 div",
       "description_zh": "定义浮层的容器，默认为 body 上新建 div"
     },
     "inputReadOnly": {
@@ -79,10 +88,12 @@
       "description_zh": "设置输入框为只读（避免在移动设备上打开虚拟键盘）"
     },
     ":locale": {
-      "default": "默认配置",
-      "value": "",
+      "value": [
+        "[默认配置]"
+      ],
+      "description": "Internationalized configuration",
+      "default": "[默认配置]",
       "type": "object",
-      "description": "国际化配置",
       "description_zh": "国际化配置"
     },
     "mode": {
@@ -92,11 +103,11 @@
       "description": "日期面板的状态（设置后无法选择年份/月份？）",
       "description_zh": "日期面板的状态（设置后无法选择年份/月份？）"
     },
-    "nextIcon": {
-      "default": "-",
+    ":nextIcon": {
       "value": "",
+      "description": "Customize the next icon",
+      "default": "-",
       "type": "ReactNode",
-      "description": "自定义下一个图标",
       "description_zh": "自定义下一个图标"
     },
     "open": {
@@ -106,11 +117,11 @@
       "description": "控制弹层是否展开",
       "description_zh": "控制弹层是否展开"
     },
-    "panelRender": {
+    ":panelRender": {
+      "description": "Customize the render panel",
       "default": "-",
       "value": "",
       "type": "(panelNode) => ReactNode",
-      "description": "自定义渲染面板",
       "description_zh": "自定义渲染面板"
     },
     "picker": {
@@ -121,11 +132,16 @@
       "description_zh": "设置选择器类型"
     },
     "placeholder": {
-      "default": "-",
       "value": "",
+      "description": "Input box prompt text",
+      "default": "请输入",
       "type": "string | [string, string]",
-      "description": "输入框提示文字",
-      "description_zh": "输入框提示文字"
+      "required": true,
+      "description_zh": "输入框提示文字",
+      "$label": "请输入$label",
+      "related": [
+        "el-form-item.label"
+      ]
     },
     "placement": {
       "default": "bottomLeft",
@@ -135,24 +151,24 @@
       "description_zh": "选择框弹出的位置"
     },
     ":popupStyle": {
-      "default": "{}",
       "value": "",
+      "description": "Additional pop-up calendar style",
+      "default": "{}",
       "type": "CSSProperties",
-      "description": "额外的弹出日历样式",
       "description_zh": "额外的弹出日历样式"
     },
-    "prevIcon": {
+    ":prevIcon": {
+      "description": "Customize the previous icon",
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义上一个图标",
       "description_zh": "自定义上一个图标"
     },
-    "presets": {
-      "default": "-",
+    ":presets": {
       "value": "",
+      "description": "Preset time range for quick selection",
+      "default": "-",
       "type": "{ label: React.ReactNode, value: Dayjs | (() => Dayjs) }[]",
-      "description": "预设时间范围快捷选择, 自 5.8.0 起 value 支持函数返回值",
       "description_zh": "预设时间范围快捷选择, 自 5.8.0 起 value 支持函数返回值"
     },
     "size": {
