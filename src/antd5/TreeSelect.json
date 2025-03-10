@@ -372,7 +372,7 @@
     },
     {
       "name": "onDropdownVisibleChange",
-      "description": "Called when dropdown open/close",
+      "description": "Called when dropdown open | close",
       "description_zh": "展开下拉菜单的回调",
       "params": "function(open)"
     },

@@ -1,5 +1,5 @@
 {
-  "name": "TimePicker",
+  "name": "TimePicker.RangePicker",
   "props": {
     ":allowClear": {
       "value": "",
@@ -69,10 +69,10 @@
     },
     ":defaultValue": {
       "value": "",
-      "description": "Default time",
+      "description": "Default time range",
       "default": "-",
-      "type": "dayjs",
-      "description_zh": "默认时间"
+      "type": "[dayjs, dayjs]",
+      "description_zh": "默认时间范围"
     },
     "disabled": {
       "value": "",
@@ -85,7 +85,7 @@
       "value": "",
       "description": "Unselectable time",
       "default": "-",
-      "type": "DisabledTime",
+      "type": "RangeDisabledTime",
       "description_zh": "不可选择的时间",
       "version": "4.19.0"
     },
@@ -139,6 +139,14 @@
       "description_zh": "是否需要确认按钮，为 false 时失去焦点即代表选择",
       "version": "5.14.0"
     },
+    "order": {
+      "value": "",
+      "description": "Whether the start and end time are automatically sorted",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "始末时间是否自动排序",
+      "version": "4.1.0"
+    },
     "open": {
       "value": "",
       "description": "Whether the panel is open",
@@ -149,8 +157,8 @@
     ":placeholder": {
       "value": "",
       "description": "What is displayed when there is no value",
-      "default": "请选择时间",
-      "type": "string / [string, string]",
+      "default": "['开始时间', '结束时间']",
+      "type": "[string, string]",
       "description_zh": "没有值的时候显示的内容"
     },
     "placement": {
@@ -247,10 +255,10 @@
     },
     ":value": {
       "value": "",
-      "description": "The current time",
+      "description": "Current time range",
       "default": "-",
-      "type": "dayjs",
-      "description_zh": "当前时间"
+      "type": "[dayjs, dayjs]",
+      "description_zh": "当前时间范围"
     },
     "variant": {
       "value": [
@@ -296,13 +304,13 @@
       "params": "function(dates: [dayjs, dayjs], dateStrings: [string, string], info: { range: 'start' / 'end' })",
       "description_zh": "待选日期发生变化的回调。info 参数自 4.4.0 添加",
       "value": "",
-      "version": "4.4.0"
+      "version": "info: 4.4.0"
     },
     {
       "name": "onChange",
-      "description": "Callbacks where time changes",
-      "params": "function(time: dayjs, timeString: string): void",
-      "description_zh": "时间发生变化的回调",
+      "description": "Callbacks where time range changes",
+      "params": "function(times: [dayjs, dayjs], timeStrings: [string, string]): void",
+      "description_zh": "时间范围发生变化的回调",
       "value": ""
     },
     {
@@ -314,6 +322,16 @@
     }
   ],
   "typeDetail": {
+    "RangeDisabledTime": [
+      {
+        "name": "",
+        "description": "Function to disable specific time options for range",
+        "description_zh": "用于禁用特定时间范围选项的函数",
+        "type": "(now: Dayjs, type = 'start' | 'end') => { disabledHours?: () => number[]; disabledMinutes?: (selectedHour: number) => number[]; disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]; }",
+        "default": "-",
+        "version": "4.19.0"
+      }
+    ],
     "DisabledTime": [
       {
         "name": "",

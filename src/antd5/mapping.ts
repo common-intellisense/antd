@@ -72,6 +72,11 @@ import Row from './Row.json'
 import Segmented from './Segmented.json'
 import Select from './Select.json'
 import Skeleton from './Skeleton.json'
+import SkeletonAvatar from './SkeletonAvatar.json'
+import SkeletonButton from './SkeletonButton.json'
+import SkeletonInput from './SkeletonInput.json'
+import SkeletonParagraph from './SkeletonParagraph.json'
+import SkeletonTitle from './SkeletonTitle.json'
 import Slider from './Slider.json'
 import Space from './Space.json'
 import Spin from './Spin.json'
@@ -87,6 +92,7 @@ import Tag from './Tag.json'
 import TagCheckableTag from './TagCheckableTag.json'
 import Timeline from './Timeline.json'
 import TimePicker from './TimePicker.json'
+import TimePickerRangePicker from './TimePickerRangePicker.json'
 import Tooltip from './Tooltip.json'
 import Tour from './Tour.json'
 import Transfer from './Transfer.json'
@@ -184,6 +190,7 @@ export function getPropsMap() {
     TagCheckableTag,
     Timeline,
     TimePicker,
+    TimePickerRangePicker,
     Tooltip,
     Tour,
     Transfer,
@@ -201,6 +208,11 @@ export function getPropsMap() {
     App,
     ConfigProvider,
     Skeleton,
+    SkeletonAvatar,
+    SkeletonButton,
+    SkeletonInput,
+    SkeletonParagraph,
+    SkeletonTitle,
     TypographyLink,
     Flex,
   ]
@@ -308,6 +320,7 @@ export function getComponentMap(isZh: boolean) {
         [Slider, '滑动输入条', '<Slider defaultValue={30} disabled={disabled} />'],
         [Switch, '开关', '<Switch defaultChecked onChange={onChange} />'],
         [TimePicker, '时间选择框', '<TimePicker onChange={onChange} defaultOpenValue={dayjs(\'00:00:00\', \'HH:mm:ss\')} />'],
+        [TimePickerRangePicker, '时间选择框', '<TimePicker.RangePicker onChange={onChange} />'],
         [Transfer, '穿梭框', `<Transfer
   dataSource={mockData}
   titles={[Source, Target]}
@@ -442,6 +455,11 @@ export function getComponentMap(isZh: boolean) {
   ]}
 />`],
         [Skeleton, '骨架屏', '<Skeleton />'],
+        [SkeletonAvatar, '骨架屏', '<Skeleton.Avatar />'],
+        [SkeletonButton, '骨架屏', '<Skeleton.Button />'],
+        [SkeletonInput, '骨架屏', '<Skeleton.Input />'],
+        [SkeletonParagraph, '骨架屏', '<Skeleton.Paragraph />'],
+        [SkeletonTitle, '骨架屏', '<Skeleton.Title />'],
         [Spin, '加载中', '<Spin />'],
         [Affix, '固钉', `<Affix offsetTop={top}>
   <Button type="primary" onClick={() => setTop(top + 10)}>
@@ -563,6 +581,7 @@ export function getComponentMap(isZh: boolean) {
         [Slider, 'Sliding input bar', '<Slider defaultValue={30} disabled={disabled} />'],
         [Switch, 'switch', '<Switch defaultChecked onChange={onChange} />'],
         [TimePicker, 'Time selection box', '<TimePicker onChange={onChange} defaultOpenValue={dayjs(\'00:00:00\', \'HH:mm:ss\')} />'],
+        [TimePickerRangePicker, 'Time selection box', '<TimePicker.RangePicker onChange={onChange} />'],
         [Transfer, 'shuttle box', `<Transfer
    dataSource={mockData}
    titles={[Source, Target]}
@@ -699,6 +718,11 @@ export function getComponentMap(isZh: boolean) {
    ]}
 />`],
         [Skeleton, 'Skeleton Screen', '<Skeleton />'],
+        [SkeletonAvatar, 'Skeleton Screen', '<Skeleton.Avatar />'],
+        [SkeletonButton, 'Skeleton Screen', '<Skeleton.Button />'],
+        [SkeletonInput, 'Skeleton Screen', '<Skeleton.Input />'],
+        [SkeletonParagraph, 'Skeleton Screen', '<Skeleton.Paragraph />'],
+        [SkeletonTitle, 'Skeleton Screen', '<Skeleton.Title />'],
         [Spin, 'Loading', '<Spin />'],
         [Affix, 'fix', `<Affix offsetTop={top}>
    <Button type="primary" onClick={() => setTop(top + 10)}>
