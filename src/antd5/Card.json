@@ -24,10 +24,21 @@
     },
     "bordered": {
       "value": "",
-      "description": "Whether there is a border or not",
+      "description": "Whether there is a border or not, please use `variant` instead",
       "default": "true",
       "type": "boolean",
-      "description_zh": "是否有边框"
+      "description_zh": "是否有边框, 请使用 `variant` 替换"
+    },
+    "variant": {
+      "value": [
+        "outlined",
+        "borderless"
+      ],
+      "description": "Variants of card",
+      "default": "outlined",
+      "type": "outlined / borderless",
+      "description_zh": "形态变体",
+      "version": "5.24.0"
     },
     ":cover": {
       "value": "",
@@ -39,7 +50,7 @@
     "defaultActiveTabKey": {
       "value": "",
       "description": "Initialize the key of the selected tab, if activeTabKey is not set",
-      "default": "",
+      "default": "First tab's key",
       "type": "string",
       "description_zh": "初始化选中页签的 key，如果没有设置 activeTabKey"
     },
@@ -83,7 +94,7 @@
     },
     ":tabBarExtraContent": {
       "value": "",
-      "description": "tab bar",
+      "description": "Extra elements on the tab bar",
       "default": "-",
       "type": "ReactNode",
       "description_zh": "tab bar 上额外的元素"
@@ -92,15 +103,15 @@
       "value": "",
       "description": "A list of tab titles",
       "default": "-",
-      "type": "[TabItemType][]",
+      "type": "[TabItemType](/components/tabs#tabitemtype)[]",
       "description_zh": "页签标题列表"
     },
     ":tabProps": {
       "value": "",
-      "description": "[Tabs]",
+      "description": "Props for Tabs component",
       "default": "-",
-      "type": "-",
-      "description_zh": "[选项卡]"
+      "type": "Tabs",
+      "description_zh": "[Tabs](/components/tabs-cn#tabs)"
     },
     ":title": {
       "value": "",
@@ -108,7 +119,7 @@
       "default": "-",
       "type": "ReactNode",
       "description_zh": "卡片标题",
-      "required": true
+      "required": "true"
     },
     "type": {
       "value": "",
@@ -116,6 +127,22 @@
       "default": "-",
       "type": "string",
       "description_zh": "卡片类型，可设置为 `inner` 或 不设置"
+    },
+    ":classNames": {
+      "value": "",
+      "description": "Configure className for card built-in modules",
+      "default": "-",
+      "type": "Record<SemanticDOM, string>",
+      "description_zh": "配置卡片内置模块的 className",
+      "version": "5.14.0"
+    },
+    ":styles": {
+      "value": "",
+      "description": "Configure style for card built-in modules",
+      "default": "-",
+      "type": "Record<SemanticDOM, CSSProperties>",
+      "description_zh": "配置卡片内置模块的 style",
+      "version": "5.14.0"
     }
   },
   "methods": [],
@@ -128,7 +155,10 @@
       "value": ""
     }
   ],
+  "typeDetail": {
+    "SemanticDOM": "Semantic DOM structure property details"
+  },
   "suggestions": ["Card.Grid", "Card.Meta"],
-  "link": "https://ant.design/components//card",
-  "link_zh": "https://ant.design/components//card"
+  "link": "https://ant.design/components/card",
+  "link_zh": "https://ant.design/components/card-cn"
 }

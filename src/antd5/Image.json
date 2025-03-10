@@ -6,61 +6,213 @@
       "description": "Image description",
       "default": "-",
       "type": "string",
-      "description_zh": "图像描述"
+      "description_zh": "图像描述",
+      "version": "4.6.0"
     },
     "fallback": {
       "value": "",
       "description": "Load failure tolerant address",
       "default": "-",
       "type": "string",
-      "description_zh": "加载失败容错地址"
+      "description_zh": "加载失败容错地址",
+      "version": "4.6.0"
     },
-    "height": {
+    ":height": {
       "value": "",
       "description": "Image height",
       "default": "-",
-      "type": "string | number",
-      "description_zh": "图像高度"
+      "type": "string / number",
+      "description_zh": "图像高度",
+      "version": "4.6.0"
     },
-    "placeholder": {
+    ":placeholder": {
       "value": "",
-      "description": "Load placeholders, use the default placeholders when 'true'",
+      "description": "Load placeholder, use the default placeholder when 'true'",
       "default": "-",
       "type": "ReactNode",
-      "description_zh": "加载占位, 为 `true` 时使用默认占位"
+      "description_zh": "加载占位，为 `true` 时使用默认占位",
+      "version": "4.6.0"
     },
-    "preview": {
+    ":preview": {
       "value": "",
       "description": "Preview parameter, disabled when 'false'",
       "default": "true",
-      "type": "boolean | [PreviewType]",
-      "description_zh": "预览参数，为 `false` 时禁用"
+      "type": "boolean / [PreviewType](#previewtype)",
+      "description_zh": "预览参数，为 `false` 时禁用",
+      "version": "4.6.0 [PreviewType](#previewtype):4.7.0"
     },
     "src": {
       "value": "",
       "description": "Picture address",
       "default": "-",
       "type": "string",
-      "description_zh": "图片地址"
+      "description_zh": "图片地址",
+      "version": "4.6.0",
+      "required": true
     },
-    "width": {
+    ":width": {
       "value": "",
       "description": "Image width",
       "default": "-",
-      "type": "string | number",
-      "description_zh": "图像宽度"
+      "type": "string / number",
+      "description_zh": "图像宽度",
+      "version": "4.6.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [
     {
       "name": "onError",
-      "description": "Load error callbacks",
+      "description": "Load error callback",
       "params": "(event: Event) => void",
       "description_zh": "加载错误回调",
-      "value": ""
+      "version": "4.12.0"
     }
   ],
-  "link": "https://ant.design/components//image",
-  "link_zh": "https://ant.design/components//image"
+  "note": "Other attributes see [<img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)",
+  "note_zh": "其他属性见 [<img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)",
+  "typeDetail": {
+    "PreviewType": [
+      {
+        "name": "visible",
+        "type": "boolean",
+        "description": "Whether to display",
+        "description_zh": "是否显示",
+        "default": "-"
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "description": "Custom preview src",
+        "description_zh": "自定义预览 src",
+        "default": "-",
+        "version": "4.10.0"
+      },
+      {
+        "name": "getContainer",
+        "type": "string | HTMLElement | (() => HTMLElement) | false",
+        "description": "Specify the node for preview mounting, but still full screen display, false for mounting at the current position",
+        "description_zh": "指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置",
+        "default": "-",
+        "version": "4.8.0"
+      },
+      {
+        "name": "movable",
+        "type": "boolean",
+        "description": "Whether it can be moved",
+        "description_zh": "是否可移动",
+        "default": "true",
+        "version": "5.8.0"
+      },
+      {
+        "name": "mask",
+        "type": "ReactNode",
+        "description": "Thumbnail mask",
+        "description_zh": "缩略图遮罩",
+        "default": "-",
+        "version": "4.9.0"
+      },
+      {
+        "name": "maskClassName",
+        "type": "string",
+        "description": "Thumbnail mask class name",
+        "description_zh": "缩略图遮罩类名",
+        "default": "-",
+        "version": "4.11.0"
+      },
+      {
+        "name": "rootClassName",
+        "type": "string",
+        "description": "The root DOM class name of the preview image",
+        "description_zh": "预览图的根 DOM 类名",
+        "default": "-",
+        "version": "5.4.0"
+      },
+      {
+        "name": "scaleStep",
+        "type": "number",
+        "description": "'1 + scaleStep' is the number of steps for zooming in",
+        "description_zh": "`1 + scaleStep` 为缩放放大的每步倍数",
+        "default": "0.5"
+      },
+      {
+        "name": "minScale",
+        "type": "number",
+        "description": "Minimum zoom factor",
+        "description_zh": "最小缩放倍数",
+        "default": "1",
+        "version": "5.7.0"
+      },
+      {
+        "name": "maxScale",
+        "type": "number",
+        "description": "Maximum magnification",
+        "description_zh": "最大放大倍数",
+        "default": "50",
+        "version": "5.7.0"
+      },
+      {
+        "name": "closeIcon",
+        "type": "React.ReactNode",
+        "description": "Custom close icon",
+        "description_zh": "自定义关闭 Icon",
+        "default": "-",
+        "version": "5.7.0"
+      },
+      {
+        "name": "forceRender",
+        "type": "boolean",
+        "description": "Force rendering of preview images",
+        "description_zh": "强制渲染预览图",
+        "default": "-"
+      },
+      {
+        "name": "toolbarRender",
+        "type": "(originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' | 'total'>) => React.ReactNode",
+        "description": "Custom toolbar",
+        "description_zh": "自定义工具栏",
+        "default": "-",
+        "version": "5.7.0, `info.image`: 5.18.0"
+      },
+      {
+        "name": "imageRender",
+        "type": "(originalNode: React.ReactElement, info: { transform: TransformType, image: ImgInfo }) => React.ReactNode",
+        "description": "Custom preview content",
+        "description_zh": "自定义预览内容",
+        "default": "-",
+        "version": "5.7.0, image: 5.18.0"
+      },
+      {
+        "name": "destroyOnClose",
+        "type": "boolean",
+        "description": "Destroy child elements when closing preview",
+        "description_zh": "关闭预览时销毁子元素",
+        "default": "false"
+      },
+      {
+        "name": "onTransform",
+        "type": "{ transform: TransformType, action: TransformAction }",
+        "description": "Callback when the preview image transform changes",
+        "description_zh": "预览图 transform 变化的回调",
+        "default": "-",
+        "version": "5.7.0"
+      },
+      {
+        "name": "onVisibleChange",
+        "type": "(visible: boolean, prevVisible: boolean) => void",
+        "description": "Callback when 'visible' changes",
+        "description_zh": "当 `visible` 发生改变时的回调",
+        "default": "-"
+      }
+    ]
+  },
+  "link": "https://ant.design/components/image",
+  "link_zh": "https://ant.design/components/image-cn"
 }

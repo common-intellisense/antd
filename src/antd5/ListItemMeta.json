@@ -21,10 +21,18 @@
       "default": "-",
       "type": "ReactNode",
       "description_zh": "列表元素的标题"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//list",
-  "link_zh": "https://ant.design/components//list"
+  "suggestions": ["List.Item"],
+  "link": "https://ant.design/components/list",
+  "link_zh": "https://ant.design/components/list"
 }

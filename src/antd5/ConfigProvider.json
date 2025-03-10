@@ -13,7 +13,8 @@
       "default": "-",
       "type": "boolean",
       "description": "Sets the antd component disabled state",
-      "description_zh": "设置 antd 组件禁用状态"
+      "description_zh": "设置 antd 组件禁用状态",
+      "version": "4.21.0"
     },
     "componentSize": {
       "value": [
@@ -26,7 +27,7 @@
       "description": "Set the antd component size",
       "description_zh": "设置 antd 组件大小"
     },
-    "csp": {
+    ":csp": {
       "value": "",
       "default": "-",
       "type": "{ nonce: string }",
@@ -55,35 +56,42 @@
       "default": "() => window",
       "type": "() => HTMLElement",
       "description": "Configure the Affix and Anchor scrolling listening containers.",
-      "description_zh": "配置 Affix、Anchor 滚动监听容器。"
+      "description_zh": "配置 Affix、Anchor 滚动监听容器。",
+      "version": "4.2.0"
     },
     "iconPrefixCls": {
       "value": "",
       "default": "anticon",
       "type": "string",
       "description": "Set the icon uniform style prefix",
-      "description_zh": "设置图标统一样式前缀"
+      "description_zh": "设置图标统一样式前缀",
+      "version": "4.11.0"
     },
-    "locale": {
+    ":locale": {
       "value": "",
       "default": "-",
       "type": "object",
       "description": "Language pack configuration, the language pack can be found in the antd/locale directory",
       "description_zh": "语言包配置，语言包可到 antd/locale 目录下寻找"
     },
-    "popupMatchSelectWidth": {
+    ":popupMatchSelectWidth": {
       "value": "",
       "default": "-",
-      "type": "boolean | number",
+      "type": "boolean / number",
       "description": "The drop-down menu is the same width as the selector. By default, min-width is set and is ignored when the value is less than the width of the selection box. false, which turns off virtual scrolling",
-      "description_zh": "下拉菜单和选择器同宽。默认将设置 min-width，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动"
+      "description_zh": "下拉菜单和选择器同宽。默认将设置 min-width，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动",
+      "version": "5.5.0"
     },
     "popupOverflow": {
-      "value": "",
+      "value": [
+        "viewport",
+        "scroll"
+      ],
       "default": "viewport",
       "type": "viewport / scroll",
       "description": "The pop-up layer display logic of the Select class component is viewport scrolling by default, and can be configured to scroll area scrolling",
-      "description_zh": "Select 类组件弹层展示逻辑，默认为可视区域滚动，可配置成滚动区域滚动"
+      "description_zh": "Select 类组件弹层展示逻辑，默认为可视区域滚动，可配置成滚动区域滚动",
+      "version": "5.5.0"
     },
     "prefixCls": {
       "value": "",
@@ -104,25 +112,79 @@
       "default": "-",
       "type": "Theme",
       "description": "To set up a theme, see Customizing Themes",
-      "description_zh": "设置主题，参考 定制主题"
+      "description_zh": "设置主题，参考 定制主题",
+      "version": "5.0.0"
+    },
+    "variant": {
+      "value": [
+        "outlined",
+        "filled",
+        "borderless"
+      ],
+      "default": "-",
+      "type": "outlined / filled / borderless",
+      "description": "Set the global input component shape variant",
+      "description_zh": "设置全局输入组件形态变体",
+      "version": "5.19.0"
     },
     "virtual": {
       "value": "",
       "default": "-",
       "type": "boolean",
       "description": "Turn off virtual scrolling when set to false",
-      "description_zh": "设置 false 时关闭虚拟滚动"
+      "description_zh": "设置 false 时关闭虚拟滚动",
+      "version": "4.3.0"
     },
-    "warning": {
+    ":warning": {
       "value": "",
       "default": "-",
       "type": "{ strict: boolean }",
       "description": "Set the warning level, and if strict is false, the discarded information will be aggregated into a single message",
-      "description_zh": "设置警告等级，strict 为 false 时会将废弃相关信息聚合为单条信息"
+      "description_zh": "设置警告等级，strict 为 false 时会将废弃相关信息聚合为单条信息",
+      "version": "5.10.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components/watermark",
-  "link_zh": "https://ant.design/components/watermark"
+  "typeDetail": {
+    "Theme": [
+      {
+        "name": "algorithm",
+        "description": "Theme algorithm",
+        "description_zh": "主题算法",
+        "type": "ThemeAlgorithm | ThemeAlgorithm[]",
+        "default": "defaultAlgorithm"
+      },
+      {
+        "name": "token",
+        "description": "Theme tokens",
+        "description_zh": "主题令牌",
+        "type": "object",
+        "default": "{}"
+      },
+      {
+        "name": "components",
+        "description": "Component tokens",
+        "description_zh": "组件令牌",
+        "type": "object",
+        "default": "{}"
+      },
+      {
+        "name": "inherit",
+        "description": "Inherit theme tokens from parent ConfigProvider",
+        "description_zh": "继承父级 ConfigProvider 中的主题令牌",
+        "type": "boolean",
+        "default": "true"
+      }
+    ]
+  },
+  "link": "https://ant.design/components/config-provider",
+  "link_zh": "https://ant.design/components/config-provider-cn"
 }

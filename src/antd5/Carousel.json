@@ -1,12 +1,35 @@
 {
   "name": "Carousel",
   "props": {
-    "autoplay": {
+    "arrows": {
       "value": "",
-      "description": "Whether or not to switch automatically",
+      "description": "Whether to display arrows",
       "default": "false",
       "type": "boolean",
-      "description_zh": "是否自动切换"
+      "description_zh": "是否显示箭头",
+      "version": "5.17.0"
+    },
+    ":autoplay": {
+      "value": "",
+      "description": "Whether to switch automatically, if object can specify `dotDuration` to show indicator dot progress bar",
+      "default": "false",
+      "type": "boolean / { dotDuration?: boolean }",
+      "description_zh": "是否自动切换，如果为 object 可以指定 `dotDuration` 来展示指示点进度条",
+      "version": "dotDuration: 5.24.0"
+    },
+    ":autoplaySpeed": {
+      "value": "",
+      "description": "The interval between automatic switching (milliseconds)",
+      "default": "3000",
+      "type": "number",
+      "description_zh": "自动切换的间隔（毫秒）"
+    },
+    "adaptiveHeight": {
+      "value": "",
+      "description": "Adaptive height",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "高度自适应"
     },
     "dotPosition": {
       "value": [
@@ -15,24 +38,52 @@
         "left",
         "right"
       ],
-      "description": "The panel indicates the position of the point, and can select 'top', 'bottom', 'left' right",
+      "description": "The panel indicates the position of the point, can select 'top', 'bottom', 'left', 'right'",
       "default": "bottom",
       "type": "string",
-      "description_zh": "面板指示点位置，可选 `top` `bottom` `left` right"
+      "description_zh": "面板指示点位置，可选 `top` `bottom` `left` `right`"
     },
     ":dots": {
       "value": "",
-      "description": "Whether to display the panel indicator point, and if 'object' you can also specify 'dotsClass' or",
+      "description": "Whether to display the panel indicator point, if 'object' you can specify 'dotsClass'",
       "default": "true",
-      "type": "boolean | { className?: string }",
-      "description_zh": "是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者"
+      "type": "boolean / { className?: string }",
+      "description_zh": "是否显示面板指示点，如果为 `object` 则可以指定 `dotsClass`"
     },
-    "waitForAnimate": {
+    "draggable": {
       "value": "",
-      "description": "Whether to wait for the animation to be switched",
+      "description": "Whether to enable drag switching",
       "default": "false",
       "type": "boolean",
-      "description_zh": "是否等待切换动画"
+      "description_zh": "是否启用拖拽切换"
+    },
+    "fade": {
+      "value": "",
+      "description": "Use gradient switching effect",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "使用渐变切换动效"
+    },
+    "infinite": {
+      "value": "",
+      "description": "Whether to loop infinitely (implemented by copying two children elements, bugs may occur if child elements have side effects)",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否无限循环切换（实现方式是复制两份 children 元素，如果子元素有副作用则可能会引发 bug）"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
+    },
+    ":speed": {
+      "value": "",
+      "description": "Switching effect time (milliseconds)",
+      "default": "500",
+      "type": "number",
+      "description_zh": "切换动效的时间（毫秒）"
     },
     "easing": {
       "value": "",
@@ -53,43 +104,48 @@
     },
     ":afterChange": {
       "value": "",
-      "description": "Toggle the callback of the panel",
+      "description": "Callback after switching panels",
       "default": "-",
       "type": "(current: number) => void",
       "description_zh": "切换面板的回调"
     },
     ":beforeChange": {
       "value": "",
-      "description": "Toggle the callback of the panel",
+      "description": "Callback before switching panels",
       "default": "-",
       "type": "(current: number, next: number) => void",
       "description_zh": "切换面板的回调"
+    },
+    "waitForAnimate": {
+      "value": "",
+      "description": "Whether to wait for the animation to be switched",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否等待切换动画"
     }
   },
   "methods": [
     {
-      "name": "goTo(slideNumber, dontAnimate)",
-      "description": "When switching to a specified panel, dontAnimate = true, no animation is used",
-      "params": "",
-      "description_zh": "切换到指定面板, dontAnimate = true 时，不使用动画",
-      "value": ""
+      "name": "goTo",
+      "description": "Switch to a specified panel, when dontAnimate = true, no animation is used",
+      "params": "goTo(slideNumber, dontAnimate)",
+      "description_zh": "切换到指定面板, dontAnimate = true 时，不使用动画"
     },
     {
-      "name": "next()",
+      "name": "next",
       "description": "Switch to the next panel",
       "params": "",
-      "description_zh": "切换到下一面板",
-      "value": ""
+      "description_zh": "切换到下一面板"
     },
     {
-      "name": "prev()",
+      "name": "prev",
       "description": "Switch to the previous panel",
       "params": "",
-      "description_zh": "切换到上一面板",
-      "value": ""
+      "description_zh": "切换到上一面板"
     }
   ],
   "events": [],
-  "link": "https://ant.design/components//carousel",
-  "link_zh": "https://ant.design/components//carousel"
+  "description": "More API can be found at: https://react-slick.neostack.com/docs/api",
+  "link": "https://ant.design/components/carousel",
+  "link_zh": "https://ant.design/components/carousel-cn"
 }

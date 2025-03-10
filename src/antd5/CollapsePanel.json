@@ -10,7 +10,8 @@
       "description": "Whether it is collapsible or specifies a collapsible trigger area",
       "default": "-",
       "type": "header / icon / disabled",
-      "description_zh": "是否可折叠或指定可折叠触发区域"
+      "description_zh": "是否可折叠或指定可折叠触发区域",
+      "version": "4.9.0 (icon: 4.24.0)"
     },
     ":extra": {
       "value": "",
@@ -21,23 +22,23 @@
     },
     "forceRender": {
       "value": "",
-      "description": "Whether or not to render the DOM structure when hidden",
+      "description": "Whether or not to render the body area DOM structure when hidden",
       "default": "false",
       "type": "boolean",
-      "description_zh": "被隐藏时是否渲染 DOM 结构"
+      "description_zh": "被隐藏时是否渲染 body 区域 DOM 结构"
     },
     ":header": {
       "value": "",
       "description": "Panel header contents",
       "default": "-",
       "type": "ReactNode",
-      "description_zh": "面板头内容"
+      "description_zh": "面板标题"
     },
     "key": {
       "value": "",
       "description": "Corresponding to activeKey",
       "default": "-",
-      "type": "string | number",
+      "type": "string / number",
       "description_zh": "对应 activeKey"
     },
     "showArrow": {
@@ -45,11 +46,11 @@
       "description": "Whether to display the arrows on the current panel (if false, collapsible cannot be set to icon)",
       "default": "true",
       "type": "boolean",
-      "description_zh": "是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon）"
+      "description_zh": "是否展示当前面板上的箭头（为 false 时，collapsible 不能设为 icon）"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//collapse",
-  "link_zh": "https://ant.design/components//collapse"
+  "link": "https://ant.design/components/collapse",
+  "link_zh": "https://ant.design/components/collapse-cn"
 }

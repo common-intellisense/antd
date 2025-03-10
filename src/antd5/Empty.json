@@ -21,10 +21,19 @@
       "default": "-",
       "type": "CSSProperties",
       "description_zh": "图片样式"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//empty",
-  "link_zh": "https://ant.design/components//empty"
+  "description": "You can place elements inside Empty to render as content: `<Empty><Button>Create</Button></Empty>`",
+  "description_zh": "可以在 Empty 内部嵌套其他元素作为内容: `<Empty><Button>创建</Button></Empty>`",
+  "link": "https://ant.design/components/empty",
+  "link_zh": "https://ant.design/components/empty-cn"
 }

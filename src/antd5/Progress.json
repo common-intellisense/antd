@@ -13,7 +13,8 @@
       "default": "0",
       "type": "number",
       "description": "percentage",
-      "description_zh": "百分比"
+      "description_zh": "百分比",
+      "required": true
     },
     "showInfo": {
       "value": "",
@@ -23,10 +24,15 @@
       "description_zh": "是否显示进度数值或状态图标"
     },
     "status": {
-      "value": "",
+      "value": [
+        "success",
+        "exception",
+        "normal",
+        "active"
+      ],
       "default": "-",
       "type": "string",
-      "description": "Status, optional: Success Exception Normal Active (Line only)",
+      "description": "Status, optional: success exception normal active (line only)",
       "description_zh": "状态，可选：success exception normal active(仅限 line)"
     },
     "strokeColor": {
@@ -62,24 +68,56 @@
       "description_zh": "未完成的分段的颜色"
     },
     "type": {
-      "value": "",
+      "value": [
+        "line",
+        "circle",
+        "dashboard"
+      ],
       "default": "line",
       "type": "string",
-      "description": "Type, optional Line Circle Dashboard",
+      "description": "Type, optional: line, circle, dashboard",
       "description_zh": "类型，可选 line circle dashboard"
     },
-    "size": {
-      "value": "",
-      "default": "\"default\"",
-      "type": "number | [number | string, number] / small / default",
+    ":size": {
+      "value": [
+        "small",
+        "default"
+      ],
+      "default": "default",
+      "type": "number / [number / string, number] / { width: number, height: number } / small / default",
       "description": "The size of the progress bar",
-      "description_zh": "进度条的尺寸"
+      "description_zh": "进度条的尺寸",
+      "version": "5.3.0, Object: 5.18.0"
+    },
+    ":steps": {
+      "value": "",
+      "default": "-",
+      "type": "number / { count: number, gap: number }",
+      "description": "The total number of steps in the progress bar",
+      "description_zh": "进度条总共步数",
+      "version": "5.16.0"
+    },
+    ":rounding": {
+      "value": "",
+      "default": "Math.round",
+      "type": "(step: number) => number",
+      "description": "Function for rounding values",
+      "description_zh": "用于四舍五入数值的函数",
+      "version": "5.24.0"
+    },
+    ":percentPosition": {
+      "value": "",
+      "default": "{ align: \"end\", type: \"outer\" }",
+      "type": "{ align: string; type: string }",
+      "description": "Position of percentage value, pass in object, 'align' represents horizontal position, 'type' represents whether inside or outside progress bar",
+      "description_zh": "进度数值位置，传入对象，align 表示数值的水平位置，type 表示数值在进度条内部还是外部",
+      "version": "5.18.0"
     },
     ":gapDegree": {
       "value": "",
       "default": "75",
       "type": "number",
-      "description": "The notch angle of the dashboard progress bar can be 0 ~ 295",
+      "description": "The notch angle of the dashboard progress bar, can be 0 ~ 295",
       "description_zh": "仪表盘进度条缺口角度，可取值 0 ~ 295"
     },
     "gapPosition": {
@@ -94,23 +132,113 @@
       "description": "Notch position of the dashboard progress bar",
       "description_zh": "仪表盘进度条缺口位置"
     },
-    "strokeWidth": {
+    ":strokeWidth": {
       "value": "",
       "default": "6",
       "type": "number",
-      "description": "The width of the dashboard progress bar line, in percentage of the width of the progress bar canvas",
-      "description_zh": "仪表盘进度条线的宽度，单位是进度条画布宽度的百分比"
+      "description": "The width of the progress bar line, in percentage of the width of the progress bar canvas",
+      "description_zh": "进度条线的宽度，单位是进度条画布宽度的百分比"
     },
-    ":steps": {
+    "rootClassName": {
       "value": "",
-      "default": "",
-      "type": "number",
-      "description": "The total number of steps in the progress bar",
-      "description_zh": "进度条总共步数"
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//progress",
-  "link_zh": "https://ant.design/components//progress"
+  "typeDetail": {
+    "LineProgress": [
+      {
+        "name": "steps",
+        "description": "The total number of steps in the progress bar",
+        "description_zh": "进度条总共步数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "rounding",
+        "description": "Function for rounding values",
+        "description_zh": "用于四舍五入数值的函数",
+        "type": "(step: number) => number",
+        "default": "Math.round",
+        "version": "5.24.0"
+      },
+      {
+        "name": "strokeColor",
+        "description": "Color of progress bar, pass in object for gradient. Supports passing in an array when steps is present.",
+        "description_zh": "进度条的色彩，传入 object 时为渐变。当有 steps 时支持传入一个数组。",
+        "type": "string | string[] | { from: string; to: string; direction: string }",
+        "default": "-",
+        "version": "4.21.0: string[]"
+      },
+      {
+        "name": "percentPosition",
+        "description": "Position of percentage value",
+        "description_zh": "进度数值位置",
+        "type": "{ align: string; type: string }",
+        "default": "{ align: \"end\", type: \"outer\" }",
+        "version": "5.18.0"
+      }
+    ],
+    "CircleProgress": [
+      {
+        "name": "steps",
+        "description": "Total number of steps in the progress bar. When passing an object, count refers to the number of steps, and gap refers to the interval size. When passing number type, gap defaults to 2.",
+        "description_zh": "进度条总共步数，传入 object 时，count 指步数，gap 指间隔大小。传 number 类型时，gap 默认为 2。",
+        "type": "number | { count: number, gap: number }",
+        "default": "-",
+        "version": "5.16.0"
+      },
+      {
+        "name": "strokeColor",
+        "description": "Color of circular progress bar, pass in object for gradient",
+        "description_zh": "圆形进度条线的色彩，传入 object 时为渐变",
+        "type": "string | { number%: string }",
+        "default": "-"
+      },
+      {
+        "name": "strokeWidth",
+        "description": "Width of circular progress bar, in percentage of canvas width",
+        "description_zh": "圆形进度条线的宽度，单位是进度条画布宽度的百分比",
+        "type": "number",
+        "default": "6"
+      }
+    ],
+    "DashboardProgress": [
+      {
+        "name": "steps",
+        "description": "Total number of steps in the progress bar. When passing an object, count refers to the number of steps, and gap refers to the interval size. When passing number type, gap defaults to 2.",
+        "description_zh": "进度条总共步数，传入 object 时，count 指步数，gap 指间隔大小。传 number 类型时，gap 默认为 2。",
+        "type": "number | { count: number, gap: number }",
+        "default": "-",
+        "version": "5.16.0"
+      },
+      {
+        "name": "gapDegree",
+        "description": "The notch angle of the dashboard progress bar, can be 0 ~ 295",
+        "description_zh": "仪表盘进度条缺口角度，可取值 0 ~ 295",
+        "type": "number",
+        "default": "75"
+      },
+      {
+        "name": "gapPosition",
+        "description": "Notch position of the dashboard progress bar",
+        "description_zh": "仪表盘进度条缺口位置",
+        "type": "top | bottom | left | right",
+        "default": "bottom"
+      },
+      {
+        "name": "strokeWidth",
+        "description": "Width of dashboard progress bar, in percentage of canvas width",
+        "description_zh": "仪表盘进度条线的宽度，单位是进度条画布宽度的百分比",
+        "type": "number",
+        "default": "6"
+      }
+    ]
+  },
+  "link": "https://ant.design/components/progress",
+  "link_zh": "https://ant.design/components/progress-cn"
 }

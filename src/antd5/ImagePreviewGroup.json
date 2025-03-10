@@ -1,129 +1,186 @@
 {
   "name": "Image.PreviewGroup",
   "props": {
-    "preview": {
+    ":preview": {
       "value": "",
       "description": "Preview parameter, disabled when 'false'",
       "default": "true",
-      "type": "boolean | PreviewGroupType",
-      "description_zh": "预览参数，为 `false` 时禁用"
+      "type": "boolean / PreviewGroupType",
+      "description_zh": "预览参数，为 `false` 时禁用",
+      "version": "4.6.0 [PreviewGroupType](#previewgrouptype):4.7.0"
     },
     ":items": {
       "value": "",
       "description": "Preview the array",
       "default": "-",
-      "type": "string[] | { src: string, crossOrigin: string, ... }[]",
-      "description_zh": "预览数组"
+      "type": "string[] / { src: string, crossOrigin: string, ... }[]",
+      "description_zh": "预览数组",
+      "version": "5.7.0"
     },
     "fallback": {
       "value": "",
       "description": "Load failure tolerant address",
       "default": "-",
       "type": "string",
-      "description_zh": "加载失败容错地址"
+      "description_zh": "加载失败容错地址",
+      "version": "5.7.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "typeDetail": {
     "PreviewGroupType": [
       {
         "name": "visible",
-        "description": "是否显示",
-        "type": "boolean"
+        "description": "Whether to display",
+        "description_zh": "是否显示",
+        "type": "boolean",
+        "default": "-"
       },
       {
         "name": "getContainer",
-        "description": "指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置",
-        "type": "string | HTMLElement | (() => HTMLElement) | false"
+        "description": "Specify the node for preview mounting, but still full screen display, false for mounting at the current position",
+        "description_zh": "指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置",
+        "type": "string | HTMLElement | (() => HTMLElement) | false",
+        "default": "-",
+        "version": "4.8.0"
       },
       {
         "name": "movable",
-        "description": "是否可移动",
+        "description": "Whether it can be moved",
+        "description_zh": "是否可移动",
         "type": "boolean",
-        "default": true
+        "default": "true",
+        "version": "5.8.0"
       },
       {
         "name": "current",
-        "description": "当前预览图的 index",
-        "type": "number"
+        "description": "Index of current preview",
+        "description_zh": "当前预览图的 index",
+        "type": "number",
+        "default": "-",
+        "version": "4.12.0"
       },
       {
         "name": "mask",
-        "description": "缩略图遮罩",
-        "type": "ReactNode"
+        "description": "Thumbnail mask",
+        "description_zh": "缩略图遮罩",
+        "type": "ReactNode",
+        "default": "-",
+        "version": "4.9.0"
       },
       {
         "name": "maskClassName",
-        "description": "缩略图遮罩类名",
-        "type": "string"
+        "description": "Thumbnail mask class name",
+        "description_zh": "缩略图遮罩类名",
+        "type": "string",
+        "default": "-",
+        "version": "4.11.0"
       },
       {
         "name": "rootClassName",
-        "description": "预览图的根 DOM 类名",
-        "type": "string"
+        "description": "The root DOM class name of the preview image",
+        "description_zh": "预览图的根 DOM 类名",
+        "type": "string",
+        "default": "-",
+        "version": "5.4.0"
       },
       {
         "name": "scaleStep",
-        "description": "1 + scaleStep 为缩放放大的每步倍数",
+        "description": "'1 + scaleStep' is the number of steps for zooming in",
+        "description_zh": "`1 + scaleStep` 为缩放放大的每步倍数",
         "type": "number",
         "default": "0.5"
       },
       {
         "name": "minScale",
-        "description": "最小缩放倍数",
+        "description": "Minimum zoom factor",
+        "description_zh": "最小缩放倍数",
         "type": "number",
-        "default": "1"
+        "default": "1",
+        "version": "5.7.0"
       },
       {
         "name": "maxScale",
-        "description": "最大放大倍数",
+        "description": "Maximum magnification",
+        "description_zh": "最大放大倍数",
         "type": "number",
-        "default": "50"
+        "default": "50",
+        "version": "5.7.0"
       },
       {
         "name": "closeIcon",
-        "description": "自定义关闭 Icon",
-        "type": "React.ReactNode"
+        "description": "Custom close icon",
+        "description_zh": "自定义关闭 Icon",
+        "type": "React.ReactNode",
+        "default": "-",
+        "version": "5.7.0"
       },
       {
         "name": "forceRender",
-        "description": "强制渲染预览图",
-        "type": "boolean"
+        "description": "Force rendering of preview images",
+        "description_zh": "强制渲染预览图",
+        "type": "boolean",
+        "default": "-"
       },
       {
         "name": "countRender",
-        "description": "自定义预览计数内容",
-        "type": "(current: number, total: number) => React.ReactNode"
+        "description": "Custom preview count content",
+        "description_zh": "自定义预览计数内容",
+        "type": "(current: number, total: number) => React.ReactNode",
+        "default": "-",
+        "version": "4.20.0"
       },
       {
         "name": "toolbarRender",
-        "description": "自定义工具栏",
-        "type": "(originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode"
+        "description": "Custom toolbar",
+        "description_zh": "自定义工具栏",
+        "type": "(originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode",
+        "default": "-",
+        "version": "5.7.0, `info.image`: 5.18.0"
       },
       {
         "name": "imageRender",
-        "description": "自定义预览内容",
-        "type": "(originalNode: React.ReactElement, info: { transform: TransformType, current: number }) => React.ReactNode"
+        "description": "Custom preview content",
+        "description_zh": "自定义预览内容",
+        "type": "(originalNode: React.ReactElement, info: { transform: TransformType, image: ImgInfo, current: number }) => React.ReactNode",
+        "default": "-",
+        "version": "5.7.0, image: 5.18.0"
       },
       {
         "name": "onTransform",
-        "description": "预览图 transform 变化的回调",
-        "type": "{ transform: TransformType, action: TransformAction }"
+        "description": "Callback when the preview image transform changes",
+        "description_zh": "预览图 transform 变化的回调",
+        "type": "{ transform: TransformType, action: TransformAction }",
+        "default": "-",
+        "version": "5.7.0"
       },
       {
         "name": "onChange",
-        "description": "切换预览图的回调",
-        "type": "(current: number, prevCurrent: number) => void"
+        "description": "Callback when switching preview images",
+        "description_zh": "切换预览图的回调",
+        "type": "(current: number, prevCurrent: number) => void",
+        "default": "-",
+        "version": "5.3.0"
       },
       {
         "name": "onVisibleChange",
-        "description": "当 visible 发生改变时的回调",
-        "type": "(visible: boolean, prevVisible: boolean, current: number) => void"
+        "description": "Callback when 'visible' changes",
+        "description_zh": "当 `visible` 发生改变时的回调",
+        "type": "(visible: boolean, prevVisible: boolean, current: number) => void",
+        "default": "-",
+        "version": "current 参数 5.3.0"
       }
     ]
   },
   "suggestions": ["Image"],
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//image",
-  "link_zh": "https://ant.design/components//image"
+  "link": "https://ant.design/components/image",
+  "link_zh": "https://ant.design/components/image-cn"
 }

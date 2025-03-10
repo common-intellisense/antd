@@ -5,8 +5,9 @@
       "value": "",
       "description": "Customize the close button. 5.7.0: Hide the close button when set to 'null' or 'false'",
       "default": "false",
-      "type": "boolean | ReactNode",
-      "description_zh": "自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮"
+      "type": "boolean / ReactNode",
+      "description_zh": "自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮",
+      "version": "4.4.0"
     },
     "color": {
       "value": "",
@@ -27,7 +28,15 @@
       "description": "Whether there is a border or not",
       "default": "true",
       "type": "boolean",
-      "description_zh": "是否有边框"
+      "description_zh": "是否有边框",
+      "version": "5.4.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
@@ -35,11 +44,12 @@
     {
       "name": "onClose",
       "description": "Callback on closure (default behavior can be blocked by 'e.preventDefault()')",
-      "params": "(e) => void",
+      "params": "(e: React.MouseEvent<HTMLElement, MouseEvent>) => void",
       "description_zh": "关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为）",
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//tag",
-  "link_zh": "https://ant.design/components//tag"
+  "suggestions": ["Tag.CheckableTag"],
+  "link": "https://ant.design/components/tag",
+  "link_zh": "https://ant.design/components/tag"
 }

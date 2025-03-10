@@ -52,14 +52,14 @@
       "type": "(triggerNode) => HTMLElement",
       "description_zh": "设置表格内各类浮层的渲染节点，如筛选菜单"
     },
-    "loading": {
+    ":loading": {
       "value": "",
       "description": "Whether the page is loading",
       "default": "false",
-      "type": "boolean | [Spin Props]",
+      "type": "boolean / Spin Props",
       "description_zh": "页面是否加载中"
     },
-    "locale": {
+    ":locale": {
       "value": [
         "zh-cn",
         "zh-tw",
@@ -70,11 +70,11 @@
       "type": "object",
       "description_zh": "默认文案设置，目前包括排序、过滤、空数据文案"
     },
-    "pagination": {
+    ":pagination": {
       "value": "",
       "description": "Paginer, which is set to false does not show and pagination",
       "default": "-",
-      "type": "object | false",
+      "type": "object / false",
       "description_zh": "分页器，设为 false 时不展示和进行分页"
     },
     ":rowClassName": {
@@ -84,19 +84,27 @@
       "type": "function(record, index): string",
       "description_zh": "表格行的类名"
     },
-    "rowKey": {
+    ":rowKey": {
       "value": "",
       "description": "The value of the table row key can be a string or a function",
       "default": "key",
-      "type": "string | function(record): string",
+      "type": "string / function(record): string",
       "description_zh": "表格行 key 的取值，可以是字符串或一个函数"
     },
-    "rowSelection": {
+    ":rowSelection": {
       "value": "",
       "description": "Whether table rows can be selected, [Config]",
       "default": "-",
       "type": "object",
       "description_zh": "表格行是否可选择，[配置项]"
+    },
+    "rowHoverable": {
+      "value": "",
+      "description": "Whether to enable hover interaction for table rows",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "表格行是否开启 hover 交互",
+      "version": "5.16.0"
     },
     ":scroll": {
       "value": "",
@@ -112,12 +120,13 @@
       "type": "boolean",
       "description_zh": "是否显示表头"
     },
-    "showSorterTooltip": {
+    ":showSorterTooltip": {
       "value": "",
       "description": "Whether the header displays a tooltip hint for the next sort. When the parameter type is Object, it will be set as a property of the Tooltip",
-      "default": "true",
-      "type": "boolean | [Tooltip props]",
-      "description_zh": "表头是否显示下一次排序的 tooltip 提示。当参数类型为对象时，将被设置为 Tooltip 的属性"
+      "default": "{ target: 'full-header' }",
+      "type": "boolean / Tooltip props & {target?: 'full-header' / 'sorter-icon' }",
+      "description_zh": "表头是否显示下一次排序的 tooltip 提示。当参数类型为对象时，将被设置为 Tooltip 的属性",
+      "version": "5.16.0"
     },
     "size": {
       "value": [
@@ -127,7 +136,7 @@
       ],
       "description": "Table size",
       "default": "large",
-      "type": "large | middle | small",
+      "type": "large / middle / small",
       "description_zh": "表格大小"
     },
     ":sortDirections": {
@@ -137,12 +146,13 @@
       "type": "Array",
       "description_zh": "支持的排序方式，取值为 `ascend` descend"
     },
-    "sticky": {
+    ":sticky": {
       "value": "",
       "description": "Set the sticky head and scrollbar",
       "default": "-",
-      "type": "boolean | `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}`",
-      "description_zh": "设置粘性头部和滚动条"
+      "type": "boolean / {offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}",
+      "description_zh": "设置粘性头部和滚动条",
+      "version": "4.6.0 (getContainer: 4.7.0)"
     },
     ":summary": {
       "value": "",
@@ -157,8 +167,8 @@
         "fixed"
       ],
       "description": "The [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) property of the table element, set to 'fixed' means that the content does not affect the layout of the column",
-      "default": "无<hr | >固定表头 | 列或使用了 `column.ellipsis` 时，默认值为 fixed",
-      "type": " / auto / fixed",
+      "default": "无<br />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed`",
+      "type": "- / auto / fixed",
       "description_zh": "表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局"
     },
     ":title": {
@@ -167,29 +177,44 @@
       "default": "-",
       "type": "function(currentPageData)",
       "description_zh": "表格标题"
+    },
+    "virtual": {
+      "value": "",
+      "description": "Support virtual list",
+      "default": "-",
+      "type": "boolean",
+      "description_zh": "支持虚拟列表",
+      "version": "5.9.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [
     {
       "name": "nativeElement",
-      "type": "HTMLDivElement",
       "description": "Outermost div element",
-      "value": "",
-      "description_zh": "最外层 div 元素"
+      "params": "HTMLDivElement",
+      "description_zh": "最外层 div 元素",
+      "version": "5.11.0"
     },
     {
       "name": "scrollTo",
-      "type": "(config: { index?: number, key?: React.Key, top?: number }) => void",
       "description": "Scroll to the target location (rowKey for Record when the key is set)",
-      "value": "",
-      "description_zh": "滚动到目标位置（设置 key 时为 Record 对应的 rowKey）"
+      "params": "(config: { index?: number, key?: React.Key, top?: number }) => void",
+      "description_zh": "滚动到目标位置（设置 key 时为 Record 对应的 rowKey）",
+      "version": "5.11.0"
     }
   ],
   "events": [
     {
       "name": "onChange",
       "description": "Triggered when there are changes in pagination, sorting, and filtering",
-      "params": "function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` | sort | `filter` })",
+      "params": "function(pagination, filters, sorter, extra: { currentDataSource: [], action: paginate / sort / filter })",
       "description_zh": "分页、排序、筛选变化时触发",
       "value": ""
     },
@@ -206,8 +231,367 @@
       "params": "function(record, index)",
       "description_zh": "设置行属性",
       "value": ""
+    },
+    {
+      "name": "onScroll",
+      "description": "Triggered when the form content scrolls (only vertical scrolling triggers the event under virtual scrolling)",
+      "params": "function(event)",
+      "description_zh": "表单内容滚动时触发（虚拟滚动下只有垂直滚动会触发事件）",
+      "value": "",
+      "version": "5.16.0"
     }
   ],
-  "link": "https://ant.design/components//table",
-  "link_zh": "https://ant.design/components//table"
+  "typeDetail": {
+    "pagination": [
+      {
+        "name": "position",
+        "description": "Specify the position where the pagination is displayed",
+        "description_zh": "指定分页显示的位置",
+        "type": "topLeft | topCenter | topRight | bottomLeft | bottomCenter | bottomRight[]",
+        "default": "[bottomRight]"
+      }
+    ],
+    "expandable": [
+      {
+        "name": "childrenColumnName",
+        "description": "Specify the column name of the tree structure",
+        "description_zh": "指定树形结构的列名",
+        "type": "string",
+        "default": "children"
+      },
+      {
+        "name": "columnTitle",
+        "description": "Custom expanded column header",
+        "description_zh": "自定义展开列表头",
+        "type": "ReactNode",
+        "default": "-",
+        "version": "4.23.0"
+      },
+      {
+        "name": "columnWidth",
+        "description": "Custom expanded column width",
+        "description_zh": "自定义展开列宽度",
+        "type": "string | number",
+        "default": "-"
+      },
+      {
+        "name": "defaultExpandAllRows",
+        "description": "Initially, whether to expand all rows",
+        "description_zh": "初始时，是否展开所有行",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "defaultExpandedRowKeys",
+        "description": "Default expanded rows",
+        "description_zh": "默认展开的行",
+        "type": "string[]",
+        "default": "-"
+      },
+      {
+        "name": "expandedRowClassName",
+        "description": "Expanded row's className",
+        "description_zh": "展开行的 className",
+        "type": "string | (record, index, indent) => string",
+        "default": "-",
+        "version": "string: 5.22.0"
+      },
+      {
+        "name": "expandedRowKeys",
+        "description": "Current expanded rows",
+        "description_zh": "展开的行，控制属性",
+        "type": "string[]",
+        "default": "-"
+      },
+      {
+        "name": "expandedRowRender",
+        "description": "Expanded content renderer",
+        "description_zh": "额外的展开行",
+        "type": "function(record, index, indent, expanded): ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "expandIcon",
+        "description": "Custom expand icon",
+        "description_zh": "自定义展开图标",
+        "type": "function(props): ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "expandRowByClick",
+        "description": "Expand child row by clicking on the row",
+        "description_zh": "通过点击行来展开子行",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "fixed",
+        "description": "Control whether the expand icon is fixed",
+        "description_zh": "控制展开图标是否固定",
+        "type": "boolean | string",
+        "default": "false",
+        "version": "4.16.0"
+      },
+      {
+        "name": "indentSize",
+        "description": "Indent size in pixels of tree data",
+        "description_zh": "展示树形数据时，每层缩进的宽度，以 px 为单位",
+        "type": "number",
+        "default": "15"
+      },
+      {
+        "name": "rowExpandable",
+        "description": "Set whether row can be expandable",
+        "description_zh": "设置是否允许行展开",
+        "type": "(record) => boolean",
+        "default": "-"
+      },
+      {
+        "name": "showExpandColumn",
+        "description": "Show expand icon column",
+        "description_zh": "是否显示展开图标列",
+        "type": "boolean",
+        "default": "true",
+        "version": "4.18.0"
+      },
+      {
+        "name": "onExpand",
+        "description": "Callback when click expand icon",
+        "description_zh": "点击展开图标时触发",
+        "type": "function(expanded, record)",
+        "default": "-"
+      },
+      {
+        "name": "onExpandedRowsChange",
+        "description": "Callback when expanded rows change",
+        "description_zh": "展开的行变化时触发",
+        "type": "function(expandedRows)",
+        "default": "-"
+      }
+    ],
+    "rowSelection": [
+      {
+        "name": "selectedRowKeys",
+        "description": "Controlled selected row",
+        "description_zh": "指定选中项的 key 数组",
+        "type": "string[] | number[]",
+        "default": "[]"
+      },
+      {
+        "name": "columnWidth",
+        "description": "Set the width of the selection column",
+        "description_zh": "自定义列表选择框宽度",
+        "type": "string | number",
+        "default": "32px"
+      },
+      {
+        "name": "selections",
+        "description": "Custom selection configuration, only displays default selections when set to true",
+        "description_zh": "自定义选择配置项，设为 true 时显示默认选择项",
+        "type": "boolean | Selection[]",
+        "default": "-"
+      },
+      {
+        "name": "checkStrictly",
+        "description": "Checkable state is completely controlled in checkable state",
+        "description_zh": "checkable 状态下节点选择完全受控",
+        "type": "boolean",
+        "default": "true",
+        "version": "4.4.0"
+      },
+      {
+        "name": "columnTitle",
+        "description": "Custom column selection box title",
+        "description_zh": "自定义列表选择框标题",
+        "type": "ReactNode | (originalNode: ReactNode) => ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "columnWidth",
+        "description": "Set the width of the selection column",
+        "description_zh": "自定义列表选择框宽度",
+        "type": "string | number",
+        "default": "32px"
+      },
+      {
+        "name": "fixed",
+        "description": "Fixed selection column on the left",
+        "description_zh": "把选择框列固定在左边",
+        "type": "boolean",
+        "default": "-"
+      },
+      {
+        "name": "getCheckboxProps",
+        "description": "Default attribute configuration of checkbox",
+        "description_zh": "选择框的默认属性配置",
+        "type": "function(record)",
+        "default": "-"
+      },
+      {
+        "name": "hideSelectAll",
+        "description": "Hide the select-all checkbox and custom selection",
+        "description_zh": "隐藏全选勾选框与自定义选择项",
+        "type": "boolean",
+        "default": "false",
+        "version": "4.3.0"
+      },
+      {
+        "name": "preserveSelectedRowKeys",
+        "description": "Keep selection keys even when data is deleted",
+        "description_zh": "当数据被删除时仍然保留选项的 key",
+        "type": "boolean",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "renderCell",
+        "description": "Render checkbox cell, same usage as Column render",
+        "description_zh": "渲染勾选框，用法与 Column 的 render 相同",
+        "type": "function(checked, record, index, originNode) {}",
+        "default": "-",
+        "version": "4.1.0"
+      },
+      {
+        "name": "selectedRowKeys",
+        "description": "Specify selected row keys array",
+        "description_zh": "指定选中项的 key 数组，需要和 onChange 进行配合",
+        "type": "string[] | number[]",
+        "default": "[]"
+      },
+      {
+        "name": "defaultSelectedRowKeys",
+        "description": "Default selected row keys",
+        "description_zh": "默认选中项的 key 数组",
+        "type": "string[] | number[]",
+        "default": "[]"
+      },
+      {
+        "name": "selections",
+        "description": "Custom selection configurations",
+        "description_zh": "自定义选择项，设为 true 时使用默认选择项",
+        "type": "boolean | Selection[]",
+        "default": "true"
+      },
+      {
+        "name": "type",
+        "description": "Selection type",
+        "description_zh": "多选/单选",
+        "type": "checkbox | radio",
+        "default": "checkbox"
+      },
+      {
+        "name": "onCell",
+        "description": "Set cell properties",
+        "description_zh": "设置单元格属性，用法与 Column 的 onCell 相同",
+        "type": "function(record, rowIndex)",
+        "default": "-",
+        "version": "5.5.0"
+      },
+      {
+        "name": "onChange",
+        "description": "Callback when selected rows change",
+        "description_zh": "选中项发生变化时的回调",
+        "type": "function(selectedRowKeys, selectedRows, info: { type })",
+        "default": "-",
+        "version": "info.type: 4.21.0"
+      },
+      {
+        "name": "onSelect",
+        "description": "Callback when user manually | a row",
+        "description_zh": "用户手动选择/取消选择某行的回调",
+        "type": "function(record, selected, selectedRows, nativeEvent)",
+        "default": "-"
+      },
+      {
+        "name": "onSelectAll",
+        "description": "Callback when user selects/deselects all rows",
+        "description_zh": "用户手动选择/取消选择所有行的回调",
+        "type": "function(selected, selectedRows, changeRows)",
+        "default": "-"
+      },
+      {
+        "name": "onSelectInvert",
+        "description": "Callback when user inverts selection",
+        "description_zh": "用户手动选择反选的回调",
+        "type": "function(selectedRowKeys)",
+        "default": "-"
+      },
+      {
+        "name": "onSelectNone",
+        "description": "Callback when user clears all selections",
+        "description_zh": "用户清空选择的回调",
+        "type": "function()",
+        "default": "-"
+      },
+      {
+        "name": "onSelectMultiple",
+        "description": "Callback when user uses keyboard shift for multiple selection",
+        "description_zh": "用户使用键盘 shift 选择多行的回调",
+        "type": "function(selected, selectedRows, changeRows)",
+        "default": "-"
+      }
+    ],
+    "scroll": [
+      {
+        "name": "x",
+        "description": "Set horizontal scrolling, can also be used to specify the width of the scroll area",
+        "description_zh": "设置横向滚动，也可用于指定滚动区域的宽",
+        "type": "string | number",
+        "default": "-"
+      },
+      {
+        "name": "y",
+        "description": "Set vertical scrolling, can also be used to specify the height of the scroll area",
+        "description_zh": "设置纵向滚动，也可用于指定滚动区域的高",
+        "type": "string | number",
+        "default": "-"
+      },
+      {
+        "name": "scrollToFirstRowOnChange",
+        "description": "Whether to scroll to the top of the table when paging, sorting, filtering changes",
+        "description_zh": "是否在分页、排序、筛选变化后滚动到表格顶部",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "name": "x",
+        "description": "Set horizontal scrolling, can also specify width of scroll area as pixels, percentage, true or 'max-content'",
+        "description_zh": "设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 'max-content'",
+        "type": "string | number | true",
+        "default": "-"
+      },
+      {
+        "name": "y",
+        "description": "Set vertical scrolling, can also specify height of scroll area",
+        "description_zh": "设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值",
+        "type": "string | number",
+        "default": "-"
+      }
+    ],
+    "selection": [
+      {
+        "name": "key",
+        "description": "Unique key required by React",
+        "description_zh": "React 需要的 key，建议设置",
+        "type": "string",
+        "default": "-"
+      },
+      {
+        "name": "text",
+        "description": "Selection item display text",
+        "description_zh": "选择项显示的文字",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "onSelect",
+        "description": "Selection item click callback",
+        "description_zh": "选择项点击回调",
+        "type": "function(changeableRowKeys)",
+        "default": "-"
+      }
+    ]
+  },
+  "link": "https://ant.design/components/table",
+  "link_zh": "https://ant.design/components/table"
 }

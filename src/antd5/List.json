@@ -48,7 +48,7 @@
       "value": "",
       "description": "While the card content is still loading, you can use 'loading' to display a placeholder",
       "default": "false",
-      "type": "boolean | object",
+      "type": "boolean / object",
       "description_zh": "当卡片内容还在加载中时，可以用 `loading` 展示一个占位"
     },
     ":loadMore": {
@@ -58,7 +58,7 @@
       "type": "ReactNode",
       "description_zh": "加载更多"
     },
-    "locale": {
+    ":locale": {
       "value": "",
       "description": "The default copy settings, which currently include empty data copy",
       "default": "{emptyText: `暂无数据`}",
@@ -69,7 +69,7 @@
       "value": "",
       "description": "For the corresponding 'pagination' configuration, set false to not be displayed",
       "default": "false",
-      "type": "boolean | object",
+      "type": "boolean / object",
       "description_zh": "对应的 `pagination` 配置, 设置 false 不显示"
     },
     ":renderItem": {
@@ -80,11 +80,11 @@
       "description_zh": "当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项",
       "required": true
     },
-    "rowKey": {
+    ":rowKey": {
       "value": "",
       "description": "When the 'renderItem' custom render list item is valid, customize how the 'key' for each row is obtained",
       "default": "key",
-      "type": "keyof T | (item: T) => `React.Key`",
+      "type": "keyof T / (item: T) => React.Key",
       "description_zh": "当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式"
     },
     "size": {
@@ -93,9 +93,9 @@
         "large",
         "small"
       ],
-      "description": "list",
+      "description": "list size",
       "default": "default",
-      "type": "default | large | small",
+      "type": "default / large / small",
       "description_zh": "list 的尺寸"
     },
     "split": {
@@ -104,21 +104,88 @@
       "default": "true",
       "type": "boolean",
       "description_zh": "是否展示分割线"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "typeDetail": {
     "pagination": [
       {
         "name": "position",
-        "description": "指定分页显示的位置",
+        "description": "Specify the position where the pagination is displayed",
+        "description_zh": "指定分页显示的位置",
         "type": "top | bottom | both",
         "default": "bottom"
       },
       {
         "name": "align",
-        "description": "指定分页对齐的位置",
+        "description": "Specify the alignment of pagination",
+        "description_zh": "指定分页对齐的位置",
         "type": "start | center | end",
         "default": "end"
+      }
+    ],
+    "grid": [
+      {
+        "name": "column",
+        "description": "Number of columns",
+        "description_zh": "列数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "gutter",
+        "description": "Grid spacing",
+        "description_zh": "栅格间隔",
+        "type": "number",
+        "default": "0"
+      },
+      {
+        "name": "xs",
+        "description": "Number of columns to display when <576px",
+        "description_zh": "<576px 展示的列数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "sm",
+        "description": "Number of columns to display when ≥576px",
+        "description_zh": "≥576px 展示的列数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "md",
+        "description": "Number of columns to display when ≥768px",
+        "description_zh": "≥768px 展示的列数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "lg",
+        "description": "Number of columns to display when ≥992px",
+        "description_zh": "≥992px 展示的列数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "xl",
+        "description": "Number of columns to display when ≥1200px",
+        "description_zh": "≥1200px 展示的列数",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "xxl",
+        "description": "Number of columns to display when ≥1600px",
+        "description_zh": "≥1600px 展示的列数",
+        "type": "number",
+        "default": "-"
       }
     ]
   },
@@ -127,6 +194,6 @@
   ],
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//list",
-  "link_zh": "https://ant.design/components//list"
+  "link": "https://ant.design/components/list",
+  "link_zh": "https://ant.design/components/list"
 }

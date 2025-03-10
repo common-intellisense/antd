@@ -1,22 +1,40 @@
 {
   "name": "Tour",
   "props": {
-    "arrow": {
+    ":arrow": {
       "value": "",
       "description": "Whether or not to display an arrow, including the configuration that points to the center of the element",
       "default": "true",
-      "type": "boolean | `{ pointAtCenter: boolean}`",
+      "type": "boolean / { pointAtCenter: boolean }",
       "description_zh": "是否显示箭头，包含是否指向元素中心的配置"
     },
     ":closeIcon": {
       "value": "",
       "description": "Customize the close button",
       "default": "true",
-      "type": "React.ReactNode",
-      "description_zh": "自定义关闭按钮"
+      "type": "ReactNode",
+      "description_zh": "自定义关闭按钮",
+      "version": "5.9.0"
+    },
+    "disabledInteraction": {
+      "value": "",
+      "description": "Disable highlight area interaction",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "禁用高亮区域交互",
+      "version": "5.13.0"
+    },
+    ":gap": {
+      "value": "",
+      "description": "Control the rounded borders and display spacing of highlighted areas",
+      "default": "{ offset?: 6 ; radius?: 2 }",
+      "type": "{ offset?: number / [number, number]; radius?: number }",
+      "description_zh": "控制高亮区域的圆角边框和显示间距",
+      "version": "5.0.0 (数组类型的 offset: 5.9.0 )"
     },
     "placement": {
       "value": [
+        "center",
         "left",
         "leftTop",
         "leftBottom",
@@ -32,14 +50,14 @@
       ],
       "description": "The position of the bootstrap card relative to the target element",
       "default": "bottom",
-      "type": "left / leftTop / leftBottom / right / rightTop / rightBottom / top / topLeft / topRight / bottom / bottomLeft / bottomRight",
+      "type": "center / left / leftTop / leftBottom / right / rightTop / rightBottom / top / topLeft / topRight / bottom / bottomLeft / bottomRight",
       "description_zh": "引导卡片相对于目标元素的位置"
     },
-    "mask": {
+    ":mask": {
       "value": "",
       "description": "Whether or not to enable the mask, you can also pass in the configuration to change the mask style and fill color",
       "default": "true",
-      "type": "`boolean | { style?: React.CSSProperties; color?: string; }`",
+      "type": "boolean / { style?: React.CSSProperties; color?: string; }",
       "description_zh": "是否启用蒙层，也可传入配置改变蒙层样式和填充色"
     },
     "type": {
@@ -49,12 +67,12 @@
       ],
       "description": "Type, which affects the base color and text color",
       "default": "default",
-      "type": "default | primary",
+      "type": "default / primary",
       "description_zh": "类型，影响底色与文字颜色"
     },
     "open": {
       "value": "",
-      "description": "Turn on the boot",
+      "description": "Turn on the tour",
       "default": "-",
       "type": "boolean",
       "description_zh": "打开引导"
@@ -70,36 +88,54 @@
       "value": "",
       "description": "Whether to support the current element to scroll into the window, you can also specify the relevant parameters of the scrolling window",
       "default": "true",
-      "type": "`boolean | ScrollIntoViewOptions`",
-      "description_zh": "是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数"
+      "type": "boolean / ScrollIntoViewOptions",
+      "description_zh": "是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数",
+      "version": "5.2.0"
     },
     ":indicatorsRender": {
       "value": "",
       "description": "Custom indicators",
       "default": "-",
-      "type": "`(current: number, total: number) => ReactNode`",
-      "description_zh": "自定义指示器"
+      "type": "(current: number, total: number) => ReactNode",
+      "description_zh": "自定义指示器",
+      "version": "5.2.0"
     },
     ":zIndex": {
       "value": "",
-      "description": "Tour",
+      "description": "Tour layer level",
       "default": "1001",
       "type": "number",
-      "description_zh": "Tour 的层级"
+      "description_zh": "Tour 的层级",
+      "version": "5.3.0"
+    },
+    ":getPopupContainer": {
+      "value": "",
+      "description": "Set the rendering node of the Tour floating layer, the default is body",
+      "default": "body",
+      "type": "(node: HTMLElement) => HTMLElement",
+      "description_zh": "设置 Tour 浮层的渲染节点，默认是 body",
+      "version": "5.12.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [
     {
       "name": "onClose",
-      "description": "The callback function when booting is turned off",
+      "description": "The callback function when tour is turned off",
       "params": "Function",
       "description_zh": "关闭引导时的回调函数",
       "value": ""
     },
     {
       "name": "onFinish",
-      "description": "A callback when the bootstrap is complete",
+      "description": "A callback when the tour is complete",
       "params": "Function",
       "description_zh": "引导完成时的回调",
       "value": ""
@@ -107,11 +143,109 @@
     {
       "name": "onChange",
       "description": "The callback when the step is changed, current is the current step",
-      "params": "`(current: number) => void`",
+      "params": "(current: number) => void",
       "description_zh": "步骤改变时的回调，current 为当前的步骤",
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//tour",
-  "link_zh": "https://ant.design/components//tour"
+  "typeDetail": {
+    "TourStep": [
+      {
+        "name": "target",
+        "description": "Get the element that the guide card points to, center on the screen when empty",
+        "description_zh": "获取引导卡片指向的元素，为空时居中于屏幕",
+        "type": "() => HTMLElement / HTMLElement",
+        "default": "-"
+      },
+      {
+        "name": "arrow",
+        "description": "Whether or not to display an arrow, including the configuration that points to the center of the element",
+        "description_zh": "是否显示箭头，包含是否指向元素中心的配置",
+        "type": "boolean | { pointAtCenter: boolean }",
+        "default": "true"
+      },
+      {
+        "name": "closeIcon",
+        "description": "Customize the close button",
+        "description_zh": "自定义关闭按钮",
+        "type": "ReactNode",
+        "default": "true",
+        "version": "5.9.0"
+      },
+      {
+        "name": "cover",
+        "description": "Display pictures or videos",
+        "description_zh": "展示的图片或者视频",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "title",
+        "description": "Title",
+        "description_zh": "标题",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "description",
+        "description": "Main description section",
+        "description_zh": "主要描述部分",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "placement",
+        "description": "The position of the guide card relative to the target element",
+        "description_zh": "引导卡片相对于目标元素的位置",
+        "type": "center | left | leftTop | leftBottom | right | rightTop | rightBottom | top | topLeft | topRight | bottom | bottomLeft | bottomRight",
+        "default": "bottom"
+      },
+      {
+        "name": "onClose",
+        "description": "The callback function when tour is turned off",
+        "description_zh": "关闭引导时的回调函数",
+        "type": "Function",
+        "default": "-"
+      },
+      {
+        "name": "mask",
+        "description": "Whether or not to enable the mask, you can also pass in the configuration to change the mask style and fill color, by default follows the Tour's mask property",
+        "description_zh": "是否启用蒙层，也可传入配置改变蒙层样式和填充色，默认跟随 Tour 的 mask 属性",
+        "type": "boolean | { style?: React.CSSProperties; color?: string; }",
+        "default": "true"
+      },
+      {
+        "name": "type",
+        "description": "Type, which affects the base color and text color",
+        "description_zh": "类型，影响底色与文字颜色",
+        "type": "default | primary",
+        "default": "default"
+      },
+      {
+        "name": "nextButtonProps",
+        "description": "Next button properties",
+        "description_zh": "下一步按钮的属性",
+        "type": "{ children: ReactNode; onClick: Function }",
+        "default": "-"
+      },
+      {
+        "name": "prevButtonProps",
+        "description": "Previous button properties",
+        "description_zh": "上一步按钮的属性",
+        "type": "{ children: ReactNode; onClick: Function }",
+        "default": "-"
+      },
+      {
+        "name": "scrollIntoViewOptions",
+        "description": "Whether to support the current element to scroll into the window, you can also specify the relevant parameters of the scrolling window, by default follows the Tour's scrollIntoViewOptions property",
+        "description_zh": "是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 scrollIntoViewOptions 属性",
+        "type": "boolean | ScrollIntoViewOptions",
+        "default": "true",
+        "version": "5.2.0"
+      }
+    ]
+  },
+  "version": "5.0.0",
+  "link": "https://ant.design/components/tour",
+  "link_zh": "https://ant.design/components/tour"
 }

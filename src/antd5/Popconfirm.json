@@ -5,95 +5,290 @@
       "default": "-",
       "value": "",
       "type": "ButtonProps",
-      "description": "cancel 按钮 props",
+      "description": "Cancel button props",
       "description_zh": "cancel 按钮 props"
     },
     "cancelText": {
       "default": "取消",
       "value": "",
       "type": "string",
-      "description": "取消按钮文字",
+      "description": "Cancel button text",
       "description_zh": "取消按钮文字"
     },
     "disabled": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "阻止点击 Popconfirm 子元素时弹出确认框",
+      "description": "Prevents Popconfirm from appearing when clicked on child elements",
       "description_zh": "阻止点击 Popconfirm 子元素时弹出确认框"
     },
     ":icon": {
       "default": "<ExclamationCircle />",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义弹出气泡 Icon 图标",
+      "description": "Custom Icon of confirmation box",
       "description_zh": "自定义弹出气泡 Icon 图标"
     },
     ":okButtonProps": {
       "default": "-",
       "value": "",
       "type": "ButtonProps",
-      "description": "ok 按钮 props",
+      "description": "OK button props",
       "description_zh": "ok 按钮 props"
     },
     "okText": {
       "default": "确定",
       "value": "",
       "type": "string",
-      "description": "确认按钮文字",
+      "description": "OK button text",
       "description_zh": "确认按钮文字"
     },
     "okType": {
       "default": "primary",
       "value": "",
       "type": "string",
-      "description": "确认按钮类型",
+      "description": "OK button type",
       "description_zh": "确认按钮类型"
     },
     "showCancel": {
       "default": "true",
       "value": "",
       "type": "boolean",
-      "description": "是否显示取消按钮",
-      "description_zh": "是否显示取消按钮"
+      "description": "Whether to show the cancel button",
+      "description_zh": "是否显示取消按钮",
+      "version": "4.18.0"
     },
-    "title": {
+    ":title": {
       "default": "-",
       "value": "",
-      "type": "ReactNode | () => ReactNode",
-      "description": "确认框标题",
-      "description_zh": "确认框标题"
+      "type": "ReactNode / () => ReactNode",
+      "description": "Confirmation box title",
+      "description_zh": "确认框标题",
+      "required": true
     },
-    "description": {
+    ":description": {
       "default": "-",
       "value": "",
-      "type": "ReactNode | () => ReactNode",
-      "description": "确认内容的详细描述",
-      "description_zh": "确认内容的详细描述"
+      "type": "ReactNode / () => ReactNode",
+      "description": "Detailed description of the confirmation content",
+      "description_zh": "确认内容的详细描述",
+      "version": "5.1.0"
+    },
+    ":align": {
+      "default": "-",
+      "value": "",
+      "type": "object",
+      "description": "This value will be merged into placement's config, please refer to the settings dom-align",
+      "description_zh": "该值将合并到 placement 的配置中，设置参考 dom-align"
+    },
+    ":arrow": {
+      "default": "true",
+      "value": "",
+      "type": "boolean / { pointAtCenter: boolean }",
+      "description": "Change arrow's visible state and whether the arrow is pointed at the center of target",
+      "description_zh": "修改箭头的显示状态以及修改箭头是否指向目标元素中心",
+      "version": "5.2.0"
+    },
+    "autoAdjustOverflow": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether to automatically adjust position when the bubble is obscured",
+      "description_zh": "气泡被遮挡时自动调整位置"
+    },
+    "color": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Background color",
+      "description_zh": "背景颜色",
+      "version": "4.3.0"
+    },
+    "defaultOpen": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether the floating tooltip card is visible by default",
+      "description_zh": "默认是否显隐",
+      "version": "4.23.0"
+    },
+    "destroyTooltipOnHide": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether to destroy tooltip when hidden",
+      "description_zh": "关闭后是否销毁 Tooltip"
+    },
+    "fresh": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "By default, Tooltip caches content when closed. Setting this property will always keep it updated",
+      "description_zh": "默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新",
+      "version": "5.10.0"
+    },
+    ":getPopupContainer": {
+      "default": "() => document.body",
+      "value": "",
+      "type": "(triggerNode: HTMLElement) => HTMLElement",
+      "description": "The parent node which the floating layer should be rendered to",
+      "description_zh": "浮层渲染父节点，默认渲染到 body 上"
+    },
+    ":mouseEnterDelay": {
+      "default": "0.1",
+      "value": "",
+      "type": "number",
+      "description": "Delay in seconds before tooltip is shown on mouse enter",
+      "description_zh": "鼠标移入后延时多少才显示 Tooltip，单位：秒"
+    },
+    ":mouseLeaveDelay": {
+      "default": "0.1",
+      "value": "",
+      "type": "number",
+      "description": "Delay in seconds before tooltip is hidden on mouse leave",
+      "description_zh": "鼠标移出后延时多少才隐藏 Tooltip，单位：秒"
+    },
+    "overlayClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Card class name (deprecated, please use classNames={{ root: '' }} instead)",
+      "description_zh": "卡片类名, 请使用 classNames={{ root: '' }} 替换"
+    },
+    ":overlayStyle": {
+      "default": "-",
+      "value": "",
+      "type": "React.CSSProperties",
+      "description": "Card style (deprecated, please use styles={{ root: {} }} instead)",
+      "description_zh": "卡片样式, 请使用 styles={{ root: {} }} 替换"
+    },
+    ":overlayInnerStyle": {
+      "default": "-",
+      "value": "",
+      "type": "React.CSSProperties",
+      "description": "Card content area style (deprecated, please use styles={{ body: {} }} instead)",
+      "description_zh": "卡片内容区域的样式对象, 请使用 styles={{ body: {} }} 替换"
+    },
+    "placement": {
+      "default": "top",
+      "value": [
+        "top",
+        "left",
+        "right",
+        "bottom",
+        "topLeft",
+        "topRight",
+        "bottomLeft",
+        "bottomRight",
+        "leftTop",
+        "leftBottom",
+        "rightTop",
+        "rightBottom"
+      ],
+      "type": "string",
+      "description": "The position of the tooltip relative to the target",
+      "description_zh": "气泡框位置"
+    },
+    ":trigger": {
+      "default": "hover",
+      "value": [
+        "hover",
+        "focus",
+        "click",
+        "contextMenu"
+      ],
+      "type": "string / string[]",
+      "description": "Tooltip trigger mode, options: hover/focus/click/contextMenu",
+      "description_zh": "触发行为，可选 hover / focus / click / contextMenu，可使用数组设置多个触发行为"
+    },
+    "open": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether the floating tooltip card is visible",
+      "description_zh": "用于手动控制浮层显隐",
+      "version": "4.23.0"
+    },
+    ":zIndex": {
+      "default": "-",
+      "value": "",
+      "type": "number",
+      "description": "Set the z-index of popup",
+      "description_zh": "设置 Tooltip 的 z-index"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/popconfirm-cn",
+  "link": "https://ant.design/components/popconfirm",
   "link_zh": "https://ant.design/components/popconfirm-cn",
   "events": [
     {
       "name": "onCancel",
-      "description": "点击取消的回调",
+      "description": "Callback when Cancel button is clicked",
       "description_zh": "点击取消的回调",
-      "params": "function(e)"
+      "params": "function(e)",
+      "value": ""
     },
     {
       "name": "onConfirm",
-      "description": "点击确认的回调",
+      "description": "Callback when OK button is clicked",
       "description_zh": "点击确认的回调",
-      "params": "function(e)"
+      "params": "function(e)",
+      "value": ""
     },
     {
       "name": "onPopupClick",
-      "description": "弹出气泡点击事件",
+      "description": "The popup click event",
       "description_zh": "弹出气泡点击事件",
-      "params": "function(e)"
+      "params": "function(e)",
+      "value": "",
+      "version": "5.5.0"
+    },
+    {
+      "name": "onOpenChange",
+      "description": "Callback when visibility of the tooltip card is changed",
+      "description_zh": "显示隐藏的回调",
+      "params": "(open: boolean) => void",
+      "value": "",
+      "version": "4.23.0"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "ButtonProps": [
+      {
+        "name": "disabled",
+        "description": "Disabled state of button",
+        "description_zh": "按钮失效状态",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "loading",
+        "description": "Set the loading status of button",
+        "description_zh": "设置按钮载入状态",
+        "type": "boolean | { delay: number }",
+        "default": "false"
+      },
+      {
+        "name": "type",
+        "description": "Type of button",
+        "description_zh": "按钮类型",
+        "type": "primary | default | dashed | text | link",
+        "default": "default"
+      },
+      {
+        "name": "size",
+        "description": "Size of button",
+        "description_zh": "按钮大小",
+        "type": "large | middle | small",
+        "default": "middle"
+      }
+    ]
+  }
 }

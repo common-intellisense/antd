@@ -43,11 +43,63 @@
       "type": "ReactNode",
       "description": "title text",
       "description_zh": "title 文字"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "typeDetail": {},
+  "typeDetail": {
+    "ResultStatuses": [
+      {
+        "name": "success",
+        "description": "Show successful result status",
+        "description_zh": "展示成功状态",
+        "type": "string"
+      },
+      {
+        "name": "error",
+        "description": "Show error result status",
+        "description_zh": "展示错误状态",
+        "type": "string"
+      },
+      {
+        "name": "info",
+        "description": "Show information result status",
+        "description_zh": "展示信息状态",
+        "type": "string"
+      },
+      {
+        "name": "warning",
+        "description": "Show warning result status",
+        "description_zh": "展示警告状态",
+        "type": "string"
+      },
+      {
+        "name": "404",
+        "description": "Show 404 not found status",
+        "description_zh": "展示 404 未找到状态",
+        "type": "string"
+      },
+      {
+        "name": "403",
+        "description": "Show 403 forbidden status",
+        "description_zh": "展示 403 禁止访问状态",
+        "type": "string"
+      },
+      {
+        "name": "500",
+        "description": "Show 500 server error status",
+        "description_zh": "展示 500 服务器错误状态",
+        "type": "string"
+      }
+    ]
+  },
   "events": [],
-  "link": "https://ant.design/components//result",
-  "link_zh": "https://ant.design/components//result"
+  "link": "https://ant.design/components/result",
+  "link_zh": "https://ant.design/components/result-cn"
 }

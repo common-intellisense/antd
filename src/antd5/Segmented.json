@@ -8,11 +8,11 @@
       "type": "boolean",
       "description_zh": "将宽度调整为父元素宽度的选项"
     },
-    "defaultValue": {
+    ":defaultValue": {
       "value": "",
       "description": "The default selected value",
       "default": "",
-      "type": "string | number",
+      "type": "string / number",
       "description_zh": "默认选中的值"
     },
     "disabled": {
@@ -26,7 +26,7 @@
       "value": "",
       "description": "Data-based configuration options",
       "default": "[]",
-      "type": "string[] | number[] | Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }>",
+      "type": "string[] / number[] / SegmentedItemType[]",
       "description_zh": "数据化配置选项内容"
     },
     "size": {
@@ -40,12 +40,46 @@
       "type": "large / middle / small",
       "description_zh": "控件尺寸"
     },
-    "value": {
+    "vertical": {
+      "value": "",
+      "description": "Arrangement direction",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "排列方向",
+      "version": "5.21.0"
+    },
+    ":value": {
       "value": "",
       "description": "The currently selected value",
       "default": "",
-      "type": "string | number",
+      "type": "string / number",
       "description_zh": "当前选中的值"
+    },
+    "shape": {
+      "value": [
+        "default",
+        "round"
+      ],
+      "description": "Shape",
+      "default": "default",
+      "type": "default / round",
+      "description_zh": "形状",
+      "version": "5.24.0"
+    },
+    "name": {
+      "value": "",
+      "description": "The name attribute of all input[type=\"radio\"] under Segmented. If not set, it will fall back to a random generated name",
+      "default": "",
+      "type": "string",
+      "description_zh": "Segmented 下所有 `input[type=\"radio\"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称",
+      "version": "5.23.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
@@ -53,11 +87,51 @@
     {
       "name": "onChange",
       "description": "The callback function when the option changes",
-      "params": "function(value: string | number)",
+      "params": "function(value: string / number)",
       "description_zh": "选项变化时的回调函数",
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//segmented",
-  "link_zh": "https://ant.design/components//segmented"
+  "typeDetail": {
+    "SegmentedItemType": [
+      {
+        "name": "label",
+        "description": "Display text of segment item",
+        "description_zh": "分段项的显示文本",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "value",
+        "description": "Value of segment item",
+        "description_zh": "分段项的值",
+        "type": "string / number",
+        "default": "-"
+      },
+      {
+        "name": "icon",
+        "description": "Display icon of segment item",
+        "description_zh": "分段项的显示图标",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "disabled",
+        "description": "Disabled state of segment item",
+        "description_zh": "分段项的禁用状态",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "className",
+        "description": "Custom class name",
+        "description_zh": "自定义类名",
+        "type": "string",
+        "default": "-"
+      }
+    ]
+  },
+  "version": "4.20.0",
+  "link": "https://ant.design/components/segmented",
+  "link_zh": "https://ant.design/components/segmented"
 }

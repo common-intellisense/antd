@@ -1,165 +1,251 @@
 {
   "name": "Modal",
   "props": {
-    "afterClose": {
+    ":afterClose": {
       "default": "-",
       "value": "",
       "type": "function",
-      "description": "Modal 完全关闭后的回调",
+      "description": "Callback after Modal is completely closed",
       "description_zh": "Modal 完全关闭后的回调"
+    },
+    ":afterOpenChange": {
+      "default": "-",
+      "value": "",
+      "type": "(open: boolean) => void",
+      "description": "Callback after opening and closing Modal animation ends",
+      "description_zh": "打开和关闭 Modal 时动画结束后的回调",
+      "version": "5.4.0"
     },
     "autoFocusButton": {
       "default": "ok",
       "value": "",
       "type": "null / ok / cancel",
-      "description": "指定自动获得焦点的按钮",
+      "description": "Specify which button gets the autofocus",
       "description_zh": "指定自动获得焦点的按钮"
     },
-    "cancelButtonProps": {
+    ":classNames": {
+      "default": "-",
+      "value": "",
+      "type": "Record<SemanticDOM, string>",
+      "description": "Configure className for popup built-in modules",
+      "description_zh": "配置弹窗内置模块的 className",
+      "version": "5.10.0"
+    },
+    ":styles": {
+      "default": "-",
+      "value": "",
+      "type": "Record<SemanticDOM, CSSProperties>",
+      "description": "Configure style for popup built-in modules",
+      "description_zh": "配置弹窗内置模块的 style",
+      "version": "5.10.0"
+    },
+    ":cancelButtonProps": {
       "default": "-",
       "value": "",
       "type": "ButtonProps",
-      "description": "cancel 按钮 props",
+      "description": "Cancel button props",
       "description_zh": "cancel 按钮 props"
     },
-    "cancelText": {
+    ":cancelText": {
       "default": "取消",
       "value": "",
-      "type": "string",
-      "description": "设置 Modal.confirm 取消按钮文字",
-      "description_zh": "设置 Modal.confirm 取消按钮文字"
+      "type": "ReactNode",
+      "description": "Cancel button text",
+      "description_zh": "取消按钮文字"
     },
     "centered": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "垂直居中展示 Modal",
+      "description": "Vertically centered display Modal",
       "description_zh": "垂直居中展示 Modal"
     },
     "className": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "容器类名",
+      "description": "Container className",
       "description_zh": "容器类名"
     },
-    "closable": {
+    ":closable": {
+      "default": "true",
+      "value": "",
+      "type": "boolean / { closeIcon?: React.ReactNode; disabled?: boolean; }",
+      "description": "Whether to show the close button in the upper right corner",
+      "description_zh": "是否显示右上角的关闭按钮"
+    },
+    ":closeIcon": {
+      "default": "<CloseOutlined />",
+      "value": "",
+      "type": "ReactNode",
+      "description": "Custom close icon. 5.7.0: Hide the close button when set to null or false",
+      "description_zh": "自定义关闭图标。5.7.0：设置为 null 或 false 时隐藏关闭按钮"
+    },
+    "confirmLoading": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否显示右上角的关闭按钮",
-      "description_zh": "是否显示右上角的关闭按钮"
+      "description": "OK button loading",
+      "description_zh": "确定按钮 loading"
     },
-    "closeIcon": {
-      "default": "undefined",
-      "value": "",
-      "type": "ReactNode",
-      "description": "自定义关闭图标",
-      "description_zh": "自定义关闭图标"
-    },
-    "content": {
+    ":content": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "内容",
+      "description": "Content",
       "description_zh": "内容"
     },
-    "footer": {
-      "default": "-",
+    "destroyOnClose": {
+      "default": "false",
       "value": "",
-      "type": "(params:footerRenderParams)=> React.ReactNode | React.ReactNode",
-      "description": "底部内容，当不需要默认底部按钮时，可以设为 footer: null",
-      "description_zh": "底部内容，当不需要默认底部按钮时，可以设为 footer: null"
+      "type": "boolean",
+      "description": "Destroy child elements when closing",
+      "description_zh": "关闭时销毁 Modal 里的子元素"
     },
-    "getContainer": {
+    "focusTriggerAfterClose": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether to focus trigger element after dialog is closed",
+      "description_zh": "对话框关闭后是否需要聚焦触发元素",
+      "version": "4.9.0"
+    },
+    ":footer": {
+      "default": "(确定取消按钮)",
+      "value": "",
+      "type": "ReactNode / ((params: footerRenderParams) => ReactNode)",
+      "description": "Bottom content, you can set it as footer={null} when you don't need default bottom buttons",
+      "description_zh": "底部内容，当不需要默认底部按钮时，可以设为 footer={null}",
+      "version": "renderFunction: 5.9.0"
+    },
+    "forceRender": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Force render Modal",
+      "description_zh": "强制渲染 Modal"
+    },
+    ":getContainer": {
       "default": "document.body",
       "value": "",
-      "type": "HTMLElement | () => HTMLElement | Selectors | false",
-      "description": "指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom",
-      "description_zh": "指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom"
+      "type": "HTMLElement / () => HTMLElement / Selectors / false",
+      "description": "The specified node to mount the Modal, still displays in full screen mode, false to mount at the current location",
+      "description_zh": "指定 Modal 挂载的节点，但依旧为全屏展示，false 为挂载在当前位置"
     },
-    "icon": {
+    ":icon": {
       "default": "<ExclamationCircleFilled />",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义图标",
+      "description": "Custom icon",
       "description_zh": "自定义图标"
     },
     "keyboard": {
       "default": "true",
       "value": "",
       "type": "boolean",
-      "description": "是否支持键盘 esc 关闭",
+      "description": "Whether to support keyboard esc closing",
       "description_zh": "是否支持键盘 esc 关闭"
+    },
+    "loading": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Show skeleton screen",
+      "description_zh": "显示骨架屏",
+      "version": "5.18.0"
     },
     "mask": {
       "default": "true",
       "value": "",
       "type": "boolean",
-      "description": "是否展示遮罩",
+      "description": "Whether to show mask",
       "description_zh": "是否展示遮罩"
     },
     "maskClosable": {
-      "default": "false",
+      "default": "true",
       "value": "",
       "type": "boolean",
-      "description": "点击蒙层是否允许关闭",
+      "description": "Whether to close when clicking on the mask",
       "description_zh": "点击蒙层是否允许关闭"
     },
-    "okButtonProps": {
+    ":modalRender": {
+      "default": "-",
+      "value": "",
+      "type": "(node: ReactNode) => ReactNode",
+      "description": "Custom rendering modal dialog",
+      "description_zh": "自定义渲染对话框",
+      "version": "4.7.0"
+    },
+    ":okButtonProps": {
       "default": "-",
       "value": "",
       "type": "ButtonProps",
-      "description": "ok 按钮 props",
+      "description": "OK button props",
       "description_zh": "ok 按钮 props"
     },
-    "okText": {
+    ":okText": {
       "default": "确定",
       "value": "",
-      "type": "string",
-      "description": "确认按钮文字",
+      "type": "ReactNode",
+      "description": "OK button text",
       "description_zh": "确认按钮文字"
     },
     "okType": {
       "default": "primary",
       "value": "",
       "type": "string",
-      "description": "确认按钮类型",
+      "description": "OK button type",
       "description_zh": "确认按钮类型"
+    },
+    "open": {
+      "default": "-",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether the dialog is visible",
+      "description_zh": "对话框是否可见",
+      "required": true
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     },
     ":style": {
       "default": "-",
       "value": "",
       "type": "CSSProperties",
-      "description": "可用于设置浮层的样式，调整浮层位置等",
+      "description": "Can be used to set floating layer style, adjust floating layer position, etc.",
       "description_zh": "可用于设置浮层的样式，调整浮层位置等"
     },
-    "title": {
+    ":title": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "标题",
+      "description": "Title",
       "description_zh": "标题"
     },
-    "width": {
-      "default": "416",
+    ":width": {
+      "default": "520",
       "value": "",
-      "type": "string | number",
-      "description": "宽度",
-      "description_zh": "宽度"
+      "type": "string / number / Breakpoint",
+      "description": "Width",
+      "description_zh": "宽度",
+      "version": "Breakpoint: 5.23.0"
     },
     "wrapClassName": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "对话框外层容器的类名",
+      "description": "The className of the outer container of the dialog",
       "description_zh": "对话框外层容器的类名"
     },
     ":zIndex": {
       "default": "1000",
       "value": "",
       "type": "number",
-      "description": "设置 Modal 的 z-index",
+      "description": "Set Modal's z-index",
       "description_zh": "设置 Modal 的 z-index"
     }
   },
@@ -168,18 +254,67 @@
     {
       "name": "onCancel",
       "description": "Click the callback of the mask layer or the top right cross or cancel button",
-      "params": "点击遮罩层或右上角叉或取消按钮的回调",
+      "params": "function(e)",
       "description_zh": "点击遮罩层或右上角叉或取消按钮的回调",
       "value": ""
     },
     {
       "name": "onOk",
       "description": "Click OK callback",
-      "params": "点击确定回调",
+      "params": "function(e)",
       "description_zh": "点击确定回调",
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//modal",
-  "link_zh": "https://ant.design/components//modal"
+  "typeDetail": {
+    "SemanticDOM": [
+      {
+        "name": "header",
+        "description": "Header area of modal",
+        "description_zh": "Modal 头部区域",
+        "type": "CSSProperties | string"
+      },
+      {
+        "name": "body",
+        "description": "Body area of modal",
+        "description_zh": "Modal 内容区域",
+        "type": "CSSProperties | string"
+      },
+      {
+        "name": "footer",
+        "description": "Footer area of modal",
+        "description_zh": "Modal 底部区域",
+        "type": "CSSProperties | string"
+      },
+      {
+        "name": "mask",
+        "description": "Modal mask layer",
+        "description_zh": "Modal 遮罩层",
+        "type": "CSSProperties | string"
+      },
+      {
+        "name": "wrapper",
+        "description": "Modal wrapper",
+        "description_zh": "Modal 包装器",
+        "type": "CSSProperties | string"
+      }
+    ],
+    "footerRenderParams": [
+      {
+        "name": "originNode",
+        "description": "The original footer DOM node",
+        "description_zh": "原始的底部 DOM 节点",
+        "type": "ReactNode"
+      },
+      {
+        "name": "confirmLoading",
+        "description": "Confirm button loading status",
+        "description_zh": "确认按钮加载状态",
+        "type": "boolean"
+      }
+    ]
+  },
+  "suggestions": [],
+  "link": "https://ant.design/components/modal",
+  "link_zh": "https://ant.design/components/modal-cn"
 }

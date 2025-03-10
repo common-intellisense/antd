@@ -5,15 +5,31 @@
       "value": "",
       "description": "Delay the time it takes to display the loading effect (to prevent flickering)",
       "default": "-",
-      "type": "number",
+      "type": "number (milliseconds)",
       "description_zh": "延迟显示加载效果的时间（防止闪烁）"
     },
-    "indicator": {
+    "fullscreen": {
+      "value": "",
+      "description": "Display background with Spin component",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "显示带有 Spin 组件的背景",
+      "version": "5.11.0"
+    },
+    ":indicator": {
       "value": "",
       "description": "Load indicator",
       "default": "-",
-      "type": "string",
+      "type": "ReactNode",
       "description_zh": "加载指示符"
+    },
+    ":percent": {
+      "value": "",
+      "description": "Display progress, when setting percent='auto', it will estimate a progress that never stops",
+      "default": "-",
+      "type": "number / auto",
+      "description_zh": "展示进度，当设置 percent=\"auto\" 时会预估一个永远不会停止的进度",
+      "version": "5.18.0"
     },
     "size": {
       "value": [
@@ -21,10 +37,10 @@
         "default",
         "large"
       ],
-      "description": "Component size, optionally 'small' 'default' large",
+      "description": "Component size, options: small, default, large",
       "default": "default",
       "type": "string",
-      "description_zh": "组件大小，可选值为 `small` `default` large"
+      "description_zh": "组件大小，可选值为 small default large"
     },
     "spinning": {
       "value": "",
@@ -46,11 +62,53 @@
       "default": "-",
       "type": "string",
       "description_zh": "包装器的类属性"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "typeDetail": {},
+  "typeDetail": {
+    "SpinSize": [
+      {
+        "name": "small",
+        "description": "Small size spinner",
+        "description_zh": "小号加载图标",
+        "type": "string"
+      },
+      {
+        "name": "default",
+        "description": "Default size spinner",
+        "description_zh": "默认大小加载图标",
+        "type": "string"
+      },
+      {
+        "name": "large",
+        "description": "Large size spinner",
+        "description_zh": "大号加载图标",
+        "type": "string"
+      }
+    ],
+    "SpinPercent": [
+      {
+        "name": "auto",
+        "description": "Automatically estimate progress that never stops",
+        "description_zh": "自动预估永远不会停止的进度",
+        "type": "string"
+      },
+      {
+        "name": "number",
+        "description": "Specific percentage number (0-100)",
+        "description_zh": "具体的百分比数值 (0-100)",
+        "type": "number"
+      }
+    ]
+  },
   "events": [],
-  "link": "https://ant.design/components//spin",
-  "link_zh": "https://ant.design/components//spin"
+  "link": "https://ant.design/components/spin",
+  "link_zh": "https://ant.design/components/spin-cn"
 }

@@ -1,19 +1,28 @@
 {
   "name": "Tooltip",
   "props": {
+    ":title": {
+      "value": "",
+      "default": "-",
+      "type": "ReactNode / () => ReactNode",
+      "description": "Tooltip text",
+      "description_zh": "提示文字",
+      "required": true
+    },
     ":align": {
       "value": "",
       "default": "-",
       "type": "object",
-      "description": "This value will be incorporated into the configuration of the placement, with reference to rc-tooltip",
-      "description_zh": "该值将合并到 placement 的配置中，设置参考 rc-tooltip"
+      "description": "This value will be incorporated into the configuration of the placement, with reference to dom-align",
+      "description_zh": "该值将合并到 placement 的配置中，设置参考 dom-align"
     },
-    "arrow": {
+    ":arrow": {
       "value": "",
       "default": "true",
-      "type": "boolean | { pointAtCenter: boolean }",
+      "type": "boolean / { pointAtCenter: boolean }",
       "description": "Modify the display state of the arrows and whether the arrows point to the center of the target element",
-      "description_zh": "修改箭头的显示状态以及修改箭头是否指向目标元素中心"
+      "description_zh": "修改箭头的显示状态以及修改箭头是否指向目标元素中心",
+      "version": "5.2.0"
     },
     "autoAdjustOverflow": {
       "value": "",
@@ -27,14 +36,16 @@
       "default": "-",
       "type": "string",
       "description": "Background color",
-      "description_zh": "背景颜色"
+      "description_zh": "背景颜色",
+      "version": "4.3.0"
     },
     "defaultOpen": {
       "value": "",
       "default": "false",
       "type": "boolean",
       "description": "Whether it is visible or hidden by default",
-      "description_zh": "默认是否显隐"
+      "description_zh": "默认是否显隐",
+      "version": "4.23.0"
     },
     "destroyTooltipOnHide": {
       "value": "",
@@ -48,7 +59,8 @@
       "default": "false",
       "type": "boolean",
       "description": "By default, Tooltip caches content when it is closed. Once this property is set, it is always updated",
-      "description_zh": "默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新"
+      "description_zh": "默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新",
+      "version": "5.10.0"
     },
     ":getPopupContainer": {
       "value": "",
@@ -75,31 +87,44 @@
       "value": "",
       "default": "-",
       "type": "string",
-      "description": "The name of the card class",
-      "description_zh": "卡片类名"
+      "description": "Card class name (deprecated, please use classNames={{ root: '' }} instead)",
+      "description_zh": "卡片类名, 请使用 `classNames={{ root: '' }}` 替换"
     },
     ":overlayStyle": {
       "value": "",
       "default": "-",
-      "type": "object",
-      "description": "Card style",
-      "description_zh": "卡片样式"
+      "type": "React.CSSProperties",
+      "description": "Card style (deprecated, please use styles={{ root: {} }} instead)",
+      "description_zh": "卡片样式, 请使用 `styles={{ root: {} }}` 替换"
     },
     ":overlayInnerStyle": {
       "value": "",
       "default": "-",
-      "type": "object",
-      "description": "A style object in the content area of the card",
-      "description_zh": "卡片内容区域的样式对象"
+      "type": "React.CSSProperties",
+      "description": "A style object in the content area of the card (deprecated, please use styles={{ body: {} }} instead)",
+      "description_zh": "卡片内容区域的样式对象, 请使用 `styles={{ body: {} }}` 替换"
     },
     "placement": {
-      "value": ["top", "left", "right", "bottom", "topleft", "topright", "bottomleft", "bottomright", "lefttop", "leftBottom", "rightTop", "rightBottom"],
+      "value": [
+        "top",
+        "left",
+        "right",
+        "bottom",
+        "topLeft",
+        "topRight",
+        "bottomLeft",
+        "bottomRight",
+        "leftTop",
+        "leftBottom",
+        "rightTop",
+        "rightBottom"
+      ],
       "default": "top",
       "type": "string",
-      "description": "bubble box position, select top left right bottom topleft topright bottomleft bottomright lefttop leftBottom rightTop rightBottom",
-      "description_zh": "气泡框位置，可选 top left right bottom topLeft topRight bottomLeft bottomRight leftTop leftBottom rightTop rightBottom"
+      "description": "Bubble box position",
+      "description_zh": "气泡框位置"
     },
-    "trigger": {
+    ":trigger": {
       "value": [
         "hover",
         "focus",
@@ -107,16 +132,17 @@
         "contextMenu"
       ],
       "default": "hover",
-      "type": "string | string[]",
-      "description": "Trigger behavior, optionally hover | focus | click | contextMenu, which can be used to set multiple trigger behaviors using arrays",
-      "description_zh": "触发行为，可选 hover | focus | click | contextMenu，可使用数组设置多个触发行为"
+      "type": "string / string[]",
+      "description": "Trigger behavior, optionally hover / focus / click / contextMenu, which can be used to set multiple trigger behaviors using arrays",
+      "description_zh": "触发行为，可选 hover / focus / click / contextMenu，可使用数组设置多个触发行为"
     },
     "open": {
       "value": "",
       "default": "false",
       "type": "boolean",
-      "description": "Used to manually control the visibility and concealment of the overlay, less than 4.23.0 using visible (why?) ）",
-      "description_zh": "用于手动控制浮层显隐，小于 4.23.0 使用 visible（为什么?）"
+      "description": "Used to manually control the visibility and concealment of the overlay, less than 4.23.0 using visible",
+      "description_zh": "用于手动控制浮层显隐，小于 4.23.0 使用 visible",
+      "version": "4.23.0"
     },
     ":zIndex": {
       "value": "",
@@ -124,6 +150,13 @@
       "type": "number",
       "description": "Set the z-index of the Tooltip",
       "description_zh": "设置 Tooltip 的 z-index"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
@@ -133,9 +166,10 @@
       "description": "Show hidden callbacks",
       "params": "(open: boolean) => void",
       "description_zh": "显示隐藏的回调",
-      "value": ""
+      "value": "",
+      "version": "4.23.0"
     }
   ],
-  "link": "https://ant.design/components//tooltip",
-  "link_zh": "https://ant.design/components//tooltip"
+  "link": "https://ant.design/components/tooltip",
+  "link_zh": "https://ant.design/components/tooltip"
 }

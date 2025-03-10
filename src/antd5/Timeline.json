@@ -16,7 +16,7 @@
       "value": "",
       "description": "Specifies whether the last ghost node exists or what it contains",
       "default": "false",
-      "type": "boolean | ReactNode",
+      "type": "boolean / ReactNode",
       "description_zh": "指定最后一个幽灵节点是否存在或内容"
     },
     ":pendingDot": {
@@ -35,45 +35,61 @@
     },
     ":items": {
       "value": "",
-      "description": "option configuration",
-      "default": "5.2.0",
+      "description": "Option configuration",
+      "default": "-",
       "type": "Items[]",
-      "description_zh": "选项配置"
+      "description_zh": "选项配置",
+      "version": "5.2.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "typeDetail": {
-    "items": [
+    "Items": [
       {
         "name": "color",
+        "description": "Specifies circle color 'blue', 'red', 'green', 'gray', or custom color values",
+        "description_zh": "指定圆圈颜色 `blue`、`red`、`green`、`gray`，或自定义的色值",
         "type": "string",
-        "description": "指定圆圈颜色 blue、red、green、gray，或自定义的色值",
         "default": "blue"
       },
       {
         "name": "dot",
-        "type": "string",
-        "description": "自定义时间轴点",
-        "default": "ReactNode"
+        "description": "Custom timeline point",
+        "description_zh": "自定义时间轴点",
+        "type": "ReactNode",
+        "default": "-"
       },
       {
         "name": "label",
-        "description": "设置标签",
-        "type": "ReactNode"
+        "description": "Set label",
+        "description_zh": "设置标签",
+        "type": "ReactNode",
+        "default": "-"
       },
       {
         "name": "children",
+        "description": "Set content",
+        "description_zh": "设置内容",
         "type": "ReactNode",
-        "description": "设置内容"
+        "default": "-"
       },
       {
-        "name": "color",
-        "description": "自定义节点位置",
-        "type": "left | right"
+        "name": "position",
+        "description": "Custom node position",
+        "description_zh": "自定义节点位置",
+        "type": "left | right",
+        "default": "-"
       }
     ]
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//timeline",
-  "link_zh": "https://ant.design/components//timeline"
+  "link": "https://ant.design/components/timeline",
+  "link_zh": "https://ant.design/components/timeline"
 }

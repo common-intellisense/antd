@@ -11,8 +11,8 @@
     ":activeKey": {
       "value": "",
       "description": "The key of the currently active tab panel",
-      "default": "默认无，accordion 模式下默认第一个元素",
-      "type": "string[] | string |  number[] | number",
+      "default": "In accordion mode, defaults to first element",
+      "type": "string[] / string / number[] / number",
       "description_zh": "当前激活 tab 面板的 key"
     },
     "bordered": {
@@ -31,13 +31,14 @@
       "description": "Whether all sub-panels are collapsible or specify a collapsible trigger area",
       "default": "-",
       "type": "header / icon / disabled",
-      "description_zh": "所有子面板是否可折叠或指定可折叠触发区域"
+      "description_zh": "所有子面板是否可折叠或指定可折叠触发区域",
+      "version": "4.9.0"
     },
     ":defaultActiveKey": {
       "value": "",
       "description": "Initialize the key of the selection panel",
       "default": "-",
-      "type": "string[] | string | number[] | number",
+      "type": "string[] / string / number[] / number",
       "description_zh": "初始化选中面板的 key"
     },
     "destroyInactivePanel": {
@@ -62,14 +63,16 @@
       "description": "Set the icon position",
       "default": "-",
       "type": "start / end",
-      "description_zh": "设置图标位置"
+      "description_zh": "设置图标位置",
+      "version": "4.21.0"
     },
     "ghost": {
       "value": "",
       "description": "Make the folded panel transparent and borderless",
       "default": "false",
       "type": "boolean",
-      "description_zh": "使折叠面板透明且无边框"
+      "description_zh": "使折叠面板透明且无边框",
+      "version": "4.4.0"
     },
     "size": {
       "value": [
@@ -80,14 +83,23 @@
       "description": "Sets the collapse panel size",
       "default": "middle",
       "type": "large / middle / small",
-      "description_zh": "设置折叠面板大小"
+      "description_zh": "设置折叠面板大小",
+      "version": "5.2.0"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     },
     ":items": {
       "value": "",
       "description": "Collapse the project content",
       "default": "-",
-      "type": "[ItemType]",
+      "type": "[ItemType](#itemtype)",
       "description_zh": "折叠项目内容",
+      "version": "5.6.0",
       "required": true
     }
   },
@@ -97,11 +109,78 @@
       "name": "onChange",
       "description": "Toggle the callback of the panel",
       "params": "function",
-      "description_zh": "切换面板的回调",
-      "value": ""
+      "description_zh": "切换面板的回调"
     }
   ],
-  "suggestions": ["Collapse.Panel"],
-  "link": "https://ant.design/components//collapse",
-  "link_zh": "https://ant.design/components//collapse"
+  "typeDetail": {
+    "ItemType": [
+      {
+        "name": "classNames",
+        "type": "Record<header | body, string>",
+        "description": "Semantic structure className",
+        "description_zh": "语义化结构 className",
+        "default": "-",
+        "version": "5.21.0"
+      },
+      {
+        "name": "collapsible",
+        "type": "header | icon | disabled",
+        "description": "Whether it can be collapsed or specify a collapsible trigger area",
+        "description_zh": "是否可折叠或指定可折叠触发区域",
+        "default": "-"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "description": "Body area content",
+        "description_zh": "body 区域内容",
+        "default": "-"
+      },
+      {
+        "name": "extra",
+        "type": "ReactNode",
+        "description": "Custom rendering of content in the upper right corner of each panel",
+        "description_zh": "自定义渲染每个面板右上角的内容",
+        "default": "-"
+      },
+      {
+        "name": "forceRender",
+        "type": "boolean",
+        "description": "Whether to render the body area DOM structure when hidden",
+        "description_zh": "被隐藏时是否渲染 body 区域 DOM 结构",
+        "default": "false"
+      },
+      {
+        "name": "key",
+        "type": "string | number",
+        "description": "Corresponding activeKey",
+        "description_zh": "对应 activeKey",
+        "default": "-"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "description": "Panel title",
+        "description_zh": "面板标题",
+        "default": "-"
+      },
+      {
+        "name": "showArrow",
+        "type": "boolean",
+        "description": "Whether to display arrows on the current panel (when false, collapsible cannot be set to icon)",
+        "description_zh": "是否展示当前面板上的箭头（为 false 时，collapsible 不能设为 icon）",
+        "default": "true"
+      },
+      {
+        "name": "styles",
+        "type": "Record<header | body, CSSProperties>",
+        "description": "Semantic structure style",
+        "description_zh": "语义化结构 style",
+        "default": "-",
+        "version": "5.21.0"
+      }
+    ]
+  },
+  "link": "https://ant.design/components/collapse",
+  "link_zh": "https://ant.design/components/collapse-cn"
 }

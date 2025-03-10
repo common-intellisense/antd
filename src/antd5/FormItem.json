@@ -76,7 +76,8 @@
       "description": "The text of the label label",
       "default": "-",
       "type": "ReactNode",
-      "description_zh": "label 标签的文本"
+      "description_zh": "label 标签的文本",
+      "required": "true"
     },
     "labelAlign": {
       "value": [

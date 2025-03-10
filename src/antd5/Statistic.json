@@ -4,7 +4,7 @@
     "decimalSeparator": {
       "value": "",
       "description": "Set the decimal point",
-      "default": "`.`",
+      "default": ".",
       "type": "string",
       "description_zh": "设置小数点"
     },
@@ -18,7 +18,7 @@
     "groupSeparator": {
       "value": "",
       "description": "Set the thousandth identifier",
-      "default": "`,`",
+      "default": ",",
       "type": "string",
       "description_zh": "设置千分位标识符"
     },
@@ -27,7 +27,8 @@
       "description": "Whether the value is loading",
       "default": "false",
       "type": "boolean",
-      "description_zh": "数值是否加载中"
+      "description_zh": "数值是否加载中",
+      "version": "4.8.0"
     },
     ":precision": {
       "value": "",
@@ -57,11 +58,11 @@
       "type": "ReactNode",
       "description_zh": "数值的标题"
     },
-    "value": {
+    ":value": {
       "value": "",
       "description": "Numerical content",
       "default": "-",
-      "type": "string | number",
+      "type": "string / number",
       "description_zh": "数值内容"
     },
     ":valueStyle": {
@@ -70,10 +71,20 @@
       "default": "-",
       "type": "CSSProperties",
       "description_zh": "设置数值区域的样式"
+    },
+    "rootClassName": {
+      "value": "",
+      "description": "className added to the outermost layer of the component",
+      "default": "-",
+      "type": "string",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [],
-  "link": "https://ant.design/components//statistic",
-  "link_zh": "https://ant.design/components//statistic"
+  "suggestions": [
+    "Statistic.Countdown"
+  ],
+  "link": "https://ant.design/components/statistic",
+  "link_zh": "https://ant.design/components/statistic"
 }
