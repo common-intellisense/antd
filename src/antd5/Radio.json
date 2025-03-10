@@ -29,7 +29,7 @@
       "type": "boolean",
       "description_zh": "禁用 Radio"
     },
-    "value": {
+    ":value": {
       "value": "",
       "description": "Compare based on the value to determine whether it is selected",
       "default": "-",

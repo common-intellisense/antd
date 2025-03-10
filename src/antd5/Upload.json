@@ -63,7 +63,8 @@
       "value": "",
       "type": "UploadFile[]",
       "description": "A list of files that have been uploaded (controlled), if you encounter an issue where 'onChange' is only called once when you use this parameter, please refer to #2423",
-      "description_zh": "已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 #2423"
+      "description_zh": "已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 #2423",
+      "required": true
     },
     ":headers": {
       "default": "-",

@@ -344,10 +344,11 @@
       "value": "",
       "type": "string / string[]",
       "description": "To set the current selected item",
-      "description_zh": "指定当前选中的条目"
+      "description_zh": "指定当前选中的条目",
+      "required": true
     },
     "variant": {
-      "default": "`outlined`",
+      "default": "outlined",
       "value": "",
       "type": "outlined / borderless / filled / underlined",
       "description": "Variants of selector",

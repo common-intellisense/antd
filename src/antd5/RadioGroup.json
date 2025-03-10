@@ -2,84 +2,156 @@
   "name": "Radio.Group",
   "props": {
     "buttonStyle": {
-      "value": [
-        "outline",
-        "solid"
-      ],
-      "description": "The style of RadioButton is currently available in two styles: stroke and fill",
       "default": "outline",
+      "value": "",
       "type": "outline / solid",
+      "description": "RadioButton 的风格样式，目前有描边和填色两种风格",
       "description_zh": "RadioButton 的风格样式，目前有描边和填色两种风格"
     },
-    "defaultValue": {
-      "value": "",
-      "description": "The default selected value",
+    ":defaultValue": {
       "default": "-",
+      "value": "",
       "type": "any",
+      "description": "默认选中的值",
       "description_zh": "默认选中的值"
     },
     "disabled": {
-      "value": "",
-      "description": "Disable all sub-selectors",
       "default": "false",
+      "value": "",
       "type": "boolean",
+      "description": "禁选所有子单选器",
       "description_zh": "禁选所有子单选器"
     },
     "name": {
-      "value": "",
-      "description": "The 'name' attribute of all 'input[type=\"radio\"]' under the RadioGroup",
       "default": "-",
+      "value": "",
       "type": "string",
-      "description_zh": "RadioGroup 下所有 `input[type=\"radio\"]` 的 `name` 属性"
+      "description": "RadioGroup 下所有 `input[type=\"radio\"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称",
+      "description_zh": "RadioGroup 下所有 `input[type=\"radio\"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称"
     },
     ":options": {
-      "value": "",
-      "description": "Set up child elements as a configuration",
       "default": "-",
-      "type": "string\\[] | number\\[] | Array<{ label: ReactNode; value: string; disabled?: boolean; }>",
-      "required": true,
+      "value": "",
+      "type": "string[] / number[] / Array<CheckboxOptionType>",
+      "description": "以配置形式设置子元素",
       "description_zh": "以配置形式设置子元素"
     },
     "optionType": {
-      "value": [
-        "default",
-        "button"
-      ],
-      "description": "Lets you set the Radio 'options' type",
       "default": "default",
+      "value": "",
       "type": "default / button",
-      "description_zh": "用于设置 Radio `options` 类型"
+      "description": "用于设置 Radio `options` 类型",
+      "description_zh": "用于设置 Radio `options` 类型",
+      "version": "4.4.0"
     },
     "size": {
-      "value": [
-        "large",
-        "middle",
-        "small"
-      ],
-      "description": "size, which is only valid for button styles",
       "default": "-",
+      "value": "",
       "type": "large / middle / small",
+      "description": "大小，只对按钮样式生效",
       "description_zh": "大小，只对按钮样式生效"
     },
-    "value": {
-      "value": "",
-      "description": "Lets you set the currently selected value",
+    ":value": {
       "default": "-",
+      "value": "",
       "type": "any",
+      "description": "用于设置当前选中的值",
       "description_zh": "用于设置当前选中的值",
       "required": true
+    },
+    "block": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "将 RadioGroup 宽度调整为其父宽度的选项",
+      "description_zh": "将 RadioGroup 宽度调整为其父宽度的选项",
+      "version": "5.21.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
-  "methods": [],
   "events": [
     {
       "name": "onChange",
-      "description": "The callback function when the option changes",
-      "params": "function(e:Event)",
+      "description": "选项变化时的回调函数",
       "description_zh": "选项变化时的回调函数",
-      "value": ""
+      "params": "function(e:Event)"
     }
   ],
-  "link": "https://ant.design/components//radio",
-  "link_zh": "https://ant.design/components//radio"
+  "methods": [],
+  "link": "https://ant.design/components/radio-cn",
+  "link_zh": "https://ant.design/components/radio-cn",
+  "typeDetail": {
+    "CheckboxOptionType": [
+      {
+        "name": "label",
+        "description": "用于作为 Radio 选项展示的文本",
+        "description_zh": "用于作为 Radio 选项展示的文本",
+        "type": "string",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "value",
+        "description": "关联 Radio 选项的值",
+        "description_zh": "关联 Radio 选项的值",
+        "type": "string / number / boolean",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "style",
+        "description": "应用到 Radio 选项的 style",
+        "description_zh": "应用到 Radio 选项的 style",
+        "type": "React.CSSProperties",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "disabled",
+        "description": "指定 Radio 选项是否要禁用",
+        "description_zh": "指定 Radio 选项是否要禁用",
+        "type": "boolean",
+        "default": "false",
+        "version": "4.4.0"
+      },
+      {
+        "name": "title",
+        "description": "添加 Title 属性值",
+        "description_zh": "添加 Title 属性值",
+        "type": "string",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "id",
+        "description": "添加 Radio Id 属性值",
+        "description_zh": "添加 Radio Id 属性值",
+        "type": "string",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "onChange",
+        "description": "当 Radio Group 的值发送改变时触发",
+        "description_zh": "当 Radio Group 的值发送改变时触发",
+        "type": "(e: CheckboxChangeEvent) => void",
+        "default": "-",
+        "version": "4.4.0"
+      },
+      {
+        "name": "required",
+        "description": "指定 Radio 选项是否必填",
+        "description_zh": "指定 Radio 选项是否必填",
+        "type": "boolean",
+        "default": "false",
+        "version": "4.4.0"
+      }
+    ]
+  }
 }

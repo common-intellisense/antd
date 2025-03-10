@@ -36,6 +36,14 @@
       "type": "boolean",
       "description_zh": "初始是否选中"
     },
+    "defaultValue": {
+      "value": "",
+      "description": "Alias for defaultChecked",
+      "default": "-",
+      "type": "boolean",
+      "description_zh": "defaultChecked 的别名",
+      "version": "5.12.0"
+    },
     "disabled": {
       "value": "",
       "description": "Whether to disable or not",
@@ -58,7 +66,7 @@
       "description": "Switch size, optionally: 'default' small",
       "default": "default",
       "type": "string",
-      "description_zh": "开关大小，可选值：`default` small"
+      "description_zh": "开关大小，可选值：`default` `small`"
     },
     ":unCheckedChildren": {
       "value": "",
@@ -66,6 +74,22 @@
       "default": "-",
       "type": "ReactNode",
       "description_zh": "非选中时的内容"
+    },
+    "value": {
+      "value": "",
+      "description": "Alias for checked",
+      "default": "-",
+      "type": "boolean",
+      "description_zh": "checked 的别名",
+      "version": "5.12.0",
+      "required": true
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [
@@ -100,6 +124,6 @@
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//switch",
-  "link_zh": "https://ant.design/components//switch"
+  "link": "https://ant.design/components/switch",
+  "link_zh": "https://ant.design/components/switch-cn"
 }

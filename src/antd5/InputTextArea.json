@@ -1,31 +1,209 @@
 {
   "name": "Input.TextArea",
   "props": {
-    "autoSize": {
+    ":autoSize": {
       "default": "false",
       "value": "",
-      "type": "boolean | object",
+      "type": "boolean / object",
       "description": "自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }",
       "description_zh": "自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }"
     },
-    "classNames": {
+    "placeholder": {
+      "default": "-",
+      "value": "请输入",
+      "type": "string",
+      "description": "输入框占位文本",
+      "description_zh": "输入框占位文本",
+      "required": true
+    },
+    "allowClear": {
+      "default": "-",
+      "value": "",
+      "type": "boolean / { clearIcon: ReactNode }",
+      "description": "可以点击清除图标删除内容",
+      "description_zh": "可以点击清除图标删除内容"
+    },
+    "bordered": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "是否有边框, 请使用 `variant` 替换",
+      "description_zh": "是否有边框, 请使用 `variant` 替换",
+      "version": "4.5.0",
+      "deprecated": true
+    },
+    ":classNames": {
       "default": "-",
       "value": "",
       "type": "Record<SemanticDOM, string>",
       "description": "语义化结构 class",
-      "description_zh": "语义化结构 class"
+      "description_zh": "语义化结构 class",
+      "version": "5.4.0"
     },
-    "styles": {
+    ":count": {
+      "default": "-",
+      "value": "",
+      "type": "CountConfig",
+      "description": "字符计数配置",
+      "description_zh": "字符计数配置",
+      "version": "5.10.0"
+    },
+    "defaultValue": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "输入框默认内容",
+      "description_zh": "输入框默认内容"
+    },
+    "disabled": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "是否禁用状态，默认为 false",
+      "description_zh": "是否禁用状态，默认为 false"
+    },
+    "id": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "输入框的 id",
+      "description_zh": "输入框的 id"
+    },
+    ":maxLength": {
+      "default": "-",
+      "value": "",
+      "type": "number",
+      "description": "最大长度",
+      "description_zh": "最大长度"
+    },
+    ":showCount": {
+      "default": "false",
+      "value": "",
+      "type": "boolean / { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode }",
+      "description": "是否展示字数",
+      "description_zh": "是否展示字数",
+      "version": "4.18.0 info.value: 4.23.0"
+    },
+    "status": {
+      "default": "-",
+      "value": "",
+      "type": "error / warning",
+      "description": "设置校验状态",
+      "description_zh": "设置校验状态",
+      "version": "4.19.0"
+    },
+    ":styles": {
       "default": "-",
       "value": "",
       "type": "Record<SemanticDOM, CSSProperties>",
       "description": "语义化结构 style",
-      "description_zh": "语义化结构 style"
+      "description_zh": "语义化结构 style",
+      "version": "5.4.0"
+    },
+    "size": {
+      "default": "-",
+      "value": "",
+      "type": "large / middle / small",
+      "description": "控件大小。注：标准表单内的输入框大小限制为 middle",
+      "description_zh": "控件大小。注：标准表单内的输入框大小限制为 middle"
+    },
+    "value": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "输入框内容",
+      "description_zh": "输入框内容"
+    },
+    "variant": {
+      "default": "outlined",
+      "value": "",
+      "type": "outlined / borderless / filled / underlined",
+      "description": "形态变体",
+      "description_zh": "形态变体",
+      "version": "5.13.0 | `underlined`: 5.24.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
-  "methods": [],
+  "methods": [
+    {
+      "name": "blur",
+      "description": "移除焦点",
+      "description_zh": "移除焦点",
+      "params": ""
+    },
+    {
+      "name": "focus",
+      "description": "获取焦点",
+      "description_zh": "获取焦点",
+      "params": "(option?: { preventScroll?: boolean })"
+    }
+  ],
   "link": "https://ant.design/components/input-cn#inputtextarea",
   "link_zh": "https://ant.design/components/input-cn#inputtextarea",
-  "events": [],
-  "typeDetail": {}
+  "events": [
+    {
+      "name": "onChange",
+      "description": "输入框内容变化时的回调",
+      "description_zh": "输入框内容变化时的回调",
+      "params": "function(e)"
+    },
+    {
+      "name": "onPressEnter",
+      "description": "按下回车的回调",
+      "description_zh": "按下回车的回调",
+      "params": "function(e)"
+    },
+    {
+      "name": "onClear",
+      "description": "按下清除按钮的回调",
+      "description_zh": "按下清除按钮的回调",
+      "params": "() => void",
+      "version": "5.20.0"
+    },
+    {
+      "name": "onResize",
+      "description": "resize 回调",
+      "description_zh": "resize 回调",
+      "params": "function({ width, height })"
+    }
+  ],
+  "typeDetail": {
+    "SemanticDOM": "TextArea 语义化结构，目前支持的键值如下：'textarea', 'count'",
+    "CountConfig": [
+      {
+        "name": "max",
+        "description": "最大字符数，不同于原生 `maxLength`，超出后标红但不会截断",
+        "description_zh": "最大字符数，不同于原生 `maxLength`，超出后标红但不会截断",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "strategy",
+        "description": "自定义字符计数，例如标准 emoji 长度大于 1，可以自定义计数策略将其改为 1",
+        "description_zh": "自定义字符计数，例如标准 emoji 长度大于 1，可以自定义计数策略将其改为 1",
+        "type": "(value: string) => number",
+        "default": "-"
+      },
+      {
+        "name": "show",
+        "description": "同 `showCount`",
+        "description_zh": "同 `showCount`",
+        "type": "boolean | ((args: { value: string; count: number; maxLength?: number }) => ReactNode)",
+        "default": "-"
+      },
+      {
+        "name": "exceedFormatter",
+        "description": "当字符数超出 `count.max` 时的自定义裁剪逻辑，不配置时不进行裁剪",
+        "description_zh": "当字符数超出 `count.max` 时的自定义裁剪逻辑，不配置时不进行裁剪",
+        "type": "(value: string, config: { max: number }) => string",
+        "default": "-"
+      }
+    ]
+  }
 }

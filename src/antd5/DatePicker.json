@@ -4,22 +4,23 @@
     "allowClear": {
       "default": "true",
       "value": "",
-      "type": "boolean | { clearIcon?: ReactNode }",
-      "description": "自定义清除按钮",
-      "description_zh": "自定义清除按钮"
+      "type": "boolean / { clearIcon?: ReactNode }",
+      "description": "Custom clear button",
+      "description_zh": "自定义清除按钮",
+      "version": "5.8.0: 支持对象类型"
     },
     "autoFocus": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "自动获取焦点",
+      "description": "Get focus by default",
       "description_zh": "自动获取焦点"
     },
     "className": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "选择器 className",
+      "description": "The className of picker",
       "description_zh": "选择器 className"
     },
     ":dateRender": {
@@ -27,51 +28,79 @@
       "description": "Customize the contents of the date cell, replace it with 'cellRender' from 5.4.0",
       "default": "-",
       "type": "function(currentDate: dayjs, today: dayjs) => React.ReactNode",
-      "description_zh": "自定义日期单元格的内容，5.4.0 起用 cellRender 代替"
+      "description_zh": "自定义日期单元格的内容，5.4.0 起用 cellRender 代替",
+      "version": "< 5.4.0"
     },
     "changeOnBlur": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "失去焦点时触发 change 事件，例如 datetime 下不再需要点击确认按钮",
+      "description": "Trigger change when blur, e.g. datetime picker no longer require click confirm button",
       "description_zh": "失去焦点时触发 change 事件，例如 datetime 下不再需要点击确认按钮"
     },
     ":cellRender": {
       "description": "Customize the contents of the cell",
       "default": "-",
       "value": "",
-      "type": "(current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode",
-      "description_zh": "自定义单元格的内容"
+      "type": "(current: dayjs, info: { originNode: React.ReactElement, today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode",
+      "description_zh": "自定义单元格的内容",
+      "version": "5.4.0"
+    },
+    ":components": {
+      "default": "-",
+      "value": "",
+      "type": "Record<Panel | 'input', React.ComponentType>",
+      "description": "Custom panel components",
+      "description_zh": "自定义面板",
+      "version": "5.14.0"
     },
     "disabled": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "禁用",
+      "description": "Determine whether the DatePicker is disabled",
       "description_zh": "禁用"
     },
     ":disabledDate": {
-      "description": "Unselectable dates",
+      "description": "Specify the date that cannot be selected",
       "default": "-",
       "value": "",
-      "type": "(currentDate: dayjs) => boolean",
-      "description_zh": "不可选择的日期"
+      "type": "(currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean",
+      "description_zh": "不可选择的日期",
+      "version": "info: 5.14.0"
     },
     ":format": {
       "value": [
         "[rc-picker]"
       ],
-      "description": "Set the date format, support multi-format matching when it is an array, and the display is based on the first one",
+      "description": "Set the date format. When an array, all formats match and displayed using the first one",
       "default": "[rc-picker]",
-      "type": "[formatType]",
+      "type": "formatType",
       "description_zh": "设置日期格式，为数组时支持多格式匹配，展示以第一个为准"
+    },
+    "order": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "Auto order for multiple and range selection",
+      "description_zh": "多选、范围时是否自动排序",
+      "version": "5.14.0"
+    },
+    "preserveInvalidOnBlur": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether to keep invalid input when blur",
+      "description_zh": "失去焦点是否要清空输入框内无效内容",
+      "version": "5.14.0"
     },
     "popupClassName": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "额外的弹出日历 className",
-      "description_zh": "额外的弹出日历 className"
+      "description": "The className of the popup calendar",
+      "description_zh": "额外的弹出日历 className",
+      "version": "4.23.0"
     },
     ":getPopupContainer": {
       "description": "The container that defines the floating layer, defaults to a new div on the body",
@@ -84,37 +113,62 @@
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "设置输入框为只读（避免在移动设备上打开虚拟键盘）",
+      "description": "Set the readonly attribute of the input tag (avoid virtual keyboard on touch devices)",
       "description_zh": "设置输入框为只读（避免在移动设备上打开虚拟键盘）"
     },
     ":locale": {
       "value": [
         "[默认配置]"
       ],
-      "description": "Internationalized configuration",
+      "description": "Internationalization configuration",
       "default": "[默认配置]",
       "type": "object",
       "description_zh": "国际化配置"
+    },
+    ":minDate": {
+      "default": "-",
+      "value": "",
+      "type": "dayjs",
+      "description": "Min date, will also limit the panel switching range",
+      "description_zh": "最小日期，同样会限制面板的切换范围",
+      "version": "5.14.0"
+    },
+    ":maxDate": {
+      "default": "-",
+      "value": "",
+      "type": "dayjs",
+      "description": "Max date, will also limit the panel switching range",
+      "description_zh": "最大日期，同样会限制面板的切换范围",
+      "version": "5.14.0"
     },
     "mode": {
       "default": "-",
       "value": "",
       "type": "time / date / month / year / decade",
-      "description": "日期面板的状态（设置后无法选择年份/月份？）",
+      "description": "The picker panel mode",
       "description_zh": "日期面板的状态（设置后无法选择年份/月份？）"
+    },
+    "needConfirm": {
+      "default": "-",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether to show confirm button, when set to false, loses focus means confirm. Default to false when multiple is set",
+      "description_zh": "是否需要确认按钮，为 `false` 时失去焦点即代表选择。当设置 `multiple` 时默认为 `false`",
+      "version": "5.14.0"
     },
     ":nextIcon": {
       "value": "",
       "description": "Customize the next icon",
       "default": "-",
       "type": "ReactNode",
-      "description_zh": "自定义下一个图标"
+      "description_zh": "自定义下一个图标",
+      "version": "4.17.0"
     },
     "open": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "控制弹层是否展开",
+      "description": "Control whether the popup calendar is visible or not",
       "description_zh": "控制弹层是否展开"
     },
     ":panelRender": {
@@ -122,51 +176,57 @@
       "default": "-",
       "value": "",
       "type": "(panelNode) => ReactNode",
-      "description_zh": "自定义渲染面板"
+      "description_zh": "自定义渲染面板",
+      "version": "4.5.0"
     },
     "picker": {
       "default": "date",
       "value": "",
       "type": "date / week / month / quarter / year",
-      "description": "设置选择器类型",
-      "description_zh": "设置选择器类型"
+      "description": "Set picker type",
+      "description_zh": "设置选择器类型",
+      "version": "quarter: 4.1.0"
     },
     "placeholder": {
       "value": "",
       "description": "Input box prompt text",
-      "default": "请输入",
-      "type": "string | [string, string]",
-      "required": true,
-      "description_zh": "输入框提示文字",
-      "$label": "请输入$label",
-      "related": [
-        "el-form-item.label"
-      ]
+      "default": "-",
+      "type": "string / [string, string]",
+      "description_zh": "输入框提示文字"
     },
     "placement": {
       "default": "bottomLeft",
       "value": "",
       "type": "bottomLeft / bottomRight / topLeft / topRight",
-      "description": "选择框弹出的位置",
+      "description": "The position where the popup calendar will appear",
       "description_zh": "选择框弹出的位置"
     },
     ":popupStyle": {
       "value": "",
-      "description": "Additional pop-up calendar style",
+      "description": "Additional style for popup calendar",
       "default": "{}",
       "type": "CSSProperties",
       "description_zh": "额外的弹出日历样式"
+    },
+    ":prefix": {
+      "default": "-",
+      "value": "",
+      "type": "ReactNode",
+      "description": "Custom prefix",
+      "description_zh": "自定义前缀",
+      "version": "5.22.0"
     },
     ":prevIcon": {
       "description": "Customize the previous icon",
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description_zh": "自定义上一个图标"
+      "description_zh": "自定义上一个图标",
+      "version": "4.17.0"
     },
     ":presets": {
       "value": "",
-      "description": "Preset time range for quick selection",
+      "description": "Preset time range shortcut. Value support function return from 5.8.0",
       "default": "-",
       "type": "{ label: React.ReactNode, value: Dayjs | (() => Dayjs) }[]",
       "description_zh": "预设时间范围快捷选择, 自 5.8.0 起 value 支持函数返回值"
@@ -175,149 +235,198 @@
       "default": "-",
       "value": "",
       "type": "large / middle / small",
-      "description": "输入框大小，large 高度为 40px，small 为 24px，默认是 32px",
+      "description": "To set the size of the input box, large 40px, middle 32px, small 24px",
       "description_zh": "输入框大小，large 高度为 40px，small 为 24px，默认是 32px"
     },
     "status": {
       "default": "-",
       "value": "",
       "type": "error / warning",
-      "description": "设置校验状态",
-      "description_zh": "设置校验状态"
+      "description": "Set validation status",
+      "description_zh": "设置校验状态",
+      "version": "4.19.0"
     },
     ":style": {
       "default": "{}",
       "value": "",
       "type": "CSSProperties",
-      "description": "自定义输入框样式",
+      "description": "Custom input style",
       "description_zh": "自定义输入框样式"
     },
-    "suffixIcon": {
+    ":suffixIcon": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义的选择框后缀图标",
+      "description": "Custom suffix icon",
       "description_zh": "自定义的选择框后缀图标"
     },
-    "superNextIcon": {
+    ":superNextIcon": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义 >> 切换图标",
-      "description_zh": "自定义 >> 切换图标"
+      "description": "Custom >> icon",
+      "description_zh": "自定义 >> 切换图标",
+      "version": "4.17.0"
     },
-    "superPrevIcon": {
+    ":superPrevIcon": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义 << 切换图标",
-      "description_zh": "自定义 << 切换图标"
+      "description": "Custom << icon",
+      "description_zh": "自定义 << 切换图标",
+      "version": "4.17.0"
     },
     "variant": {
       "default": "outlined",
       "value": "",
-      "type": "outlined / borderless / filled",
-      "description": "形态变体",
-      "description_zh": "形态变体"
+      "type": "outlined / borderless / filled / underlined",
+      "description": "Variants of picker",
+      "description_zh": "形态变体",
+      "version": "5.13.0 | underlined: 5.24.0"
     },
-    "defaultValue": {
+    ":defaultPickerValue": {
       "default": "-",
       "value": "",
       "type": "dayjs",
-      "description": "默认日期，如果开始时间或结束时间为 null 或者 undefined，日期范围将是一个开区间",
+      "description": "Default panel date, which will be reset when panel open",
+      "description_zh": "默认面板日期，每次面板打开时会被重置到该日期",
+      "version": "5.14.0"
+    },
+    ":defaultValue": {
+      "default": "-",
+      "value": "",
+      "type": "dayjs",
+      "description": "Default date, if start time or end time is null or undefined, the date range will be an open interval",
       "description_zh": "默认日期，如果开始时间或结束时间为 null 或者 undefined，日期范围将是一个开区间"
     },
-    "disabledTime": {
+    ":disabledTime": {
       "default": "-",
       "value": "",
       "type": "function(date)",
-      "description": "不可选择的时间",
+      "description": "Disable part of time selection",
       "description_zh": "不可选择的时间"
     },
-    "format": {
-      "default": "YYYY-MM-DD",
-      "value": "",
-      "type": "formatType",
-      "description": "展示的日期格式，配置参考 dayjs#format。",
-      "description_zh": "展示的日期格式，配置参考 dayjs#format。"
-    },
-    "renderExtraFooter": {
-      "default": "-",
-      "value": "",
-      "type": "(mode) => React.ReactNode",
-      "description": "在面板中添加额外的页脚",
-      "description_zh": "在面板中添加额外的页脚"
-    },
-    "showNow": {
+    "multiple": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "当设定了 showTime 的时候，面板是否显示“此刻”按钮",
-      "description_zh": "当设定了 showTime 的时候，面板是否显示“此刻”按钮"
+      "description": "Whether to support multiple selection, does not support showTime",
+      "description_zh": "是否为多选，不支持 showTime",
+      "version": "5.14.0"
     },
-    "showTime": {
-      "default": "TimePicker Options",
+    ":pickerValue": {
+      "default": "-",
       "value": "",
-      "type": "Object | boolean",
-      "description": "增加时间选择功能",
+      "type": "dayjs",
+      "description": "Panel date, can be used to control panel switching date. Works with onPanelChange",
+      "description_zh": "面板日期，可以用于受控切换面板所在日期。配合 onPanelChange 使用",
+      "version": "5.14.0"
+    },
+    ":renderExtraFooter": {
+      "default": "-",
+      "value": "",
+      "type": "(mode) => React.ReactNode",
+      "description": "Render extra footer in panel",
+      "description_zh": "在面板中添加额外的页脚"
+    },
+    "showNow": {
+      "default": "-",
+      "value": "",
+      "type": "boolean",
+      "description": "Show quick shortcut to select current date/time",
+      "description_zh": "当设定了 showTime 的时候，面板是否显示\"此刻\"按钮"
+    },
+    ":showTime": {
+      "default": "[TimePicker Options]",
+      "value": "",
+      "type": "Object / boolean",
+      "description": "Add time selection options",
       "description_zh": "增加时间选择功能"
     },
-    "showTime.defaultValue": {
+    ":showTime.defaultValue": {
       "default": "dayjs()",
       "value": "",
       "type": "dayjs",
-      "description": "设置用户选择日期时默认的时分秒，例子",
-      "description_zh": "设置用户选择日期时默认的时分秒，例子"
+      "description": "Set default time when user select date",
+      "description_zh": "设置用户选择日期时默认的时分秒"
     },
     "showToday": {
       "default": "true",
       "value": "",
       "type": "boolean",
-      "description": "是否展示“今天”按钮",
-      "description_zh": "是否展示“今天”按钮"
+      "description": "Whether to show 'Today' button",
+      "description_zh": "是否展示\"今天\"按钮"
     },
-    "value": {
+    "showWeek": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Show week number in DatePicker",
+      "description_zh": "DatePicker 下展示当前周",
+      "version": "5.14.0"
+    },
+    ":value": {
       "default": "-",
       "value": "",
       "type": "dayjs",
-      "description": "日期",
-      "description_zh": "日期"
+      "description": "Current date",
+      "description_zh": "日期",
+      "required": true
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add className to the outermost layer of component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
-  "methods": [],
+  "methods": [
+    {
+      "name": "blur",
+      "description": "Remove focus",
+      "description_zh": "移除焦点",
+      "params": "()"
+    },
+    {
+      "name": "focus",
+      "description": "Get focus",
+      "description_zh": "获取焦点",
+      "params": "()"
+    }
+  ],
   "link": "https://ant.design/components/date-picker-cn",
   "link_zh": "https://ant.design/components/date-picker-cn",
   "events": [
     {
       "name": "onOpenChange",
-      "description": "弹出日历和关闭日历的回调",
+      "description": "Callback when popup open/close",
       "description_zh": "弹出日历和关闭日历的回调",
       "params": "function(open)"
     },
     {
       "name": "onPanelChange",
-      "description": "日历面板切换的回调",
+      "description": "Callback when panel switching",
       "description_zh": "日历面板切换的回调",
       "params": "function(value, mode)"
     },
     {
       "name": "onChange",
-      "description": "时间发生变化的回调",
+      "description": "Callback when date is changed",
       "description_zh": "时间发生变化的回调",
       "params": "function(date: dayjs, dateString: string)"
     },
     {
       "name": "onOk",
-      "description": "点击确定按钮的回调",
+      "description": "Callback when click OK button",
       "description_zh": "点击确定按钮的回调",
       "params": "function()"
-    },
-    {
-      "name": "onPanelChange",
-      "description": "日期面板变化时的回调",
-      "description_zh": "日期面板变化时的回调",
-      "params": "function(value, mode)"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "formatType": "string | (value: Dayjs) => string | string[]",
+    "PanelMode": "'time' | 'date' | 'week' | 'month' | 'quarter' | 'year' | 'decade'"
+  },
+  "suggestions": [
+  ]
 }

@@ -1,38 +1,108 @@
 {
   "name": "Form.List",
   "props": {
-    "children": {
+    ":children": {
       "default": "-",
       "value": "",
       "type": "(fields: Field[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode",
-      "description": "渲染函数",
-      "description_zh": "渲染函数"
+      "description": "Render function",
+      "description_zh": "渲染函数",
+      "required": true
     },
-    "initialValue": {
+    ":initialValue": {
       "default": "-",
       "value": "",
       "type": "any[]",
-      "description": "设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准",
-      "description_zh": "设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准"
+      "description": "Set default values for child elements. If it conflicts with Form's initialValues, Form takes precedence",
+      "description_zh": "设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准",
+      "version": "4.9.0"
     },
-    "name": {
+    ":name": {
       "default": "-",
       "value": "",
       "type": "NamePath",
-      "description": "字段名，支持数组。List 本身也是字段，因而 getFieldsValue() 默认会返回 List 下所有值，你可以通过参数改变这一行为",
-      "description_zh": "字段名，支持数组。List 本身也是字段，因而 getFieldsValue() 默认会返回 List 下所有值，你可以通过参数改变这一行为"
+      "description": "Field name, supports arrays. The List itself is also a field, so getFieldsValue() returns all values under List by default, you can change this behavior through parameters",
+      "description_zh": "字段名，支持数组。List 本身也是字段，因而 getFieldsValue() 默认会返回 List 下所有值，你可以通过参数改变这一行为",
+      "required": true
     },
-    "rules": {
+    ":rules": {
       "default": "-",
       "value": "",
       "type": "{ validator, message }[]",
-      "description": "校验规则，仅支持自定义规则。需要配合 ErrorList 一同使用。",
-      "description_zh": "校验规则，仅支持自定义规则。需要配合 ErrorList 一同使用。"
+      "description": "Validation rules, only supports custom rules. Need to be used with ErrorList together.",
+      "description_zh": "校验规则，仅支持自定义规则。需要配合 ErrorList 一同使用。",
+      "version": "4.7.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add className to the outermost layer of component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/form-cn#formlist",
+  "link": "https://ant.design/components/form#formlist",
   "link_zh": "https://ant.design/components/form-cn#formlist",
   "events": [],
-  "typeDetail": {}
+  "typeDetail": {
+    "Field": [
+      {
+        "name": "key",
+        "description": "The unique key of the field",
+        "description_zh": "字段唯一标识",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "name",
+        "description": "The field name (index of the array)",
+        "description_zh": "字段名称（数组索引）",
+        "type": "number",
+        "default": "-"
+      },
+      {
+        "name": "fieldKey",
+        "description": "The unique field key with the meta information",
+        "description_zh": "带有元信息的字段唯一标识",
+        "type": "number",
+        "default": "-"
+      }
+    ],
+    "Operation": [
+      {
+        "name": "add",
+        "description": "Add a field to the end of the array or at specified position",
+        "description_zh": "添加一个字段到数组末尾或指定位置",
+        "type": "(defaultValue?: any, insertIndex?: number) => void",
+        "default": "insertIndex",
+        "version": "4.6.0"
+      },
+      {
+        "name": "remove",
+        "description": "Remove a field at the specified index",
+        "description_zh": "删除指定索引位置的字段",
+        "type": "(index: number | number[]) => void",
+        "default": "number[]",
+        "version": "4.5.0"
+      },
+      {
+        "name": "move",
+        "description": "Move a field from one index to another",
+        "description_zh": "将字段从一个位置移动到另一个位置",
+        "type": "(from: number, to: number) => void",
+        "default": "-"
+      }
+    ],
+    "Meta": [
+      {
+        "name": "errors",
+        "description": "Error information for the current field",
+        "description_zh": "当前字段的错误信息",
+        "type": "React.ReactNode[]",
+        "default": "-"
+      }
+    ],
+    "NamePath": "string | number | (string | number)[]"
+  }
 }

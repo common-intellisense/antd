@@ -5,12 +5,12 @@
       "value": "",
       "description": "The option is selected by default",
       "default": "[]",
-      "type": "(string | number)[]",
+      "type": "(string / number)[]",
       "description_zh": "默认选中的选项"
     },
     "disabled": {
       "value": "",
-      "description": "The entire group fails",
+      "description": "The entire group is disabled",
       "default": "false",
       "type": "boolean",
       "description_zh": "整组失效"
@@ -26,7 +26,7 @@
       "value": "",
       "description": "Specify the available options",
       "default": "[]",
-      "type": "string[] | number[] | Option[]",
+      "type": "string[] / number[] / Option[]",
       "description_zh": "指定可选项",
       "required": true
     },
@@ -34,22 +34,54 @@
       "value": "",
       "description": "Specify the selected options",
       "default": "[]",
-      "type": "(string | number | boolean)[]",
+      "type": "(string / number / boolean)[]",
       "description_zh": "指定选中的选项",
       "required": true
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add className to the outermost layer of component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "events": [
     {
       "name": "onChange",
-      "description": "The callback function when it changes",
-      "params": "(e: CheckboxChangeEvent) => void",
+      "description": "The callback function when selection changes",
+      "params": "(checkedValue: T[]) => void",
       "description_zh": "变化时的回调函数",
-      "value": ""
+      "required": true
     }
   ],
-  "suggestions": ["Checkbox"],
-  "link": "https://ant.design/components//checkbox",
-  "link_zh": "https://ant.design/components//checkbox"
+  "typeDetail": {
+    "Option": [
+      {
+        "name": "label",
+        "description": "Option text",
+        "description_zh": "选项文字",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "value",
+        "description": "Option value",
+        "description_zh": "选项值",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "disabled",
+        "description": "Whether the option is disabled",
+        "description_zh": "是否禁用此选项",
+        "type": "boolean",
+        "default": "false"
+      }
+    ]
+  },
+  "suggestions": [],
+  "link": "https://ant.design/components/checkbox",
+  "link_zh": "https://ant.design/components/checkbox-cn"
 }

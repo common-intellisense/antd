@@ -25,9 +25,10 @@
     "character": {
       "default": "<StarFilled />",
       "value": "",
-      "type": "ReactNode | (RateProps) => ReactNode",
+      "type": "ReactNode / (RateProps) => ReactNode",
       "description": "自定义字符",
-      "description_zh": "自定义字符"
+      "description_zh": "自定义字符",
+      "version": "function(): 4.4.0"
     },
     "className": {
       "default": "-",
@@ -56,6 +57,21 @@
       "type": "boolean",
       "description": "只读，无法进行交互",
       "description_zh": "只读，无法进行交互"
+    },
+    "keyboard": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "支持使用键盘操作",
+      "description_zh": "支持使用键盘操作",
+      "version": "5.18.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     },
     ":style": {
       "default": "-",

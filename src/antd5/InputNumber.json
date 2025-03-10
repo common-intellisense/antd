@@ -6,14 +6,16 @@
       "value": "",
       "type": "ReactNode",
       "description": "带标签的 input，设置后置标签",
-      "description_zh": "带标签的 input，设置后置标签"
+      "description_zh": "带标签的 input，设置后置标签",
+      "version": "4.17.0"
     },
     "addonBefore": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
       "description": "带标签的 input，设置前置标签",
-      "description_zh": "带标签的 input，设置前置标签"
+      "description_zh": "带标签的 input，设置前置标签",
+      "version": "4.17.0"
     },
     "autoFocus": {
       "default": "false",
@@ -27,14 +29,24 @@
       "value": "",
       "type": "boolean",
       "description": "是否在失去焦点时，触发 onChange 事件（例如值超出范围时，重新限制回范围并触发事件）",
-      "description_zh": "是否在失去焦点时，触发 onChange 事件（例如值超出范围时，重新限制回范围并触发事件）"
+      "description_zh": "是否在失去焦点时，触发 onChange 事件（例如值超出范围时，重新限制回范围并触发事件）",
+      "version": "5.11.0"
+    },
+    "changeOnWheel": {
+      "default": "-",
+      "value": "",
+      "type": "boolean",
+      "description": "允许鼠标滚轮改变数值",
+      "description_zh": "允许鼠标滚轮改变数值",
+      "version": "5.14.0"
     },
     "controls": {
       "default": "-",
       "value": "",
-      "type": "boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode; }",
+      "type": "boolean / { upIcon?: React.ReactNode; downIcon?: React.ReactNode; }",
       "description": "是否显示增减按钮，也可设置自定义箭头图标",
-      "description_zh": "是否显示增减按钮，也可设置自定义箭头图标"
+      "description_zh": "是否显示增减按钮，也可设置自定义箭头图标",
+      "version": "4.19.0"
     },
     "decimalSeparator": {
       "default": "-",
@@ -55,8 +67,7 @@
       "value": "",
       "type": "number",
       "description": "初始值",
-      "description_zh": "初始值",
-      "required": true
+      "description_zh": "初始值"
     },
     "disabled": {
       "default": "false",
@@ -70,30 +81,30 @@
       "value": "",
       "type": "function(value: number | string, info: { userTyping: boolean, input: string }): string",
       "description": "指定输入框展示值的格式",
-      "description_zh": "指定输入框展示值的格式"
+      "description_zh": "指定输入框展示值的格式",
+      "version": "info: 4.17.0"
     },
     "keyboard": {
       "default": "true",
       "value": "",
       "type": "boolean",
       "description": "是否启用键盘快捷行为",
-      "description_zh": "是否启用键盘快捷行为"
+      "description_zh": "是否启用键盘快捷行为",
+      "version": "4.12.0"
     },
     ":max": {
       "default": "Number.MAX_SAFE_INTEGER",
       "value": "",
       "type": "number",
       "description": "最大值",
-      "description_zh": "最大值",
-      "required": true
+      "description_zh": "最大值"
     },
     ":min": {
       "default": "Number.MIN_SAFE_INTEGER",
       "value": "",
       "type": "number",
       "description": "最小值",
-      "description_zh": "最小值",
-      "required": true
+      "description_zh": "最小值"
     },
     "parser": {
       "default": "-",
@@ -121,14 +132,24 @@
       "value": "",
       "type": "error / warning",
       "description": "设置校验状态",
-      "description_zh": "设置校验状态"
+      "description_zh": "设置校验状态",
+      "version": "4.19.0"
     },
     "prefix": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
       "description": "带有前缀图标的 input",
-      "description_zh": "带有前缀图标的 input"
+      "description_zh": "带有前缀图标的 input",
+      "version": "4.17.0"
+    },
+    "suffix": {
+      "default": "-",
+      "value": "",
+      "type": "ReactNode",
+      "description": "带有后缀图标的 input",
+      "description_zh": "带有后缀图标的 input",
+      "version": "5.20.0"
     },
     "size": {
       "default": "-",
@@ -140,7 +161,7 @@
     "step": {
       "default": "1",
       "value": "",
-      "type": "number | string",
+      "type": "number / string",
       "description": "每次改变步数，可以为小数",
       "description_zh": "每次改变步数，可以为小数"
     },
@@ -149,21 +170,31 @@
       "value": "",
       "type": "boolean",
       "description": "字符值模式，开启后支持高精度小数。同时 onChange 将返回 string 类型",
-      "description_zh": "字符值模式，开启后支持高精度小数。同时 onChange 将返回 string 类型"
+      "description_zh": "字符值模式，开启后支持高精度小数。同时 onChange 将返回 string 类型",
+      "version": "4.13.0"
     },
     ":value": {
       "default": "-",
       "value": "",
       "type": "number",
       "description": "当前值",
-      "description_zh": "当前值"
+      "description_zh": "当前值",
+      "required": true
     },
     "variant": {
       "default": "outlined",
       "value": "",
-      "type": "outlined / borderless / filled",
+      "type": "outlined / borderless / filled / underlined",
       "description": "形态变体",
-      "description_zh": "形态变体"
+      "description_zh": "形态变体",
+      "version": "5.13.0 | `underlined`: 5.24.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [
@@ -176,8 +207,16 @@
     {
       "name": "focus",
       "description": "获取焦点",
+      "params": "(option?: { preventScroll?: boolean, cursor?: 'start' | 'end' | 'all' })",
+      "description_zh": "获取焦点",
+      "version": "cursor - 5.22.0"
+    },
+    {
+      "name": "nativeElement",
+      "description": "获取原生 DOM 元素",
       "params": "",
-      "description_zh": "获取焦点"
+      "description_zh": "获取原生 DOM 元素",
+      "version": "5.17.3"
     }
   ],
   "link": "https://ant.design/components/input-number-cn",
@@ -199,7 +238,8 @@
       "name": "onStep",
       "description": "点击上下箭头的回调",
       "description_zh": "点击上下箭头的回调",
-      "params": "(value: number, info: { offset: number, type: 'up' | 'down' }) => void"
+      "params": "(value: number, info: { offset: number, type: 'up' | 'down' }) => void",
+      "version": "4.7.0"
     }
   ],
   "typeDetail": {}

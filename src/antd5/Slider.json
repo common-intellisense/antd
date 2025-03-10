@@ -8,11 +8,19 @@
       "type": "boolean",
       "description_zh": "自动获取焦点"
     },
+    ":classNames": {
+      "value": "",
+      "description": "Semantic structure className",
+      "default": "-",
+      "type": "Record<SemanticDOM, string>",
+      "description_zh": "语义化结构 className",
+      "version": "5.10.0"
+    },
     ":defaultValue": {
       "value": "",
       "description": "Set the initial value. When 'range' is false, use number, otherwise use [number, number]",
-      "default": "0 | [0, 0]",
-      "type": "number | [number, number]",
+      "default": "0 / [0, 0]",
+      "type": "number / [number, number]",
       "description_zh": "设置初始取值。当 `range` 为 false 时，使用 number，否则用[number, number]"
     },
     "disabled": {
@@ -27,7 +35,8 @@
       "description": "The handler can be operated using the keyboard",
       "default": "true",
       "type": "boolean",
-      "description_zh": "支持使用键盘操作 handler"
+      "description_zh": "支持使用键盘操作 handler",
+      "version": "5.2.0+"
     },
     "dots": {
       "value": "",
@@ -64,11 +73,11 @@
       "type": "number",
       "description_zh": "最小值"
     },
-    "range": {
+    ":range": {
       "value": "",
       "description": "Dual slider mode",
       "default": "false",
-      "type": "boolean | range",
+      "type": "boolean / range",
       "description_zh": "双滑块模式"
     },
     "reverse": {
@@ -80,23 +89,32 @@
     },
     ":step": {
       "value": "",
-      "description": "step size, which must be greater than 0 and divisible by (max - min). When 'marks' is not an empty object, you can set 'step' to null, and the only optional value in the slider is the part marked with marks",
+      "description": "Step size, which must be greater than 0 and divisible by (max - min). When 'marks' is not an empty object, you can set 'step' to null, and the only optional values in the slider are marks, min and max",
       "default": "1",
-      "type": "number | null",
-      "description_zh": "步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 marks 标出来的部分"
+      "type": "number / null",
+      "description_zh": "步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 `marks`、`min` 和 `max`"
     },
-    "tooltip": {
+    ":styles": {
+      "value": "",
+      "description": "Semantic structure styles",
+      "default": "-",
+      "type": "Record<SemanticDOM, React.CSSProperties>",
+      "description_zh": "语义化结构 styles",
+      "version": "5.10.0"
+    },
+    ":tooltip": {
       "value": "",
       "description": "Set Tooltip-related properties",
       "default": "-",
       "type": "tooltip",
-      "description_zh": "设置 Tooltip 相关属性"
+      "description_zh": "设置 Tooltip 相关属性",
+      "version": "4.23.0"
     },
     ":value": {
       "value": "",
       "description": "Set the current value. When 'range' is false, use number, otherwise use [number, number]",
       "default": "-",
-      "type": "number | [number, number]",
+      "type": "number / [number, number]",
       "description_zh": "设置当前取值。当 `range` 为 false 时，使用 number，否则用[number, number]",
       "required": true
     },
@@ -127,6 +145,13 @@
       "default": "-",
       "type": "CSSProperties",
       "description_zh": "Slider 滑动滑块样式"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [
@@ -147,10 +172,10 @@
   ],
   "events": [
     {
-      "name": "onAfterChange",
-      "description": "Consistent with the 'onmouseup' trigger timing, the current value is passed in as a parameter",
+      "name": "onChangeComplete",
+      "description": "Consistent with the mouseup and keyup trigger timing, passing the current value as a parameter",
       "params": "(value) => void",
-      "description_zh": "与 `onmouseup` 触发时机一致，把当前值作为参数传入",
+      "description_zh": "与 mouseup 和 keyup 触发时机一致，把当前值作为参数传入",
       "value": ""
     },
     {
@@ -161,6 +186,103 @@
       "value": ""
     }
   ],
-  "link": "https://ant.design/components//slider",
-  "link_zh": "https://ant.design/components//slider"
+  "typeDetail": {
+    "range": [
+      {
+        "name": "draggableTrack",
+        "description": "Whether range scale can be dragged",
+        "description_zh": "范围刻度是否可被拖拽",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "editable",
+        "description": "Enable dynamic add/remove nodes, can't be used with draggableTrack",
+        "description_zh": "启动动态增减节点，不能和 draggableTrack 一同使用",
+        "type": "boolean",
+        "default": "false",
+        "version": "5.20.0"
+      },
+      {
+        "name": "minCount",
+        "description": "Minimum number of nodes when editable is configured",
+        "description_zh": "配置 editable 时，最小节点数量",
+        "type": "number",
+        "default": "0",
+        "version": "5.20.0"
+      },
+      {
+        "name": "maxCount",
+        "description": "Maximum number of nodes when editable is configured",
+        "description_zh": "配置 editable 时，最大节点数量",
+        "type": "number",
+        "default": "-",
+        "version": "5.20.0"
+      }
+    ],
+    "tooltip": [
+      {
+        "name": "autoAdjustOverflow",
+        "description": "Whether to automatically adjust popup position",
+        "description_zh": "是否自动调整弹出位置",
+        "type": "boolean",
+        "default": "true",
+        "version": "5.8.0"
+      },
+      {
+        "name": "open",
+        "description": "When true, Tooltip will always be displayed; otherwise never displayed, even when dragging and hovering",
+        "description_zh": "值为 true 时，Tooltip 将会始终显示；否则始终不显示，哪怕在拖拽及移入时",
+        "type": "boolean",
+        "default": "-",
+        "version": "4.23.0"
+      },
+      {
+        "name": "placement",
+        "description": "Set Tooltip display position. See Tooltip component",
+        "description_zh": "设置 Tooltip 展示位置。参考 Tooltip",
+        "type": "string",
+        "default": "-",
+        "version": "4.23.0"
+      },
+      {
+        "name": "getPopupContainer",
+        "description": "Tooltip rendering parent node, default renders to body",
+        "description_zh": "Tooltip 渲染父节点，默认渲染到 body 上",
+        "type": "(triggerNode) => HTMLElement",
+        "default": "() => document.body",
+        "version": "4.23.0"
+      },
+      {
+        "name": "formatter",
+        "description": "Slider passes current value to formatter and displays formatter's return value in Tooltip. If null, hides Tooltip",
+        "description_zh": "Slider 会把当前值传给 formatter，并在 Tooltip 中显示 formatter 的返回值，若为 null，则隐藏 Tooltip",
+        "type": "value => ReactNode / null",
+        "default": "IDENTITY",
+        "version": "4.23.0"
+      }
+    ],
+    "SemanticDOM": [
+      {
+        "name": "rail",
+        "description": "Rail DOM",
+        "description_zh": "轨道 DOM",
+        "type": "string"
+      },
+      {
+        "name": "track",
+        "description": "Track DOM",
+        "description_zh": "已选择的轨道 DOM",
+        "type": "string"
+      },
+      {
+        "name": "handle",
+        "description": "Handle DOM",
+        "description_zh": "滑块 DOM",
+        "type": "string"
+      }
+    ]
+  },
+  "link": "https://ant.design/components/slider",
+  "link_zh": "https://ant.design/components/slider-cn"
 }

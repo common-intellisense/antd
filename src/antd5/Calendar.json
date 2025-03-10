@@ -114,7 +114,8 @@
       "description": "Date of display",
       "default": "-",
       "type": "[dayjs]",
-      "description_zh": "展示日期"
+      "description_zh": "展示日期",
+      "required": true
     }
   },
   "methods": [],

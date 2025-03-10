@@ -13,28 +13,37 @@
       "description": "Set the form component to be disabled, only for the antd component",
       "default": "false",
       "type": "boolean",
-      "description_zh": "设置表单组件禁用，仅对 antd 组件有效"
+      "description_zh": "设置表单组件禁用，仅对 antd 组件有效",
+      "version": "4.21.0"
     },
-    "component": {
+    ":component": {
       "value": "",
       "description": "Set the Form render element to 'false' to create no DOM node",
       "default": "form",
-      "type": "ComponentType | false",
+      "type": "ComponentType / false",
       "description_zh": "设置 Form 渲染元素，为 `false` 则不创建 DOM 节点"
     },
     ":fields": {
       "value": "",
       "description": "Control form fields through state management (e.g., Redux), which is not recommended if not strongly demanded",
       "default": "-",
-      "type": "[FieldData][]",
+      "type": "FieldData[]",
       "description_zh": "通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用"
     },
     ":form": {
       "value": "",
       "description": "A control instance of form created by 'Form.useForm()' is automatically created when not available",
       "default": "-",
-      "type": "[FormInstance]",
+      "type": "FormInstance",
       "description_zh": "经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建"
+    },
+    ":feedbackIcons": {
+      "value": "",
+      "description": "Custom icons when Form.Item has hasFeedback property",
+      "default": "-",
+      "type": "FeedbackIcons",
+      "description_zh": "当 `Form.Item` 有 `hasFeedback` 属性时可以自定义图标",
+      "version": "5.9.0"
     },
     ":initialValues": {
       "value": "",
@@ -58,13 +67,14 @@
       "description": "The way the text wraps for label labels",
       "default": "false",
       "type": "boolean",
-      "description_zh": "label 标签的文本换行方式"
+      "description_zh": "label 标签的文本换行方式",
+      "version": "4.18.0"
     },
     ":labelCol": {
       "value": "",
       "description": "label layout, with the ''' component, set the 'span' 'offset' value, such as '{span: 3, offset: 12}' <Col>or 'sm: {span: 3, offset: 12}'",
       "default": "-",
-      "type": "[object]",
+      "type": "object",
       "description_zh": "label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`"
     },
     "layout": {
@@ -86,21 +96,24 @@
       "description": "When a field is deleted, the field value is retained",
       "default": "true",
       "type": "boolean",
-      "description_zh": "当字段被删除时保留字段值"
+      "description_zh": "当字段被删除时保留字段值",
+      "version": "4.4.0"
     },
     ":requiredMark": {
       "value": "",
       "description": "Required style, which can be switched to a required or optional display style. This is a Form configuration and cannot be configured separately for Form.Item",
       "default": "true",
-      "type": "boolean | optional",
-      "description_zh": "必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置"
+      "type": "boolean / optional / ((label: ReactNode, info: { required: boolean }) => ReactNode)",
+      "description_zh": "必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置",
+      "version": "`renderProps`: 5.9.0"
     },
     ":scrollToFirstError": {
       "value": "",
       "description": "Submission failures automatically scroll to the first error field",
       "default": "false",
-      "type": "boolean | [Options]",
-      "description_zh": "提交失败自动滚动到第一个错误字段"
+      "type": "boolean / Options / { focus: boolean }",
+      "description_zh": "提交失败自动滚动到第一个错误字段",
+      "version": "focus: 5.24.0"
     },
     "size": {
       "value": "",
@@ -113,53 +126,77 @@
       "value": "",
       "description": "Validation prompt template",
       "default": "-",
-      "type": "[ValidateMessages]",
+      "type": "ValidateMessages",
       "description_zh": "验证提示模板"
     },
     "validateTrigger": {
       "value": "",
       "description": "Uniformly set when a field triggers validation",
       "default": "onChange",
-      "type": "string | string[]",
-      "description_zh": "统一设置字段触发验证的时机"
+      "type": "string / string[]",
+      "description_zh": "统一设置字段触发验证的时机",
+      "version": "4.3.0"
+    },
+    "variant": {
+      "value": "",
+      "description": "Form inner control variant",
+      "default": "outlined",
+      "type": "outlined / borderless / filled / underlined",
+      "description_zh": "表单内控件变体",
+      "version": "5.13.0"
     },
     ":wrapperCol": {
       "value": "",
       "description": "Use this property when you need to style a layout for an input control, and use it in the same way as labelCol",
       "default": "-",
-      "type": "[object]",
+      "type": "object",
       "description_zh": "需要为输入控件设置布局样式时，使用该属性，用法同 labelCol"
+    },
+    "clearOnDestroy": {
+      "value": "",
+      "description": "Clear form values when form is unmounted",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "当表单被卸载时清空表单值",
+      "version": "5.18.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add className to the outermost layer of component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [
     {
       "name": "clearValidate",
       "description": "Removes the validation result of the form item. Enter the name attribute or array of name of the form item to be removed, and remove the verification result of the entire form if not",
-      "params": "(nameList?: [NamePath](#namepath)\\[]) => void",
+      "params": "(nameList?: NamePath[]) => void",
       "description_zh": "移除表单项的校验结果。传入待移除的表单项的 name 属性或者 name 组成的数组，如不传则移除整个表单的校验结果"
     },
     {
       "name": "resetFields",
       "description": "Reset the entire form, reset all field values to their default values, and remove the validation results",
-      "params": "(nameList?: [NamePath](#namepath)\\[]) => void",
+      "params": "(nameList?: NamePath[]) => void",
       "description_zh": "对整个表单进行重置，将所有字段值重置为初始值并移除校验结果"
     },
     {
       "name": "scrollToField",
       "description": "Scroll to the corresponding field location",
-      "params": "(name: [NamePath](#namepath), options: \\[[ScrollOptions](https: | | github.com | stipsan | scroll-into-view-if-needed | tree | ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void",
+      "params": "(name: NamePath, options: ScrollOptions) => void",
       "description_zh": "滚动到对应字段位置"
     },
     {
       "name": "validate",
       "description": "Triggers form validation, same as validateFields",
-      "params": "(nameList?: [NamePath](#namepath)\\[]) => Promise",
+      "params": "(nameList?: NamePath[]) => Promise",
       "description_zh": "触发表单验证, 同 validateFields"
     },
     {
       "name": "validateFields",
       "description": "Trigger form validation",
-      "params": "(nameList?: [NamePath](#namepath)\\[]) => Promise",
+      "params": "(nameList?: NamePath[], config?: ValidateConfig) => Promise",
       "description_zh": "触发表单验证"
     }
   ],
@@ -189,14 +226,209 @@
       "description_zh": "字段值更新时触发回调事件"
     }
   ],
+  "exposed": [
+    {
+      "name": "getFieldError",
+      "description": "Get error messages for corresponding field name",
+      "description_zh": "获取对应字段名的错误信息",
+      "detail": "(name: NamePath) => string[]"
+    },
+    {
+      "name": "getFieldInstance",
+      "description": "Get the field instance",
+      "description_zh": "获取对应字段实例",
+      "detail": "(name: NamePath) => any",
+      "version": "4.4.0"
+    },
+    {
+      "name": "getFieldsError",
+      "description": "Get error messages for a group of field names, returned in array form",
+      "description_zh": "获取一组字段名对应的错误信息，返回为数组形式",
+      "detail": "(nameList?: NamePath[]) => FieldError[]"
+    },
+    {
+      "name": "getFieldsValue",
+      "description": "Get the values corresponding to a group of field names, returned according to the corresponding structure. By default, it returns existing field values. When calling getFieldsValue(true), it returns all values",
+      "description_zh": "获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值",
+      "detail": "GetFieldsValue"
+    },
+    {
+      "name": "getFieldValue",
+      "description": "Get the value corresponding to the field name",
+      "description_zh": "获取对应字段名的值",
+      "detail": "(name: NamePath) => any"
+    },
+    {
+      "name": "isFieldsTouched",
+      "description": "Check if a group of fields has been operated on by the user, when allTouched is true, check if all fields have been operated on",
+      "description_zh": "检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过",
+      "detail": "(nameList?: NamePath[], allTouched?: boolean) => boolean"
+    },
+    {
+      "name": "isFieldTouched",
+      "description": "Check if the corresponding field has been operated on by the user",
+      "description_zh": "检查对应字段是否被用户操作过",
+      "detail": "(name: NamePath) => boolean"
+    },
+    {
+      "name": "isFieldValidating",
+      "description": "Check if the corresponding field is being validated",
+      "description_zh": "检查对应字段是否正在校验",
+      "detail": "(name: NamePath) => boolean"
+    },
+    {
+      "name": "resetFields",
+      "description": "Reset a group of fields to initialValues",
+      "description_zh": "重置一组字段到 initialValues",
+      "detail": "(fields?: NamePath[]) => void"
+    },
+    {
+      "name": "scrollToField",
+      "description": "Scroll to the corresponding field position",
+      "description_zh": "滚动到对应字段位置",
+      "detail": "(name: NamePath, options: ScrollOptions | { focus: boolean }) => void",
+      "version": "focus: 5.24.0"
+    },
+    {
+      "name": "setFields",
+      "description": "Set a group of field statuses",
+      "description_zh": "设置一组字段状态",
+      "detail": "(fields: FieldData[]) => void"
+    },
+    {
+      "name": "setFieldValue",
+      "description": "Set the form value (this value will be passed directly into the form store and reset error messages. If you don't want the passed object to be modified, please clone and then pass it in)",
+      "description_zh": "设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入）",
+      "detail": "(name: NamePath, value: any) => void",
+      "version": "4.22.0"
+    },
+    {
+      "name": "setFieldsValue",
+      "description": "Set the form value (this value will be passed directly into the form store and reset error messages. If you don't want the passed object to be modified, please clone and then pass it in). If you just want to modify a single item value in Form.List, please use setFieldValue to specify",
+      "description_zh": "设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定",
+      "detail": "(values) => void"
+    },
+    {
+      "name": "submit",
+      "description": "Submit the form, same effect as clicking the submit button",
+      "description_zh": "提交表单，与点击 submit 按钮效果相同",
+      "detail": "() => void"
+    },
+    {
+      "name": "validateFields",
+      "description": "Trigger form validation, when recursive is set, it will recursively validate all contained paths",
+      "description_zh": "触发表单验证，设置 recursive 时会递归校验所有包含的路径",
+      "detail": "(nameList?: NamePath[], config?: ValidateConfig) => Promise"
+    }
+  ],
   "suggestions": [
-    "Form.Item",
-    "Form.List",
-    "Form.useForm",
     "Form.Item",
     "Form.List",
     "Form.useForm"
   ],
-  "link": "https://ant.design/components//form",
-  "link_zh": "https://ant.design/components//form-cn"
+  "link": "https://ant.design/components/form",
+  "link_zh": "https://ant.design/components/form-cn",
+  "typeDetail": {
+    "FeedbackIcons": [
+      {
+        "name": "success",
+        "description": "Success icon",
+        "description_zh": "成功图标",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "error",
+        "description": "Error icon",
+        "description_zh": "错误图标",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "warning",
+        "description": "Warning icon",
+        "description_zh": "警告图标",
+        "type": "ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "validating",
+        "description": "Validating icon",
+        "description_zh": "校验中图标",
+        "type": "ReactNode",
+        "default": "-"
+      }
+    ],
+    "NamePath": "string | number | (string | number)[]",
+    "FieldData": [
+      {
+        "name": "name",
+        "description": "Field name",
+        "description_zh": "字段名",
+        "type": "NamePath",
+        "default": "-"
+      },
+      {
+        "name": "errors",
+        "description": "Field errors",
+        "description_zh": "字段错误信息",
+        "type": "string[]",
+        "default": "-"
+      },
+      {
+        "name": "warnings",
+        "description": "Field warnings",
+        "description_zh": "字段警告信息",
+        "type": "string[]",
+        "default": "-"
+      },
+      {
+        "name": "touched",
+        "description": "Whether field has been touched",
+        "description_zh": "字段是否被用户操作过",
+        "type": "boolean",
+        "default": "-"
+      },
+      {
+        "name": "validating",
+        "description": "Whether field is validating",
+        "description_zh": "字段是否正在校验",
+        "type": "boolean",
+        "default": "-"
+      },
+      {
+        "name": "value",
+        "description": "Field value",
+        "description_zh": "字段值",
+        "type": "any",
+        "default": "-"
+      }
+    ],
+    "ValidateConfig": [
+      {
+        "name": "validateOnly",
+        "description": "Only validate content without displaying error messages on UI",
+        "description_zh": "仅校验内容而不会将错误信息展示到 UI 上",
+        "type": "boolean",
+        "default": "-",
+        "version": "5.5.0"
+      },
+      {
+        "name": "recursive",
+        "description": "Recursively validate the provided nameList and its sub-paths",
+        "description_zh": "对提供的 nameList 与其子路径进行递归校验",
+        "type": "boolean",
+        "default": "-",
+        "version": "5.9.0"
+      },
+      {
+        "name": "dirty",
+        "description": "Validate dirty fields (touched + validated). Using dirty can easily validate only fields that have been operated on and validated by the user",
+        "description_zh": "校验 dirty 的字段（touched + validated）。使用 dirty 可以很方便的仅校验用户操作过和被校验过的字段",
+        "type": "boolean",
+        "default": "-",
+        "version": "5.11.0"
+      }
+    ]
+  }
 }

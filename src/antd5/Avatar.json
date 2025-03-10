@@ -51,7 +51,9 @@
       "default": "-",
       "type": "string / ReactNode",
       "description_zh": "图片类头像的资源地址或者图片元素",
-      "version": "ReactNode: 4.8.0"
+      "version": "ReactNode: 4.8.0",
+      "description": "The address of the image avatar or the image element",
+      "required": true
     },
     "srcSet": {
       "value": "",

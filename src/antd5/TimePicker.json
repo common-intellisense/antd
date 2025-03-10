@@ -250,7 +250,8 @@
       "description": "The current time",
       "default": "-",
       "type": "dayjs",
-      "description_zh": "当前时间"
+      "description_zh": "当前时间",
+      "required": true
     },
     "variant": {
       "value": [

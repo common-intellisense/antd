@@ -1,7 +1,8 @@
 {
   "name": "Form.ErrorList",
+  "version": "4.7.0",
   "props": {
-    "errors": {
+    ":errors": {
       "default": "-",
       "value": "",
       "type": "ReactNode[]",

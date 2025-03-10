@@ -5,14 +5,14 @@
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "自动获取焦点",
+      "description": "Get focus automatically",
       "description_zh": "自动获取焦点"
     },
     ":checked": {
-      "value": "",
-      "description": "Specifies whether it is currently selected",
       "default": "false",
+      "value": "",
       "type": "boolean",
+      "description": "Specifies whether it is currently selected",
       "description_zh": "指定当前是否选中",
       "required": true
     },
@@ -20,47 +20,91 @@
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "初始是否选中",
+      "description": "Initially selected or not",
       "description_zh": "初始是否选中"
     },
     "disabled": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "失效状态",
+      "description": "Disabled state",
       "description_zh": "失效状态"
     },
     "indeterminate": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "设置 indeterminate 状态，只负责样式控制",
+      "description": "Set indeterminate state, only responsible for style control",
       "description_zh": "设置 indeterminate 状态，只负责样式控制"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "Add className to the outermost layer of component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [
     {
       "name": "blur",
-      "description": "移除焦点",
-      "params": "",
+      "description": "Remove focus",
+      "params": "()",
       "description_zh": "移除焦点"
     },
     {
       "name": "focus",
-      "description": "获取焦点",
-      "params": "",
+      "description": "Get focus",
+      "params": "()",
       "description_zh": "获取焦点"
+    },
+    {
+      "name": "nativeElement",
+      "description": "Returns the DOM node of the Checkbox",
+      "params": "()",
+      "description_zh": "返回 Checkbox 的 DOM 节点",
+      "version": "5.17.3"
     }
   ],
-  "link": "https://ant.design/components/checkbox-cn#%E6%96%B9%E6%B3%95",
-  "link_zh": "https://ant.design/components/checkbox-cn#%E6%96%B9%E6%B3%95",
+  "link": "https://ant.design/components/checkbox",
+  "link_zh": "https://ant.design/components/checkbox-cn",
   "events": [
     {
       "name": "onChange",
-      "description": "变化时的回调函数",
+      "description": "Callback function when the state changes",
       "description_zh": "变化时的回调函数",
-      "params": "(e: CheckboxChangeEvent) => void"
+      "params": "(e: CheckboxChangeEvent) => void",
+      "required": true
+    },
+    {
+      "name": "onBlur",
+      "description": "Callback when losing focus",
+      "description_zh": "失去焦点时的回调",
+      "params": "function()"
+    },
+    {
+      "name": "onFocus",
+      "description": "Callback when getting focus",
+      "description_zh": "获得焦点时的回调",
+      "params": "function()"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "CheckboxChangeEvent": [
+      {
+        "name": "target",
+        "description": "The DOM element that triggered the event",
+        "description_zh": "触发事件的 DOM 元素",
+        "type": "HTMLInputElement"
+      },
+      {
+        "name": "target.checked",
+        "description": "Whether the checkbox is checked",
+        "description_zh": "是否选中",
+        "type": "boolean"
+      }
+    ]
+  },
+  "suggestions": [
+  ]
 }

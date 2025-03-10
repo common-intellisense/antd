@@ -4,9 +4,10 @@
     "allowClear": {
       "default": "false",
       "value": "",
-      "type": "boolean | { clearIcon?: ReactNode }",
-      "description": "支持清除",
-      "description_zh": "支持清除"
+      "type": "boolean / { clearIcon?: ReactNode }",
+      "description": "可以点击清除图标删除内容",
+      "description_zh": "可以点击清除图标删除内容",
+      "version": "5.13.0"
     },
     "autoFocus": {
       "default": "false",
@@ -15,10 +16,10 @@
       "description": "自动获得焦点",
       "description_zh": "自动获得焦点"
     },
-    "autoSize": {
+    ":autoSize": {
       "default": "false",
       "value": "",
-      "type": "boolean | object",
+      "type": "boolean / object",
       "description": "自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }",
       "description_zh": "自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }"
     },
@@ -32,7 +33,7 @@
     "filterOption": {
       "default": "-",
       "value": "",
-      "type": "false | (input: string, option: OptionProps) => boolean",
+      "type": "false / (input: string, option: OptionProps) => boolean",
       "description": "自定义过滤逻辑",
       "description_zh": "自定义过滤逻辑"
     },
@@ -60,7 +61,7 @@
     "prefix": {
       "default": "@",
       "value": "",
-      "type": "string | string[]",
+      "type": "string / string[]",
       "description": "设置触发关键字",
       "description_zh": "设置触发关键字"
     },
@@ -76,7 +77,8 @@
       "value": "",
       "type": "error / warning",
       "description": "设置校验状态",
-      "description_zh": "设置校验状态"
+      "description_zh": "设置校验状态",
+      "version": "4.19.0"
     },
     "validateSearch": {
       "default": "-",
@@ -95,9 +97,10 @@
     "variant": {
       "default": "outlined",
       "value": "",
-      "type": "outlined / borderless / filled",
+      "type": "outlined / borderless / filled / underlined",
       "description": "形态变体",
-      "description_zh": "形态变体"
+      "description_zh": "形态变体",
+      "version": "5.13.0 | `underlined`: 5.24.0"
     },
     ":options": {
       "default": "[]",
@@ -105,10 +108,31 @@
       "type": "Options",
       "description": "选项配置",
       "description_zh": "选项配置",
+      "version": "5.1.0",
       "required": true
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
-  "methods": [],
+  "methods": [
+    {
+      "name": "blur",
+      "description": "移除焦点",
+      "description_zh": "移除焦点",
+      "params": ""
+    },
+    {
+      "name": "focus",
+      "description": "获取焦点",
+      "description_zh": "获取焦点",
+      "params": ""
+    }
+  ],
   "link": "https://ant.design/components/mentions-cn",
   "link_zh": "https://ant.design/components/mentions-cn",
   "events": [
@@ -123,6 +147,13 @@
       "description": "值改变时触发",
       "description_zh": "值改变时触发",
       "params": "(text: string) => void"
+    },
+    {
+      "name": "onClear",
+      "description": "按下清除按钮的回调",
+      "description_zh": "按下清除按钮的回调",
+      "params": "() => void",
+      "version": "5.20.0"
     },
     {
       "name": "onFocus",
@@ -147,7 +178,59 @@
       "description": "选择选项时触发",
       "description_zh": "选择选项时触发",
       "params": "(option: OptionProps, prefix: string) => void"
+    },
+    {
+      "name": "onPopupScroll",
+      "description": "滚动时触发",
+      "description_zh": "滚动时触发",
+      "params": "(event: Event) => void",
+      "version": "5.23.0"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "Option": [
+      {
+        "name": "value",
+        "description": "选择时填充的值",
+        "description_zh": "选择时填充的值",
+        "type": "string",
+        "default": "-"
+      },
+      {
+        "name": "label",
+        "description": "选项的标题",
+        "description_zh": "选项的标题",
+        "type": "React.ReactNode",
+        "default": "-"
+      },
+      {
+        "name": "key",
+        "description": "选项的 key 值",
+        "description_zh": "选项的 key 值",
+        "type": "string",
+        "default": "-"
+      },
+      {
+        "name": "disabled",
+        "description": "是否可选",
+        "description_zh": "是否可选",
+        "type": "boolean",
+        "default": "-"
+      },
+      {
+        "name": "className",
+        "description": "css 类名",
+        "description_zh": "css 类名",
+        "type": "string",
+        "default": "-"
+      },
+      {
+        "name": "style",
+        "description": "选项样式",
+        "description_zh": "选项样式",
+        "type": "React.CSSProperties",
+        "default": "-"
+      }
+    ]
+  }
 }

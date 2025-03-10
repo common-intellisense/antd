@@ -1,5 +1,7 @@
 {
   "name": "Steps",
+  "description": "整体步骤条。",
+  "description_zh": "整体步骤条。",
   "props": {
     "className": {
       "default": "-",
@@ -7,6 +9,13 @@
       "type": "string",
       "description": "步骤条类名",
       "description_zh": "步骤条类名"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     },
     ":current": {
       "default": "0",
@@ -42,12 +51,13 @@
       "value": "",
       "type": "number",
       "description": "当前 process 步骤显示的进度条进度（只对基本类型的 Steps 生效）",
-      "description_zh": "当前 process 步骤显示的进度条进度（只对基本类型的 Steps 生效）"
+      "description_zh": "当前 process 步骤显示的进度条进度（只对基本类型的 Steps 生效）",
+      "version": "4.5.0"
     },
-    "progressDot": {
+    ":progressDot": {
       "default": "false",
       "value": "",
-      "type": "boolean | (iconDot, {index, status, title, description}) => ReactNode",
+      "type": "boolean / (iconDot, {index, status, title, description}) => ReactNode",
       "description": "点状步骤条，可以设置为一个 function，labelPlacement 将强制为 vertical",
       "description_zh": "点状步骤条，可以设置为一个 function，labelPlacement 将强制为 vertical"
     },
@@ -77,15 +87,17 @@
       "value": "",
       "type": "string",
       "description": "步骤条类型，可选 default navigation inline",
-      "description_zh": "步骤条类型，可选 default navigation inline"
+      "description_zh": "步骤条类型，可选 default navigation inline",
+      "version": "inline: 5.0"
     },
     ":items": {
       "default": "[]",
       "value": "",
-      "type": "StepItem",
+      "type": "StepItem[]",
       "description": "配置选项卡内容",
       "description_zh": "配置选项卡内容",
-      "required": true
+      "required": true,
+      "version": "4.24.0"
     }
   },
   "methods": [],
@@ -99,5 +111,50 @@
       "params": "(current) => void"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "StepItem": [
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "步骤的详情描述，可选",
+        "description_zh": "步骤的详情描述，可选"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "禁用点击",
+        "description_zh": "禁用点击"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "步骤图标的类型，可选",
+        "description_zh": "步骤图标的类型，可选"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "default": "wait",
+        "description": "指定状态。当不配置该属性时，会使用 Steps 的 current 来自动指定状态。可选：wait process finish error",
+        "description_zh": "指定状态。当不配置该属性时，会使用 Steps 的 current 来自动指定状态。可选：wait process finish error"
+      },
+      {
+        "name": "subTitle",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "子标题",
+        "description_zh": "子标题"
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "标题",
+        "description_zh": "标题"
+      }
+    ]
+  }
 }

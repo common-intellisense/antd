@@ -46,6 +46,7 @@ import Image from './Image.json'
 import ImagePreviewGroup from './ImagePreviewGroup.json'
 import Input from './Input.json'
 import InputNumber from './InputNumber.json'
+import InputOTP from './InputOTP.json'
 import InputPassword from './InputPassword.json'
 import InputSearch from './InputSearch.json'
 import InputTextArea from './InputTextArea.json'
@@ -149,6 +150,7 @@ export function getPropsMap() {
     Image,
     ImagePreviewGroup,
     Input,
+    InputOTP,
     InputNumber,
     InputPassword,
     InputSearch,
@@ -293,8 +295,9 @@ export function getComponentMap(isZh: boolean) {
   <Input />
 </Form.Item>`],
         [Input, '输入框', '<Input placeholder="Basic usage" />'],
-        [InputSearch, '输入框'],
-        [InputTextArea, '输入框'],
+        [InputOTP, '输入框', '<Input.OTP />'],
+        [InputSearch, '输入框', '<Input.Search placeholder="input search text" onSearch={onSearch} enterButton />'],
+        [InputTextArea, '输入框', '<Input.TextArea />'],
         [InputNumber, '数字输入框', '<InputNumber min={1} max={10} defaultValue={3} onChange={onChange} />'],
         [Mentions, '提及', '<Mentions options={options} />'],
         [Radio, '单选框', '<Radio>Radio</Radio>'],
@@ -554,8 +557,9 @@ export function getComponentMap(isZh: boolean) {
    <Input />
 </Form.Item>`],
         [Input, 'input box', '<Input placeholder="Basic usage" />'],
-        [InputSearch, 'input box'],
-        [InputTextArea, 'input box'],
+        [InputOTP, 'input box', '<Input.OTP />'],
+        [InputSearch, 'input box', '<Input.Search placeholder="input search text" onSearch={onSearch} enterButton />'],
+        [InputTextArea, 'input box', '<Input.TextArea />'],
         [InputNumber, 'Number input box', '<InputNumber min={1} max={10} defaultValue={3} onChange={onChange} />'],
         [Mentions, 'mentions', '<Mentions options={options} />'],
         [Radio, 'Radio button', '<Radio>Radio</Radio>'],
