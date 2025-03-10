@@ -1,0 +1,54 @@
+{
+  "name": "Skeleton.Button",
+  "props": {
+    "active": {
+      "value": "",
+      "default": "false",
+      "type": "boolean",
+      "description": "Whether to show animation effect",
+      "description_zh": "是否展示动画效果"
+    },
+    "block": {
+      "value": "",
+      "default": "false",
+      "type": "boolean",
+      "description": "Option to adjust the button width to its parent width",
+      "description_zh": "将按钮宽度调整为其父宽度的选项",
+      "version": "4.17.0"
+    },
+    "shape": {
+      "value": [
+        "circle",
+        "round",
+        "square",
+        "default"
+      ],
+      "default": "-",
+      "type": "circle / round / square / default",
+      "description": "Specify the shape of the button",
+      "description_zh": "指定按钮的形状"
+    },
+    "size": {
+      "value": [
+        "large",
+        "small",
+        "default"
+      ],
+      "default": "-",
+      "type": "large / small / default",
+      "description": "Set the size of the button",
+      "description_zh": "设置按钮的大小"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "events": [],
+  "link": "https://ant.design/components/skeleton",
+  "link_zh": "https://ant.design/components/skeleton-cn"
+}

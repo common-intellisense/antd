@@ -1,0 +1,44 @@
+{
+  "name": "Skeleton.Avatar",
+  "props": {
+    "active": {
+      "value": "",
+      "default": "false",
+      "type": "boolean",
+      "description": "Whether to show animation effect, only works when used separately with avatar skeleton",
+      "description_zh": "是否展示动画效果，仅在单独使用头像骨架时生效"
+    },
+    "shape": {
+      "value": [
+        "circle",
+        "square"
+      ],
+      "default": "-",
+      "type": "circle / square",
+      "description": "Specify the shape of the avatar",
+      "description_zh": "指定头像的形状"
+    },
+    ":size": {
+      "value": [
+        "large",
+        "small",
+        "default"
+      ],
+      "default": "-",
+      "type": "number / large / small / default",
+      "description": "Set the size of the avatar placeholder",
+      "description_zh": "设置头像占位图的大小"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "events": [],
+  "link": "https://ant.design/components/skeleton",
+  "link_zh": "https://ant.design/components/skeleton-cn"
+}

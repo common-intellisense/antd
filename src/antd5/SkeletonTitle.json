@@ -1,0 +1,23 @@
+{
+  "name": "Skeleton.Title",
+  "props": {
+    ":width": {
+      "value": "",
+      "default": "-",
+      "type": "number / string",
+      "description": "Set the width of the title placeholder",
+      "description_zh": "设置标题占位图的宽度"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "events": [],
+  "link": "https://ant.design/components/skeleton",
+  "link_zh": "https://ant.design/components/skeleton-cn"
+}

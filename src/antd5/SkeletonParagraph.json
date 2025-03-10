@@ -1,0 +1,30 @@
+{
+  "name": "Skeleton.Paragraph",
+  "props": {
+    ":rows": {
+      "value": "",
+      "default": "-",
+      "type": "number",
+      "description": "Set the row count of the paragraph placeholder",
+      "description_zh": "设置段落占位图的行数"
+    },
+    ":width": {
+      "value": "",
+      "default": "-",
+      "type": "number / string / Array<number / string>",
+      "description": "Set the width of the paragraph placeholder. If it's an array, it's the width of each line; otherwise, it's the width of the last line",
+      "description_zh": "设置段落占位图的宽度，若为数组时则为对应的每行宽度，反之则是最后一行的宽度"
+    },
+    "rootClassName": {
+      "value": "",
+      "default": "-",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "events": [],
+  "link": "https://ant.design/components/skeleton",
+  "link_zh": "https://ant.design/components/skeleton-cn"
+}
