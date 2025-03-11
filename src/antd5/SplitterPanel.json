@@ -1,0 +1,63 @@
+{
+  "name": "Splitter.Panel",
+  "version": "5.21.0",
+  "description": "Splitter 面板组件",
+  "description_zh": "Splitter 面板组件",
+  "props": {
+    ":defaultSize": {
+      "default": "-",
+      "value": "",
+      "type": "number / string",
+      "description": "Initial panel size, supports number px or text 'percentage%' type",
+      "description_zh": "初始面板大小，支持数字 px 或者文字 '百分比%' 类型"
+    },
+    ":min": {
+      "default": "-",
+      "value": "",
+      "type": "number / string",
+      "description": "Minimum threshold, supports number px or text 'percentage%' type",
+      "description_zh": "最小阈值，支持数字 px 或者文字 '百分比%' 类型"
+    },
+    ":max": {
+      "default": "-",
+      "value": "",
+      "type": "number / string",
+      "description": "Maximum threshold, supports number px or text 'percentage%' type",
+      "description_zh": "最大阈值，支持数字 px 或者文字 '百分比%' 类型"
+    },
+    ":size": {
+      "default": "-",
+      "value": "",
+      "type": "number / string",
+      "description": "Controlled panel size, supports number px or text 'percentage%' type",
+      "description_zh": "受控面板大小，支持数字 px 或者文字 '百分比%' 类型"
+    },
+    ":collapsible": {
+      "default": "false",
+      "value": "",
+      "type": "boolean / { start?: boolean; end?: boolean }",
+      "description": "Quick collapse",
+      "description_zh": "快速折叠"
+    },
+    "resizable": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "Whether to enable drag and resize",
+      "description_zh": "是否开启拖拽伸缩"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "link": "https://ant.design/components/splitter-cn#panel",
+  "link_zh": "https://ant.design/components/splitter-cn#panel",
+  "events": [],
+  "typeDetail": {},
+  "suggestions": []
+}

@@ -1,94 +1,272 @@
 {
   "name": "Typography.Paragraph",
+  "description": "段落组件，展示不同样式的文本内容。",
+  "description_zh": "段落组件，展示不同样式的文本内容。",
   "props": {
     "code": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加代码样式",
+      "description": "Add code style",
       "description_zh": "添加代码样式"
     },
-    "copyable": {
+    ":copyable": {
       "default": "false",
       "value": "",
-      "type": "boolean | copyable",
-      "description": "是否可拷贝，为对象时可进行各种自定义",
+      "type": "boolean / copyable",
+      "description": "Whether to be copyable, customize it via object",
       "description_zh": "是否可拷贝，为对象时可进行各种自定义"
     },
     "delete": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加删除线样式",
+      "description": "Add delete line style",
       "description_zh": "添加删除线样式"
     },
     "disabled": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "禁用文本",
+      "description": "Disabled content",
       "description_zh": "禁用文本"
     },
-    "editable": {
+    ":editable": {
       "default": "false",
       "value": "",
-      "type": "boolean | editable",
-      "description": "是否可编辑，为对象时可对编辑进行控制",
+      "type": "boolean / editable",
+      "description": "If editable, can control editing state when is object",
       "description_zh": "是否可编辑，为对象时可对编辑进行控制"
     },
-    "ellipsis": {
+    ":ellipsis": {
       "default": "false",
       "value": "",
-      "type": "boolean | ellipsis",
-      "description": "自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等",
+      "type": "boolean / ellipsis",
+      "description": "Auto overflow omit, can configure expandable, rows, suffix when is object",
       "description_zh": "自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等"
     },
     "mark": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加标记样式",
+      "description": "Add mark style",
       "description_zh": "添加标记样式"
     },
     "strong": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否加粗",
+      "description": "Bold style",
       "description_zh": "是否加粗"
     },
     "italic": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否斜体",
-      "description_zh": "是否斜体"
+      "description": "Italic style",
+      "description_zh": "是否斜体",
+      "version": "4.16.0"
     },
     "type": {
       "default": "-",
       "value": "",
-      "type": "secondary | success | warning | danger",
-      "description": "文本类型",
-      "description_zh": "文本类型"
+      "type": "secondary / success / warning / danger",
+      "description": "Text type",
+      "description_zh": "文本类型",
+      "version": "success: 4.6.0"
     },
     "underline": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加下划线样式",
+      "description": "Add underline style",
       "description_zh": "添加下划线样式"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/typography-cn#api",
-  "link_zh": "https://ant.design/components/typography-cn#api",
+  "link": "https://ant.design/components/typography-cn#typographyparagraph",
+  "link_zh": "https://ant.design/components/typography-cn#typographyparagraph",
   "events": [
     {
       "name": "onClick",
-      "description": "点击 Paragraph 时的回调",
+      "description": "Callback when paragraph is clicked",
       "description_zh": "点击 Paragraph 时的回调",
       "params": "(event) => void"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "copyable": [
+      {
+        "name": "text",
+        "type": "string | (() => string | Promise<string>)",
+        "description": "Custom copy text",
+        "description_zh": "自定义复制的文本"
+      },
+      {
+        "name": "onCopy",
+        "type": "function(event)",
+        "description": "Called when copied text",
+        "description_zh": "复制成功的回调函数"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "description": "Custom copy icon",
+        "description_zh": "自定义拷贝图标"
+      },
+      {
+        "name": "tooltips",
+        "type": "false | [ReactNode, ReactNode]",
+        "description": "Custom tooltip text, ['copy', 'copied']",
+        "description_zh": "自定义提示文案，[未复制时, 复制成功时]"
+      },
+      {
+        "name": "format",
+        "type": "'text/plain' | 'text/html'",
+        "description": "Format of copied text",
+        "description_zh": "复制的文本格式"
+      },
+      {
+        "name": "tabIndex",
+        "type": "number",
+        "description": "Tab index of copy button",
+        "description_zh": "复制按钮的 tab index"
+      }
+    ],
+    "editable": [
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "description": "Custom edit icon",
+        "description_zh": "自定义编辑图标"
+      },
+      {
+        "name": "tooltip",
+        "type": "ReactNode",
+        "description": "Custom tooltip text",
+        "description_zh": "自定义提示文本"
+      },
+      {
+        "name": "editing",
+        "type": "boolean",
+        "description": "Current editing state",
+        "description_zh": "当前是否是编辑状态"
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "description": "Maximum characters allowed",
+        "description_zh": "最大字符数"
+      },
+      {
+        "name": "autoSize",
+        "type": "boolean | { minRows: number, maxRows: number }",
+        "description": "Auto size of textarea",
+        "description_zh": "自适应文本框大小"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "description": "Edit text",
+        "description_zh": "编辑文本"
+      },
+      {
+        "name": "onChange",
+        "type": "function(string)",
+        "description": "Called when editing finished",
+        "description_zh": "文本域编辑时触发"
+      },
+      {
+        "name": "onCancel",
+        "type": "function",
+        "description": "Called when edit canceled",
+        "description_zh": "按 ESC 退出编辑状态时触发"
+      },
+      {
+        "name": "onStart",
+        "type": "function",
+        "description": "Called when enter editing state",
+        "description_zh": "进入编辑中状态时触发"
+      },
+      {
+        "name": "onEnd",
+        "type": "function",
+        "description": "Called when edit end",
+        "description_zh": "按 ENTER 结束编辑状态时触发"
+      },
+      {
+        "name": "triggerType",
+        "type": "('icon' | 'text')[]",
+        "description": "Trigger type for edit mode",
+        "description_zh": "触发编辑的方式"
+      },
+      {
+        "name": "enterIcon",
+        "type": "ReactNode",
+        "description": "Custom enter icon",
+        "description_zh": "自定义 enter 图标"
+      },
+      {
+        "name": "tabIndex",
+        "type": "number",
+        "description": "Tab index of edit button",
+        "description_zh": "编辑按钮的 tab index"
+      }
+    ],
+    "ellipsis": [
+      {
+        "name": "rows",
+        "type": "number",
+        "description": "Max rows of content",
+        "description_zh": "最多显示的行数"
+      },
+      {
+        "name": "expandable",
+        "type": "boolean",
+        "description": "Whether support expand",
+        "description_zh": "是否可展开"
+      },
+      {
+        "name": "suffix",
+        "type": "string",
+        "description": "Suffix of ellipsis content",
+        "description_zh": "自定义省略内容后缀"
+      },
+      {
+        "name": "symbol",
+        "type": "ReactNode",
+        "description": "Custom expand symbol",
+        "description_zh": "自定义展开符号"
+      },
+      {
+        "name": "tooltip",
+        "type": "boolean | ReactNode",
+        "description": "Show tooltip when ellipsis",
+        "description_zh": "省略时显示的提示"
+      },
+      {
+        "name": "onExpand",
+        "type": "function(event)",
+        "description": "Called when expand",
+        "description_zh": "点击展开时的回调"
+      },
+      {
+        "name": "onEllipsis",
+        "type": "function(ellipsis)",
+        "description": "Called when ellipsis state changed",
+        "description_zh": "省略时的回调"
+      }
+    ]
+  },
+  "suggestions": [
+    "Typography.Title",
+    "Typography.Text"
+  ]
 }

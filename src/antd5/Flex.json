@@ -1,59 +1,157 @@
 {
   "name": "Flex",
+  "description": "Flex 布局容器，用于设置子元素的布局方式。",
+  "description_zh": "Flex 布局容器，用于设置子元素的布局方式。",
+  "version": "5.10.0",
   "props": {
     "vertical": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "flex 主轴的方向是否垂直，使用 flex-direction: column",
+      "description": "Whether the flex direction is vertical, using flex-direction: column",
       "description_zh": "flex 主轴的方向是否垂直，使用 flex-direction: column"
     },
     "wrap": {
       "default": "nowrap",
       "value": "",
-      "type": "参考 flex-wrap",
-      "description": "设置元素单行显示还是多行显示",
-      "description_zh": "设置元素单行显示还是多行显示"
+      "type": "nowrap / wrap / wrap-reverse / boolean",
+      "description": "Set whether the element is displayed in a single line or in multiple lines",
+      "description_zh": "设置元素单行显示还是多行显示",
+      "version": "boolean: 5.17.0"
     },
     "justify": {
       "default": "normal",
       "value": "",
-      "type": "参考 justify-content",
-      "description": "设置元素在主轴方向上的对齐方式",
+      "type": "normal / flex-start / flex-end / center / space-between / space-around / space-evenly / stretch / start / end / baseline",
+      "description": "Set the alignment of elements in the main axis direction",
       "description_zh": "设置元素在主轴方向上的对齐方式"
     },
     "align": {
       "default": "normal",
       "value": "",
-      "type": "参考 align-items",
-      "description": "设置元素在交叉轴方向上的对齐方式",
+      "type": "normal / flex-start / flex-end / center / space-between / space-around / stretch / baseline / start / end",
+      "description": "Set the alignment of elements in the cross axis direction",
       "description_zh": "设置元素在交叉轴方向上的对齐方式"
     },
     "flex": {
       "default": "normal",
       "value": "",
-      "type": "参考 flex",
-      "description": "flex CSS 简写属性",
+      "type": "string / number",
+      "description": "Flex CSS shorthand property",
       "description_zh": "flex CSS 简写属性"
     },
-    "gap": {
+    ":gap": {
       "default": "-",
       "value": "",
       "type": "small / middle / large / string / number",
-      "description": "设置网格之间的间隙",
+      "description": "Set the gap between grid items",
       "description_zh": "设置网格之间的间隙"
     },
-    "component": {
+    ":component": {
       "default": "div",
       "value": "",
       "type": "React.ComponentType",
-      "description": "自定义元素类型",
+      "description": "Custom element type",
       "description_zh": "自定义元素类型"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/flex-cn#api",
-  "link_zh": "https://ant.design/components/flex-cn#api",
+  "link": "https://ant.design/components/flex-cn",
+  "link_zh": "https://ant.design/components/flex-cn",
   "events": [],
-  "typeDetail": {}
+  "typeDetail": {
+    "flex-wrap": [
+      {
+        "name": "nowrap",
+        "description": "All flex items will be on one line",
+        "description_zh": "所有 flex 项目都将在一行"
+      },
+      {
+        "name": "wrap",
+        "description": "Flex items will wrap onto multiple lines, from top to bottom",
+        "description_zh": "flex 项目将在必要时换行，从上到下"
+      },
+      {
+        "name": "wrap-reverse",
+        "description": "Flex items will wrap onto multiple lines from bottom to top",
+        "description_zh": "flex 项目将在必要时换行，从下到上"
+      }
+    ],
+    "justify-content": [
+      {
+        "name": "normal",
+        "description": "Default value, items are packed in their default position",
+        "description_zh": "默认值，项目按默认位置排列"
+      },
+      {
+        "name": "flex-start",
+        "description": "Items are packed toward the start of the flex-direction",
+        "description_zh": "项目位于容器的开头"
+      },
+      {
+        "name": "flex-end",
+        "description": "Items are packed toward the end of the flex-direction",
+        "description_zh": "项目位于容器的结尾"
+      },
+      {
+        "name": "center",
+        "description": "Items are centered along the line",
+        "description_zh": "项目位于容器的中心"
+      },
+      {
+        "name": "space-between",
+        "description": "Items are evenly distributed; first item at the start, last item at the end",
+        "description_zh": "项目位于各行之间留有空白的容器内"
+      },
+      {
+        "name": "space-around",
+        "description": "Items are evenly distributed with equal space around each item",
+        "description_zh": "项目位于各行之前、之间、之后都留有空白的容器内"
+      },
+      {
+        "name": "space-evenly",
+        "description": "Items are distributed so that the spacing between any two items is equal",
+        "description_zh": "项目分布使任何两个项目之间的空间相等"
+      }
+    ],
+    "align-items": [
+      {
+        "name": "normal",
+        "description": "Default value, items are stretched to fit the container",
+        "description_zh": "默认值，项目被拉伸以适应容器"
+      },
+      {
+        "name": "flex-start",
+        "description": "Items are placed at the start of the cross axis",
+        "description_zh": "项目位于容器的交叉轴开头"
+      },
+      {
+        "name": "flex-end",
+        "description": "Items are placed at the end of the cross axis",
+        "description_zh": "项目位于容器的交叉轴结尾"
+      },
+      {
+        "name": "center",
+        "description": "Items are centered along the cross axis",
+        "description_zh": "项目在交叉轴居中"
+      },
+      {
+        "name": "baseline",
+        "description": "Items are aligned such as their baselines align",
+        "description_zh": "项目的第一行文字的基线对齐"
+      },
+      {
+        "name": "stretch",
+        "description": "Items are stretched to fit the container",
+        "description_zh": "项目被拉伸以适应容器"
+      }
+    ]
+  }
 }

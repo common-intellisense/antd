@@ -1,0 +1,57 @@
+{
+  "name": "Splitter",
+  "version": "5.21.0",
+  "description": "可拖拽调整面板大小的分割块。",
+  "description_zh": "可拖拽调整面板大小的分割块。",
+  "props": {
+    "layout": {
+      "default": "horizontal",
+      "value": "",
+      "type": "horizontal / vertical",
+      "description": "Layout direction",
+      "description_zh": "布局方向"
+    },
+    "lazy": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Lazy rendering mode",
+      "description_zh": "延迟渲染模式",
+      "version": "5.23.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "link": "https://ant.design/components/splitter-cn",
+  "link_zh": "https://ant.design/components/splitter-cn",
+  "events": [
+    {
+      "name": "onResizeStart",
+      "description": "Callback before starting to drag",
+      "description_zh": "开始拖拽之前回调",
+      "params": "(sizes: number[]) => void"
+    },
+    {
+      "name": "onResize",
+      "description": "Callback when panel size changes",
+      "description_zh": "面板大小变化回调",
+      "params": "(sizes: number[]) => void"
+    },
+    {
+      "name": "onResizeEnd",
+      "description": "Callback when drag ends",
+      "description_zh": "拖拽结束回调",
+      "params": "(sizes: number[]) => void"
+    }
+  ],
+  "typeDetail": {},
+  "suggestions": [
+    "Splitter.Panel"
+  ]
+}

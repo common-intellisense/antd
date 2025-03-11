@@ -8,7 +8,7 @@
       "description": "回到顶部所需时间（ms）",
       "description_zh": "回到顶部所需时间（ms）"
     },
-    "target": {
+    ":target": {
       "default": "() => window",
       "value": "",
       "type": "() => HTMLElement",

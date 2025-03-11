@@ -1,31 +1,42 @@
 {
   "name": "Layout",
+  "description": "布局容器。",
+  "description_zh": "布局容器。",
   "props": {
     "className": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "容器 className",
+      "description": "Container className",
       "description_zh": "容器 className"
     },
     "hasSider": {
-      "default": "false",
+      "default": "-",
       "value": "",
       "type": "boolean",
-      "description": "表示子元素里有 Sider，一般不用指定。可用于服务端渲染时避免样式闪动",
+      "description": "Whether children contains Sider. You don't need to specify it normally. Used for server-side rendering to avoid style flashing",
       "description_zh": "表示子元素里有 Sider，一般不用指定。可用于服务端渲染时避免样式闪动"
     },
     ":style": {
       "default": "-",
       "value": "",
       "type": "CSSProperties",
-      "description": "指定样式",
+      "description": "Specify style",
       "description_zh": "指定样式"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/layout-cn#api",
-  "link_zh": "https://ant.design/components/layout-cn#api",
+  "link": "https://ant.design/components/layout-cn",
+  "link_zh": "https://ant.design/components/layout-cn",
   "events": [],
-  "typeDetail": {}
+  "typeDetail": {},
+  "suggestions": [
+  ]
 }

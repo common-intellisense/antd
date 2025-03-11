@@ -1,107 +1,155 @@
 {
   "name": "Layout.Sider",
+  "description": "侧边栏。",
+  "description_zh": "侧边栏。",
   "props": {
     "breakpoint": {
       "default": "-",
       "value": "",
       "type": "xs / sm / md / lg / xl / xxl",
-      "description": "触发响应式布局的断点",
+      "description": "Trigger responsive layout breakpoints",
       "description_zh": "触发响应式布局的断点"
     },
     "className": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "容器 className",
+      "description": "Container className",
       "description_zh": "容器 className"
     },
     "collapsed": {
-      "default": "false",
+      "default": "-",
       "value": "",
       "type": "boolean",
-      "description": "当前收起状态",
+      "description": "Current collapsed status",
       "description_zh": "当前收起状态"
     },
     ":collapsedWidth": {
       "default": "80",
       "value": "",
       "type": "number",
-      "description": "收缩宽度，设置为 0 会出现特殊 trigger",
+      "description": "Width of the collapsed sidebar, setting to 0 will trigger a special trigger",
       "description_zh": "收缩宽度，设置为 0 会出现特殊 trigger"
     },
     "collapsible": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否可收起",
+      "description": "Whether can be collapsed",
       "description_zh": "是否可收起"
     },
     "defaultCollapsed": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否默认收起",
+      "description": "Whether default collapsed",
       "description_zh": "是否默认收起"
     },
     "reverseArrow": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "翻转折叠提示箭头的方向，当 Sider 在右边时可以使用",
+      "description": "Reverse direction of arrow, for a Sider that is on the right",
       "description_zh": "翻转折叠提示箭头的方向，当 Sider 在右边时可以使用"
     },
     ":style": {
       "default": "-",
       "value": "",
       "type": "CSSProperties",
-      "description": "指定样式",
+      "description": "Specify style",
       "description_zh": "指定样式"
     },
     "theme": {
       "default": "dark",
       "value": "",
       "type": "light / dark",
-      "description": "主题颜色",
+      "description": "Theme color",
       "description_zh": "主题颜色"
     },
-    "trigger": {
+    ":trigger": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "自定义 trigger，设置为 null 时隐藏 trigger",
+      "description": "Custom trigger, set to null to hide the trigger",
       "description_zh": "自定义 trigger，设置为 null 时隐藏 trigger"
     },
-    "width": {
+    ":width": {
       "default": "200",
       "value": "",
-      "type": "number | string",
-      "description": "宽度",
+      "type": "number / string",
+      "description": "Width",
       "description_zh": "宽度"
     },
     ":zeroWidthTriggerStyle": {
       "default": "-",
       "value": "",
       "type": "object",
-      "description": "指定当 collapsedWidth 为 0 时出现的特殊 trigger 的样式",
+      "description": "Specify the style of the special trigger that appears when collapsedWidth is 0",
       "description_zh": "指定当 collapsedWidth 为 0 时出现的特殊 trigger 的样式"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/layout-cn#api",
-  "link_zh": "https://ant.design/components/layout-cn#api",
+  "link": "https://ant.design/components/layout-cn#layoutsider",
+  "link_zh": "https://ant.design/components/layout-cn#layoutsider",
   "events": [
     {
       "name": "onBreakpoint",
-      "description": "触发响应式布局断点时的回调",
+      "description": "Callback when responsive layout breakpoint is triggered",
       "description_zh": "触发响应式布局断点时的回调",
-      "params": "(broken) => {}"
+      "params": "(broken: boolean) => void"
     },
     {
       "name": "onCollapse",
-      "description": "展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发",
+      "description": "Callback when collapse is triggered, by clicking the trigger or responsive layout",
       "description_zh": "展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发",
-      "params": "(collapsed, type) => {}"
+      "params": "(collapsed: boolean, type: 'clickTrigger' | 'responsive') => void"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "breakpointWidth": [
+      {
+        "name": "xs",
+        "value": "480px",
+        "description": "Extra small screen size",
+        "description_zh": "超小屏幕尺寸"
+      },
+      {
+        "name": "sm",
+        "value": "576px",
+        "description": "Small screen size",
+        "description_zh": "小屏幕尺寸"
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "description": "Medium screen size",
+        "description_zh": "中等屏幕尺寸"
+      },
+      {
+        "name": "lg",
+        "value": "992px",
+        "description": "Large screen size",
+        "description_zh": "大屏幕尺寸"
+      },
+      {
+        "name": "xl",
+        "value": "1200px",
+        "description": "Extra large screen size",
+        "description_zh": "超大屏幕尺寸"
+      },
+      {
+        "name": "xxl",
+        "value": "1600px",
+        "description": "Extra extra large screen size",
+        "description_zh": "超超大屏幕尺寸"
+      }
+    ]
+  }
 }

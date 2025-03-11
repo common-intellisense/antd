@@ -80,7 +80,10 @@ import SkeletonParagraph from './SkeletonParagraph.json'
 import SkeletonTitle from './SkeletonTitle.json'
 import Slider from './Slider.json'
 import Space from './Space.json'
+import SpaceCompact from './SpaceCompact.json'
 import Spin from './Spin.json'
+import Splitter from './Splitter.json'
+import SplitterPanel from './SplitterPanel.json'
 import Statistic from './Statistic.json'
 import StatisticCountdown from './StatisticCountdown.json'
 import Steps from './Steps.json'
@@ -179,6 +182,9 @@ export function getPropsMap() {
     Select,
     Slider,
     Space,
+    SpaceCompact,
+    Splitter,
+    SplitterPanel,
     Spin,
     Statistic,
     StatisticCountdown,
@@ -238,6 +244,9 @@ export function getComponentMap(isZh: boolean) {
         ['Header', '顶部布局，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中。'],
         ['Footer', '底部布局，自带默认样式，其下可嵌套任何元素，只能放在 Layout 中。'],
         [Space, '间距'],
+        [SpaceCompact, '间距'],
+        [Splitter, '分割器'],
+        [SplitterPanel, '分割器面板'],
         [Anchor, '锚点'],
         [Breadcrumb, '面包屑'],
         [Dropdown, '下拉菜单'],
@@ -498,6 +507,9 @@ export function getComponentMap(isZh: boolean) {
         [LayoutSider, 'The sidebar has its own default style and basic functions. Any element can be nested under it and can only be placed in Layout. '],
         ['Footer', 'Bottom layout, with its own default style, any element can be nested under it, and can only be placed in Layout. '],
         [Space, 'spacing'],
+        [SpaceCompact, 'spacing'],
+        [Splitter, 'Splitter'],
+        [SplitterPanel, 'SplitterPanel'],
         [Anchor, 'anchor'],
         [AnchorItem, 'anchor item'],
         [Breadcrumb, 'breadcrumb'],

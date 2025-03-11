@@ -1,11 +1,13 @@
 {
   "name": "Col",
+  "description": "栅格系统中的列。",
+  "description_zh": "栅格系统中的列。",
   "props": {
-    "flex": {
+    ":flex": {
       "default": "-",
       "value": "",
-      "type": "string | number",
-      "description": "flex 布局属性",
+      "type": "string / number",
+      "description": "flex layout property",
       "description_zh": "flex 布局属性"
     },
     ":offset": {
@@ -37,52 +39,102 @@
       "description_zh": "栅格向右移动格数"
     },
     ":span": {
+      "default": "-",
       "value": "",
       "type": "number",
-      "description": "栅格占位格数，为 0 时相当于 display: none",
+      "description": "Number of grid spaces, equivalent to display: none when 0",
       "description_zh": "栅格占位格数，为 0 时相当于 display: none",
       "required": true
     },
     ":xs": {
+      "default": "-",
       "value": "",
-      "type": "number | object",
-      "description": "屏幕 < 576px 响应式栅格，可为栅格数或一个包含其他属性的对象",
+      "type": "number / object",
+      "description": "Screen < 576px responsive grid, can be grid number or object containing other properties",
       "description_zh": "屏幕 < 576px 响应式栅格，可为栅格数或一个包含其他属性的对象"
     },
     ":sm": {
+      "default": "-",
       "value": "",
-      "type": "number | object",
-      "description": "屏幕 ≥ 576px 响应式栅格，可为栅格数或一个包含其他属性的对象",
+      "type": "number / object",
+      "description": "Screen ≥ 576px responsive grid, can be grid number or object containing other properties",
       "description_zh": "屏幕 ≥ 576px 响应式栅格，可为栅格数或一个包含其他属性的对象"
     },
     ":md": {
+      "default": "-",
       "value": "",
-      "type": "number | object",
-      "description": "屏幕 ≥ 768px 响应式栅格，可为栅格数或一个包含其他属性的对象",
+      "type": "number / object",
+      "description": "Screen ≥ 768px responsive grid, can be grid number or object containing other properties",
       "description_zh": "屏幕 ≥ 768px 响应式栅格，可为栅格数或一个包含其他属性的对象"
     },
     ":lg": {
+      "default": "-",
       "value": "",
-      "type": "number | object",
-      "description": "屏幕 ≥ 992px 响应式栅格，可为栅格数或一个包含其他属性的对象",
+      "type": "number / object",
+      "description": "Screen ≥ 992px responsive grid, can be grid number or object containing other properties",
       "description_zh": "屏幕 ≥ 992px 响应式栅格，可为栅格数或一个包含其他属性的对象"
     },
     ":xl": {
+      "default": "-",
       "value": "",
-      "type": "number | object",
-      "description": "屏幕 ≥ 1200px 响应式栅格，可为栅格数或一个包含其他属性的对象",
+      "type": "number / object",
+      "description": "Screen ≥ 1200px responsive grid, can be grid number or object containing other properties",
       "description_zh": "屏幕 ≥ 1200px 响应式栅格，可为栅格数或一个包含其他属性的对象"
     },
     ":xxl": {
+      "default": "-",
       "value": "",
-      "type": "number | object",
-      "description": "屏幕 ≥ 1600px 响应式栅格，可为栅格数或一个包含其他属性的对象",
+      "type": "number / object",
+      "description": "Screen ≥ 1600px responsive grid, can be grid number or object containing other properties",
       "description_zh": "屏幕 ≥ 1600px 响应式栅格，可为栅格数或一个包含其他属性的对象"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/grid-cn#row",
-  "link_zh": "https://ant.design/components/grid-cn#row",
+  "link": "https://ant.design/components/grid-cn#col",
+  "link_zh": "https://ant.design/components/grid-cn#col",
   "events": [],
-  "typeDetail": {}
+  "typeDetail": {
+    "ResponsiveObject": [
+      {
+        "name": "span",
+        "type": "number",
+        "description": "Number of column spaces",
+        "description_zh": "栅格占位格数"
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "description": "Number of spaces on the left side of the grid",
+        "description_zh": "栅格左侧的间隔格数"
+      },
+      {
+        "name": "order",
+        "type": "number",
+        "description": "Grid order",
+        "description_zh": "栅格顺序"
+      },
+      {
+        "name": "pull",
+        "type": "number",
+        "description": "Number of spaces the grid moves to the left",
+        "description_zh": "栅格向左移动格数"
+      },
+      {
+        "name": "push",
+        "type": "number",
+        "description": "Number of spaces the grid moves to the right",
+        "description_zh": "栅格向右移动格数"
+      }
+    ]
+  },
+  "suggestions": [
+    "Row"
+  ]
 }

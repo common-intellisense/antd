@@ -1,45 +1,83 @@
 {
   "name": "Space",
+  "description": "设置组件之间的间距。",
+  "description_zh": "设置组件之间的间距。",
   "props": {
     "align": {
       "default": "-",
       "value": "",
-      "type": "start / end /center / baseline",
-      "description": "对齐方式",
-      "description_zh": "对齐方式"
+      "type": "start / end / center / baseline",
+      "description": "Alignment of items",
+      "description_zh": "对齐方式",
+      "version": "4.2.0"
+    },
+    ":classNames": {
+      "default": "-",
+      "value": "",
+      "type": "Record<SemanticDOM, string>",
+      "description": "Semantic class names",
+      "description_zh": "语义化 className"
     },
     "direction": {
       "default": "horizontal",
       "value": "",
-      "type": "vertical | horizontal",
-      "description": "间距方向",
-      "description_zh": "间距方向"
+      "type": "vertical / horizontal",
+      "description": "The space direction",
+      "description_zh": "间距方向",
+      "version": "4.1.0"
     },
-    "size": {
+    ":size": {
       "default": "small",
       "value": "",
-      "type": "('small' | 'middle' | 'large' | number) | ('small' | 'middle' | 'large' | number)[]",
-      "description": "间距大小",
-      "description_zh": "间距大小"
+      "type": "Size / Size[]",
+      "description": "The space size",
+      "description_zh": "间距大小",
+      "version": "4.1.0 / Array: 4.9.0"
     },
-    "split": {
+    ":split": {
       "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "设置拆分",
-      "description_zh": "设置拆分"
+      "description": "Set separator",
+      "description_zh": "设置分隔符",
+      "version": "4.7.0"
+    },
+    ":styles": {
+      "default": "-",
+      "value": "",
+      "type": "Record<SemanticDOM, CSSProperties>",
+      "description": "Semantic styles",
+      "description_zh": "语义化 style"
     },
     "wrap": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否自动换行，仅在 horizontal 时有效",
-      "description_zh": "是否自动换行，仅在 horizontal 时有效"
+      "description": "Auto wrap line, only effective in horizontal",
+      "description_zh": "是否自动换行，仅在 horizontal 时有效",
+      "version": "4.9.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "link": "https://ant.design/components/space-cn",
   "link_zh": "https://ant.design/components/space-cn",
   "events": [],
-  "typeDetail": {}
+  "typeDetail": {
+    "Size": "'small' / 'middle' / 'large' / number",
+    "SemanticDOM": [
+      {
+        "name": "item",
+        "type": "string",
+        "description": "Space item wrapper element",
+        "description_zh": "Space 项的包装元素"
+      }
+    ]
+  }
 }

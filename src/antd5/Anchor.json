@@ -1,106 +1,127 @@
 {
   "name": "Anchor",
+  "description": "显示当前页面在系统中的位置，并能快速定位。",
+  "description_zh": "显示当前页面在系统中的位置，并能快速定位。",
   "props": {
-    "affix": {
-      "value": "",
-      "description": "Fixed mode",
+    ":affix": {
       "default": "true",
-      "type": "boolean",
-      "description_zh": "固定模式"
+      "value": "",
+      "type": "boolean / Omit<AffixProps, 'offsetTop' | 'target' | 'children'>",
+      "description": "Fixed mode",
+      "description_zh": "固定模式",
+      "version": "object: 5.19.0"
     },
     ":bounds": {
-      "value": "",
-      "description": "Anchor area boundary",
       "default": "5",
+      "value": "",
       "type": "number",
+      "description": "Anchor area boundary",
       "description_zh": "锚点区域边界"
     },
     ":getContainer": {
-      "value": "",
-      "description": "Specifies the container to scroll",
       "default": "() => window",
+      "value": "",
       "type": "() => HTMLElement",
+      "description": "Specifies the container to scroll",
       "description_zh": "指定滚动的容器"
     },
     ":getCurrentAnchor": {
-      "value": "",
-      "description": "Customize the highlighted anchor point",
       "default": "-",
+      "value": "",
       "type": "(activeLink: string) => string",
+      "description": "Customize the highlighted anchor point",
       "description_zh": "自定义高亮的锚点"
     },
     ":offsetTop": {
+      "default": "-",
       "value": "",
-      "description": "Triggers when the specified offset is reached from the top of the window",
-      "default": "—",
       "type": "number",
+      "description": "Triggers when the specified offset is reached from the top of the window",
       "description_zh": "距离窗口顶部达到指定偏移量后触发"
     },
     "showInkInFixed": {
-      "value": "",
-      "description": "affix={false}",
       "default": "false",
+      "value": "",
       "type": "boolean",
+      "description": "affix={false} time whether to show small blocks",
       "description_zh": "affix={false} 时是否显示小方块"
     },
     ":targetOffset": {
-      "value": "",
-      "description": "The anchor scroll offset, which is the same as offsetTop by default",
       "default": "-",
+      "value": "",
       "type": "number",
+      "description": "The anchor scroll offset, which is the same as offsetTop by default",
       "description_zh": "锚点滚动偏移量，默认与 offsetTop 相同"
     },
-    "items": {
-      "value": "",
-      "description": "Data-based configuration options, supported by children nesting",
+    ":items": {
       "default": "-",
-      "type": "{ key, href, title, target, children }[]",
-      "description_zh": "数据化配置选项内容，支持通过 children 嵌套"
+      "value": "",
+      "type": "AnchorItem[]",
+      "description": "Data-based configuration options, supported by children nesting",
+      "description_zh": "数据化配置选项内容，支持通过 children 嵌套",
+      "version": "5.1.0",
+      "required": true
     },
     "direction": {
-      "value": [
-        "vertical",
-        "horizontal"
-      ],
-      "description": "Set the navigation direction",
       "default": "vertical",
-      "type": "vertical | horizontal",
-      "description_zh": "设置导航方向"
+      "value": "",
+      "type": "vertical / horizontal",
+      "description": "Set the navigation direction",
+      "description_zh": "设置导航方向",
+      "version": "5.2.0"
     },
     "replace": {
-      "value": "",
-      "description": "Replace the href of an item in the browser history instead of pushing it",
       "default": "false",
+      "value": "",
       "type": "boolean",
-      "description_zh": "替换浏览器历史记录中项目的 href 而不是推送它"
+      "description": "Replace the href of an item in the browser history instead of pushing it",
+      "description_zh": "替换浏览器历史记录中项目的 href 而不是推送它",
+      "version": "5.7.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "typeDetail": {
     "AnchorItem": [
       {
         "name": "key",
-        "description": "唯一标志",
-        "type": "string | number"
+        "description": "Unique identifier",
+        "description_zh": "唯一标志",
+        "type": "string / number",
+        "default": "-"
       },
       {
         "name": "href",
-        "description": "锚点链接",
-        "type": "string"
+        "description": "Anchor link",
+        "description_zh": "锚点链接",
+        "type": "string",
+        "default": "-"
       },
       {
         "name": "target",
-        "description": "该属性指定在何处显示链接的资源",
-        "type": "string"
+        "description": "Specifies where to display the linked resource",
+        "description_zh": "该属性指定在何处显示链接的资源",
+        "type": "string",
+        "default": "-"
       },
       {
         "name": "title",
-        "description": "文字内容",
-        "type": "VueNode | (item: AnchorItem) => VueNode"
+        "description": "Text content",
+        "description_zh": "文字内容",
+        "type": "ReactNode / (item: AnchorItem) => ReactNode",
+        "default": "-"
       },
       {
         "name": "children",
-        "description": "嵌套的 Anchor Link",
-        "type": "AnchorItem[]"
+        "description": "Nested anchor links",
+        "description_zh": "嵌套的 Anchor Link",
+        "type": "AnchorItem[]",
+        "default": "-"
       }
     ]
   },
@@ -108,17 +129,18 @@
     {
       "name": "onChange",
       "description": "Listen for anchor link changes",
-      "params": "(currentActiveLink: string) => void",
-      "description_zh": "监听锚点链接改变"
+      "description_zh": "监听锚点链接改变",
+      "params": "(currentActiveLink: string) => void"
     },
     {
       "name": "onClick",
       "description": "handler for the click event",
-      "params": "(e: MouseEvent, link: object) => void",
-      "description_zh": "click 事件的 handler"
+      "description_zh": "click 事件的 handler",
+      "params": "(e: MouseEvent, link: object) => void"
     }
   ],
-  "link": "https://ant.design/components//anchor",
-  "link_zh": "https://ant.design/components//anchor-cn",
-  "methods": []
+  "link": "https://ant.design/components/anchor",
+  "link_zh": "https://ant.design/components/anchor-cn",
+  "methods": [],
+  "suggestions": []
 }

@@ -1,100 +1,147 @@
 {
   "name": "Button",
+  "description": "To trigger an operation.",
+  "description_zh": "按钮用于开始一个即时操作。",
   "props": {
+    "autoInsertSpace": {
+      "default": "true",
+      "value": "",
+      "type": "boolean",
+      "description": "Auto insert space between two Chinese characters",
+      "description_zh": "我们默认提供两个汉字之间的空格，可以设置 autoInsertSpace 为 false 关闭",
+      "version": "5.17.0"
+    },
     "block": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "将按钮宽度调整为其父宽度的选项",
+      "description": "Option to fit button width to its parent width",
       "description_zh": "将按钮宽度调整为其父宽度的选项"
     },
     ":classNames": {
+      "default": "-",
       "value": "",
       "type": "Record<SemanticDOM, string>",
-      "description": "语义化结构 class",
-      "description_zh": "语义化结构 class"
+      "description": "Semantic DOM className",
+      "description_zh": "语义化结构 class",
+      "version": "5.4.0"
+    },
+    "color": {
+      "default": "-",
+      "value": "",
+      "type": "default / primary / danger / blue / purple / cyan / green / magenta / pink / red / orange / yellow / volcano / geekblue / lime / gold",
+      "description": "Set button color",
+      "description_zh": "设置按钮的颜色",
+      "version": "default, primary 和 danger: 5.21.0, PresetColors: 5.23.0"
     },
     "danger": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "设置危险按钮",
-      "description_zh": "设置危险按钮"
+      "description": "Set the danger status of button. When color is set, this prop will be ignored",
+      "description_zh": "语法糖，设置危险按钮。当设置 color 时会以后者为准"
     },
     "disabled": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "设置按钮失效状态",
+      "description": "Disabled state of button",
       "description_zh": "设置按钮失效状态"
     },
     "ghost": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "幽灵属性，使按钮背景透明",
+      "description": "Make background transparent",
       "description_zh": "幽灵属性，使按钮背景透明"
     },
     "href": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "点击跳转的地址，指定此属性 button 的行为和 a 链接一致",
+      "description": "Redirect url of link button",
       "description_zh": "点击跳转的地址，指定此属性 button 的行为和 a 链接一致"
     },
     "htmlType": {
       "default": "button",
       "value": "",
-      "type": "string",
-      "description": "设置 button 原生的 type 值，可选值请参考 HTML 标准",
+      "type": "submit / reset / button",
+      "description": "Set the original html type of button",
       "description_zh": "设置 button 原生的 type 值，可选值请参考 HTML 标准"
     },
     ":icon": {
+      "default": "-",
       "value": "",
       "type": "ReactNode",
-      "description": "设置按钮的图标组件",
+      "description": "Set the icon component of button",
       "description_zh": "设置按钮的图标组件"
     },
-    "loading": {
+    "iconPosition": {
+      "default": "start",
+      "value": "",
+      "type": "start / end",
+      "description": "Set the position of icon component",
+      "description_zh": "设置按钮图标组件的位置",
+      "version": "5.17.0"
+    },
+    ":loading": {
       "default": "false",
       "value": "",
-      "type": "boolean | { delay: number }",
-      "description": "设置按钮载入状态",
-      "description_zh": "设置按钮载入状态"
+      "type": "boolean / { delay: number, icon: ReactNode }",
+      "description": "Set the loading status of button",
+      "description_zh": "设置按钮载入状态",
+      "version": "icon: 5.23.0"
     },
     "shape": {
       "default": "default",
       "value": "",
       "type": "default / circle / round",
-      "description": "设置按钮形状",
+      "description": "Set button shape",
       "description_zh": "设置按钮形状"
     },
     "size": {
       "default": "middle",
       "value": "",
       "type": "large / middle / small",
-      "description": "设置按钮大小",
+      "description": "Set button size",
       "description_zh": "设置按钮大小"
     },
     ":styles": {
+      "default": "-",
       "value": "",
       "type": "Record<SemanticDOM, CSSProperties>",
-      "description": "语义化结构 style",
-      "description_zh": "语义化结构 style"
+      "description": "Semantic DOM style",
+      "description_zh": "语义化结构 style",
+      "version": "5.4.0"
     },
     "target": {
       "default": "-",
       "value": "",
       "type": "string",
-      "description": "相当于 a 链接的 target 属性，href 存在时生效",
+      "description": "Same as target attribute of a, works when href is specified",
       "description_zh": "相当于 a 链接的 target 属性，href 存在时生效"
     },
     "type": {
       "default": "default",
       "value": "",
       "type": "primary / dashed / link / text / default",
-      "description": "设置按钮类型",
-      "description_zh": "设置按钮类型"
+      "description": "Set button type. When variant and color are set, this prop will be ignored",
+      "description_zh": "语法糖，设置按钮类型。当设置 variant 与 color 时以后者为准"
+    },
+    "variant": {
+      "default": "-",
+      "value": "",
+      "type": "outlined / dashed / solid / filled / text / link",
+      "description": "Set button variant",
+      "description_zh": "设置按钮的变体",
+      "version": "5.21.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
@@ -103,10 +150,26 @@
   "events": [
     {
       "name": "onClick",
-      "description": "点击按钮时的回调",
+      "description": "Callback when button is clicked",
       "description_zh": "点击按钮时的回调",
-      "params": "(event: MouseEvent) => void"
+      "params": "(event: React.MouseEvent<HTMLElement, MouseEvent>) => void"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "SemanticDOM": [
+      {
+        "name": "icon",
+        "description": "Icon component of button",
+        "description_zh": "按钮中的图标"
+      },
+      {
+        "name": "text",
+        "description": "Text content of button",
+        "description_zh": "按钮中的文本内容"
+      }
+    ],
+    "PresetColors": "blue | purple | cyan | green | magenta | pink | red | orange | yellow | volcano | geekblue | lime | gold"
+  },
+  "suggestions": [
+  ]
 }

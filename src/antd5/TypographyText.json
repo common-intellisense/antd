@@ -1,101 +1,208 @@
 {
   "name": "Typography.Text",
+  "description": "文本组件，展示不同样式的文本内容。",
+  "description_zh": "文本组件，展示不同样式的文本内容。",
   "props": {
     "code": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加代码样式",
+      "description": "Add code style",
       "description_zh": "添加代码样式"
     },
-    "copyable": {
+    ":copyable": {
       "default": "false",
       "value": "",
-      "type": "boolean | copyable",
-      "description": "是否可拷贝，为对象时可进行各种自定义",
+      "type": "boolean / copyable",
+      "description": "Whether to be copyable, customize it via object",
       "description_zh": "是否可拷贝，为对象时可进行各种自定义"
     },
     "delete": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加删除线样式",
+      "description": "Add delete line style",
       "description_zh": "添加删除线样式"
     },
     "disabled": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "禁用文本",
+      "description": "Disabled content",
       "description_zh": "禁用文本"
     },
-    "editable": {
+    ":editable": {
       "default": "false",
       "value": "",
-      "type": "boolean | editable",
-      "description": "是否可编辑，为对象时可对编辑进行控制",
+      "type": "boolean / editable",
+      "description": "If editable, can control editing state when is object",
       "description_zh": "是否可编辑，为对象时可对编辑进行控制"
     },
-    "ellipsis": {
+    ":ellipsis": {
       "default": "false",
       "value": "",
-      "type": "boolean | Omit<ellipsis, 'expandable' | 'rows' | 'onExpand'>",
-      "description": "自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件。不同于 Typography.Paragraph，Text 组件自身不带 100% 宽度样式，因而默认情况下初次缩略后宽度便不再变化。如果需要自适应宽度，请手工配置宽度样式",
+      "type": "boolean / Omit<ellipsis, 'expandable' | 'rows' | 'onExpand'>",
+      "description": "Auto overflow omit, cannot set expandable, rows and onExpand when is object. Different with Typography.Paragraph, Text do not have 100% width style, so the width will not change when ellipsis is true. You need to manually set width style",
       "description_zh": "自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件。不同于 Typography.Paragraph，Text 组件自身不带 100% 宽度样式，因而默认情况下初次缩略后宽度便不再变化。如果需要自适应宽度，请手工配置宽度样式"
     },
     "keyboard": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加键盘样式",
-      "description_zh": "添加键盘样式"
+      "description": "Add keyboard style",
+      "description_zh": "添加键盘样式",
+      "version": "4.3.0"
     },
     "mark": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加标记样式",
+      "description": "Add mark style",
       "description_zh": "添加标记样式"
     },
     "strong": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否加粗",
+      "description": "Bold style",
       "description_zh": "是否加粗"
     },
     "italic": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "是否斜体",
-      "description_zh": "是否斜体"
+      "description": "Italic style",
+      "description_zh": "是否斜体",
+      "version": "4.16.0"
     },
     "type": {
       "default": "-",
       "value": "",
       "type": "secondary / success / warning / danger",
-      "description": "文本类型",
-      "description_zh": "文本类型"
+      "description": "Text type",
+      "description_zh": "文本类型",
+      "version": "success: 4.6.0"
     },
     "underline": {
       "default": "false",
       "value": "",
       "type": "boolean",
-      "description": "添加下划线样式",
+      "description": "Add underline style",
       "description_zh": "添加下划线样式"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
-  "link": "https://ant.design/components/typography-cn#api",
-  "link_zh": "https://ant.design/components/typography-cn#api",
+  "link": "https://ant.design/components/typography-cn#typographytext",
+  "link_zh": "https://ant.design/components/typography-cn#typographytext",
   "events": [
     {
       "name": "onClick",
-      "description": "点击 Text 时的回调",
+      "description": "Callback when text is clicked",
       "description_zh": "点击 Text 时的回调",
       "params": "(event) => void"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "copyable": [
+      {
+        "name": "text",
+        "type": "string",
+        "description": "Custom copy text",
+        "description_zh": "自定义复制的文本"
+      },
+      {
+        "name": "onCopy",
+        "type": "function",
+        "description": "Called when copied text",
+        "description_zh": "复制成功的回调函数"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "description": "Custom copy icon",
+        "description_zh": "自定义拷贝图标"
+      },
+      {
+        "name": "tooltips",
+        "type": "[ReactNode, ReactNode]",
+        "description": "Custom tooltip text, ['copy', 'copied']",
+        "description_zh": "自定义提示文案，[未复制时, 复制成功时]"
+      }
+    ],
+    "editable": [
+      {
+        "name": "editing",
+        "type": "boolean",
+        "description": "Current editing state",
+        "description_zh": "当前是否是编辑状态"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "description": "Custom edit icon",
+        "description_zh": "自定义编辑图标"
+      },
+      {
+        "name": "tooltip",
+        "type": "boolean | ReactNode",
+        "description": "Custom tooltip text",
+        "description_zh": "自定义提示文本"
+      },
+      {
+        "name": "onStart",
+        "type": "function",
+        "description": "Called when enter editing state",
+        "description_zh": "进入编辑中状态时触发"
+      },
+      {
+        "name": "onChange",
+        "type": "function(string)",
+        "description": "Called when editing finished",
+        "description_zh": "文本域编辑时触发"
+      },
+      {
+        "name": "onEnd",
+        "type": "function",
+        "description": "Called when edit end",
+        "description_zh": "按 ENTER 结束编辑状态时触发"
+      },
+      {
+        "name": "onCancel",
+        "type": "function",
+        "description": "Called when edit canceled",
+        "description_zh": "按 ESC 退出编辑状态时触发"
+      }
+    ],
+    "ellipsis": [
+      {
+        "name": "tooltip",
+        "type": "boolean | ReactNode",
+        "description": "Show tooltip when ellipsis",
+        "description_zh": "省略时显示的提示"
+      },
+      {
+        "name": "symbol",
+        "type": "ReactNode",
+        "description": "Custom symbol for ellipsis",
+        "description_zh": "自定义省略符号"
+      },
+      {
+        "name": "onEllipsis",
+        "type": "function(ellipsis)",
+        "description": "Called when ellipsis state changed",
+        "description_zh": "省略时的回调"
+      }
+    ]
+  },
+  "suggestions": [
+    "Typography.Title",
+    "Typography.Paragraph"
+  ]
 }

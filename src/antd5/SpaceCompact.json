@@ -1,0 +1,58 @@
+{
+  "name": "Space.Compact",
+  "description": "需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact。",
+  "description_zh": "需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact。",
+  "version": "4.24.0",
+  "props": {
+    "block": {
+      "default": "false",
+      "value": "",
+      "type": "boolean",
+      "description": "Option to fit width to its parent's width",
+      "description_zh": "将宽度调整为父元素宽度的选项",
+      "version": "4.24.0"
+    },
+    "direction": {
+      "default": "horizontal",
+      "value": "",
+      "type": "vertical / horizontal",
+      "description": "Set direction of layout",
+      "description_zh": "指定排列方向",
+      "version": "4.24.0"
+    },
+    "size": {
+      "default": "middle",
+      "value": "",
+      "type": "large / middle / small",
+      "description": "Size of child component",
+      "description_zh": "子组件大小",
+      "version": "4.24.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
+    }
+  },
+  "methods": [],
+  "link": "https://ant.design/components/space-cn#spacecompact",
+  "link_zh": "https://ant.design/components/space-cn#spacecompact",
+  "events": [],
+  "typeDetail": {
+    "Size": "'small' / 'middle' / 'large'"
+  },
+  "suggestions": [
+    "Button",
+    "AutoComplete",
+    "Cascader",
+    "DatePicker",
+    "Input",
+    "Input.Search",
+    "InputNumber",
+    "Select",
+    "TimePicker",
+    "TreeSelect"
+  ]
+}

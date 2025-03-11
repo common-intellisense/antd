@@ -1,26 +1,29 @@
 {
   "name": "Menu",
+  "description": "为页面和功能提供导航的菜单列表。",
+  "description_zh": "为页面和功能提供导航的菜单列表。",
   "props": {
-    "defaultOpenKeys": {
+    ":defaultOpenKeys": {
       "default": "-",
       "value": "",
       "type": "string[]",
       "description": "初始展开的 SubMenu 菜单项 key 数组",
       "description_zh": "初始展开的 SubMenu 菜单项 key 数组"
     },
-    "defaultSelectedKeys": {
+    ":defaultSelectedKeys": {
       "default": "-",
       "value": "",
       "type": "string[]",
       "description": "初始选中的菜单项 key 数组",
       "description_zh": "初始选中的菜单项 key 数组"
     },
-    "expandIcon": {
+    ":expandIcon": {
       "default": "-",
       "value": "",
-      "type": "ReactNode | (props: SubMenuProps & { isSubMenu: boolean }) => ReactNode",
+      "type": "ReactNode / (props: SubMenuProps & { isSubMenu: boolean }) => ReactNode",
       "description": "自定义展开图标",
-      "description_zh": "自定义展开图标"
+      "description_zh": "自定义展开图标",
+      "version": "4.9.0"
     },
     "forceSubMenuRender": {
       "default": "false",
@@ -49,6 +52,7 @@
       "type": "ItemType[]",
       "description": "菜单内容",
       "description_zh": "菜单内容",
+      "version": "4.20.0",
       "required": true
     },
     "mode": {
@@ -72,7 +76,7 @@
       "description": "当前展开的 SubMenu 菜单项 key 数组",
       "description_zh": "当前展开的 SubMenu 菜单项 key 数组"
     },
-    "overflowedIndicator": {
+    ":overflowedIndicator": {
       "default": "<EllipsisOutlined />",
       "value": "",
       "type": "ReactNode",
@@ -86,13 +90,12 @@
       "description": "是否允许选中",
       "description_zh": "是否允许选中"
     },
-    ":selectedKeys": {
+    "selectedKeys": {
       "default": "-",
       "value": "",
       "type": "string[]",
       "description": "当前选中的菜单项 key 数组",
-      "description_zh": "当前选中的菜单项 key 数组",
-      "required": true
+      "description_zh": "当前选中的菜单项 key 数组"
     },
     ":style": {
       "default": "-",
@@ -128,6 +131,13 @@
       "type": "hover / click",
       "description": "SubMenu 展开/关闭的触发行为",
       "description_zh": "SubMenu 展开/关闭的触发行为"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "添加在组件最外层的 className",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
@@ -159,5 +169,163 @@
       "params": "function({ item, key, keyPath, selectedKeys, domEvent })"
     }
   ],
-  "typeDetail": {}
+  "typeDetail": {
+    "ItemType": "MenuItemType / SubMenuType / MenuItemGroupType / MenuDividerType",
+    "MenuItemType": [
+      {
+        "name": "danger",
+        "type": "boolean",
+        "default": "false",
+        "description": "展示错误状态样式",
+        "description_zh": "展示错误状态样式"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "是否禁用",
+        "description_zh": "是否禁用"
+      },
+      {
+        "name": "extra",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "额外节点",
+        "description_zh": "额外节点",
+        "version": "5.21.0"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "菜单图标",
+        "description_zh": "菜单图标"
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "default": "-",
+        "description": "item 的唯一标志",
+        "description_zh": "item 的唯一标志"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "菜单项标题",
+        "description_zh": "菜单项标题"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "default": "-",
+        "description": "设置收缩时展示的悬浮标题",
+        "description_zh": "设置收缩时展示的悬浮标题"
+      }
+    ],
+    "SubMenuType": [
+      {
+        "name": "children",
+        "type": "ItemType[]",
+        "default": "-",
+        "description": "子菜单的菜单项",
+        "description_zh": "子菜单的菜单项"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "是否禁用",
+        "description_zh": "是否禁用"
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "菜单图标",
+        "description_zh": "菜单图标"
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "default": "-",
+        "description": "唯一标志",
+        "description_zh": "唯一标志"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "菜单项标题",
+        "description_zh": "菜单项标题"
+      },
+      {
+        "name": "popupClassName",
+        "type": "string",
+        "default": "-",
+        "description": "子菜单样式，mode=\"inline\" 时无效",
+        "description_zh": "子菜单样式，mode=\"inline\" 时无效"
+      },
+      {
+        "name": "popupOffset",
+        "type": "[number, number]",
+        "default": "-",
+        "description": "子菜单偏移量，mode=\"inline\" 时无效",
+        "description_zh": "子菜单偏移量，mode=\"inline\" 时无效"
+      },
+      {
+        "name": "onTitleClick",
+        "type": "function({ key, domEvent })",
+        "default": "-",
+        "description": "点击子菜单标题",
+        "description_zh": "点击子菜单标题"
+      },
+      {
+        "name": "theme",
+        "type": "light / dark",
+        "default": "-",
+        "description": "设置子菜单的主题，默认从 Menu 上继承",
+        "description_zh": "设置子菜单的主题，默认从 Menu 上继承"
+      }
+    ],
+    "MenuItemGroupType": [
+      {
+        "name": "type",
+        "type": "string",
+        "default": "group",
+        "description": "Must have",
+        "description_zh": "必须设置为 group"
+      },
+      {
+        "name": "children",
+        "type": "MenuItemType[]",
+        "default": "-",
+        "description": "分组的菜单项",
+        "description_zh": "分组的菜单项"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "default": "-",
+        "description": "分组标题",
+        "description_zh": "分组标题"
+      }
+    ],
+    "MenuDividerType": [
+      {
+        "name": "type",
+        "type": "string",
+        "default": "divider",
+        "description": "Must have",
+        "description_zh": "必须设置为 divider"
+      },
+      {
+        "name": "dashed",
+        "type": "boolean",
+        "default": "false",
+        "description": "是否虚线",
+        "description_zh": "是否虚线"
+      }
+    ]
+  }
 }

@@ -1,39 +1,92 @@
 {
   "name": "Row",
+  "description": "栅格系统中的行。",
+  "description_zh": "栅格系统中的行。",
   "props": {
     "align": {
       "default": "top",
       "value": "",
       "type": "top / middle / bottom / stretch / {[key in 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl']: 'top' | 'middle' | 'bottom' | 'stretch'}",
-      "description": "垂直对齐方式",
-      "description_zh": "垂直对齐方式"
+      "description": "Vertical alignment",
+      "description_zh": "垂直对齐方式",
+      "version": "object: 4.24.0"
     },
-    "gutter": {
+    ":gutter": {
       "default": "0",
       "value": "",
-      "type": "number | object | array",
-      "description": "栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]",
-      "description_zh": "栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]",
-      "required": true
+      "type": "number / object / array",
+      "description": "Grid spacing, can be written as a pixel value or responsive object to set horizontal spacing { xs: 8, sm: 16, md: 24}. Or use array form to set [horizontal spacing, vertical spacing]",
+      "description_zh": "栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]"
     },
     "justify": {
       "default": "start",
       "value": "",
       "type": "start / end / center / space-around / space-between / space-evenly / {[key in 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl']: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'}",
-      "description": "水平排列方式",
-      "description_zh": "水平排列方式"
+      "description": "Horizontal arrangement",
+      "description_zh": "水平排列方式",
+      "version": "object: 4.24.0"
     },
     "wrap": {
       "default": "true",
       "value": "",
       "type": "boolean",
-      "description": "是否自动换行",
-      "description_zh": "是否自动换行"
+      "description": "Whether to automatically wrap",
+      "description_zh": "是否自动换行",
+      "version": "4.8.0"
+    },
+    "rootClassName": {
+      "default": "-",
+      "value": "",
+      "type": "string",
+      "description": "className added to the outermost layer of the component",
+      "description_zh": "添加在组件最外层的 className"
     }
   },
   "methods": [],
   "link": "https://ant.design/components/grid-cn#row",
   "link_zh": "https://ant.design/components/grid-cn#row",
   "events": [],
-  "typeDetail": {}
+  "typeDetail": {
+    "ResponsiveObject": [
+      {
+        "name": "xs",
+        "type": "number",
+        "description": "< 576px screen",
+        "description_zh": "< 576px 屏幕"
+      },
+      {
+        "name": "sm",
+        "type": "number",
+        "description": "≥ 576px screen",
+        "description_zh": "≥ 576px 屏幕"
+      },
+      {
+        "name": "md",
+        "type": "number",
+        "description": "≥ 768px screen",
+        "description_zh": "≥ 768px 屏幕"
+      },
+      {
+        "name": "lg",
+        "type": "number",
+        "description": "≥ 992px screen",
+        "description_zh": "≥ 992px 屏幕"
+      },
+      {
+        "name": "xl",
+        "type": "number",
+        "description": "≥ 1200px screen",
+        "description_zh": "≥ 1200px 屏幕"
+      },
+      {
+        "name": "xxl",
+        "type": "number",
+        "description": "≥ 1600px screen",
+        "description_zh": "≥ 1600px 屏幕"
+      }
+    ]
+  },
+  "suggestions": [
+    "Col"
+  ]
 }
